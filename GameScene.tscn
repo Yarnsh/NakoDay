@@ -1,0 +1,119 @@
+[gd_scene load_steps=12 format=3 uid="uid://bhplchb2q2ngm"]
+
+[ext_resource type="Script" path="res://game_scene.gd" id="1_xitn6"]
+[ext_resource type="Script" path="res://ScreenResolutionHandling.gd" id="2_7q2pr"]
+[ext_resource type="Environment" uid="uid://dwl1k4slfqgem" path="res://visual_env.tres" id="3_a7c60"]
+[ext_resource type="Shader" path="res://final.gdshader" id="4_nidko"]
+[ext_resource type="PackedScene" uid="uid://1neqraec1bd8" path="res://character.tscn" id="5_80ojv"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_gyl20"]
+viewport_path = NodePath("Color")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_epuaq"]
+resource_local_to_scene = true
+shader = ExtResource("4_nidko")
+shader_parameter/base = SubResource("ViewportTexture_gyl20")
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_gjgu0"]
+
+[sub_resource type="Animation" id="Animation_d8r5y"]
+resource_name = "Finish"
+length = 40.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TextureRect:material:shader_parameter/min_res_scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 9.5, 18.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.1, 0.1, 1.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("TextureRect:material:shader_parameter/global_spectrum")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 4.9, 5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 0, 0), Vector3(1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_wf1sp"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TextureRect:material:shader_parameter/min_res_scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.1]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("TextureRect:material:shader_parameter/global_spectrum")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_utdd1"]
+_data = {
+"Finish": SubResource("Animation_d8r5y"),
+"RESET": SubResource("Animation_wf1sp")
+}
+
+[node name="GameScene" type="Node3D"]
+script = ExtResource("1_xitn6")
+
+[node name="Color" type="SubViewport" parent="."]
+audio_listener_enable_3d = true
+size = Vector2i(1000, 600)
+render_target_update_mode = 4
+script = ExtResource("2_7q2pr")
+
+[node name="Camera3D" type="Camera3D" parent="Color"]
+transform = Transform3D(-0.999501, 0.00904227, -0.0302815, 0.00851773, 0.999812, 0.0174066, 0.0304332, 0.01714, -0.99939, 0.00377429, 20.7491, 68.0624)
+cull_mask = 1
+environment = ExtResource("3_a7c60")
+current = true
+fov = 90.0
+far = 1000.0
+
+[node name="TextureRect" type="TextureRect" parent="."]
+material = SubResource("ShaderMaterial_epuaq")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("PlaceholderTexture2D_gjgu0")
+
+[node name="Character" parent="." instance=ExtResource("5_80ojv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 37.9533, -17.4359, 15.7939)
+collision_layer = 2147483649
+
+[node name="RootCam" parent="Character" index="0" node_paths=PackedStringArray("cams")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0.729163, 0)
+cams = [NodePath("../../Color/Camera3D")]
+
+[node name="ShaderFinish" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_utdd1")
+}
+
+[editable path="Character"]
