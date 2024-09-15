@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://bhplchb2q2ngm"]
+[gd_scene load_steps=14 format=3 uid="uid://bhplchb2q2ngm"]
 
 [ext_resource type="Script" path="res://game_scene.gd" id="1_xitn6"]
 [ext_resource type="Script" path="res://ScreenResolutionHandling.gd" id="2_7q2pr"]
@@ -6,13 +6,21 @@
 [ext_resource type="Shader" path="res://final.gdshader" id="4_nidko"]
 [ext_resource type="PackedScene" uid="uid://1neqraec1bd8" path="res://character.tscn" id="5_80ojv"]
 
+[sub_resource type="TorusMesh" id="TorusMesh_4wi03"]
+rings = 12
+ring_segments = 6
+
 [sub_resource type="ViewportTexture" id="ViewportTexture_gyl20"]
 viewport_path = NodePath("Color")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_jeutd"]
+viewport_path = NodePath("Horns")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_epuaq"]
 resource_local_to_scene = true
 shader = ExtResource("4_nidko")
 shader_parameter/base = SubResource("ViewportTexture_gyl20")
+shader_parameter/horns = SubResource("ViewportTexture_jeutd")
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_gjgu0"]
 
@@ -80,6 +88,10 @@ _data = {
 [node name="GameScene" type="Node3D"]
 script = ExtResource("1_xitn6")
 
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.686935, 0.415175, -0.596447, 0, 0.820741, 0.571301, 0.726719, -0.392447, 0.563796, -1.9499, 0, 0)
+layers = 1023
+
 [node name="Color" type="SubViewport" parent="."]
 audio_listener_enable_3d = true
 size = Vector2i(1000, 600)
@@ -94,6 +106,20 @@ current = true
 fov = 90.0
 far = 1000.0
 
+[node name="Horns" type="SubViewport" parent="."]
+transparent_bg = true
+size = Vector2i(1000, 600)
+script = ExtResource("2_7q2pr")
+
+[node name="Camera3D" type="Camera3D" parent="Horns"]
+cull_mask = 2
+environment = ExtResource("3_a7c60")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Horns/Camera3D"]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0.270063, -0.415618)
+layers = 2
+mesh = SubResource("TorusMesh_4wi03")
+
 [node name="TextureRect" type="TextureRect" parent="."]
 material = SubResource("ShaderMaterial_epuaq")
 anchors_preset = 15
@@ -104,7 +130,6 @@ grow_vertical = 2
 texture = SubResource("PlaceholderTexture2D_gjgu0")
 
 [node name="Character" parent="." instance=ExtResource("5_80ojv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 37.9533, -17.4359, 15.7939)
 collision_layer = 2147483649
 
 [node name="RootCam" parent="Character" index="0" node_paths=PackedStringArray("cams")]

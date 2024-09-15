@@ -2,6 +2,7 @@ extends Node3D
 
 @onready var main_scene = $"../../.."
 @export var cams : Array[Camera3D]
+@export var no_fov_cams : Array[Camera3D]
 @onready var cast = $ShapeCast3D
 @onready var interact_button = $InteractButton
 @onready var interact_button2 = $InteractButton2
@@ -38,6 +39,9 @@ func _process(delta):
 		yaw = global_rotation.y
 	
 	for cam in cams:
+		cam.global_position = global_position
+		cam.global_rotation = global_rotation
+	for cam in no_fov_cams:
 		cam.global_position = global_position
 		cam.global_rotation = global_rotation
 
