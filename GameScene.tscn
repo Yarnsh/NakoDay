@@ -1,10 +1,12 @@
-[gd_scene load_steps=14 format=3 uid="uid://bhplchb2q2ngm"]
+[gd_scene load_steps=20 format=3 uid="uid://bhplchb2q2ngm"]
 
 [ext_resource type="Script" path="res://game_scene.gd" id="1_xitn6"]
 [ext_resource type="Script" path="res://ScreenResolutionHandling.gd" id="2_7q2pr"]
 [ext_resource type="Environment" uid="uid://dwl1k4slfqgem" path="res://visual_env.tres" id="3_a7c60"]
 [ext_resource type="Shader" path="res://final.gdshader" id="4_nidko"]
+[ext_resource type="PackedScene" uid="uid://dmxgn3ht8emhb" path="res://Models/polaroid_camera.glb" id="4_ry2yh"]
 [ext_resource type="PackedScene" uid="uid://1neqraec1bd8" path="res://character.tscn" id="5_80ojv"]
+[ext_resource type="Script" path="res://FlashLight.gd" id="7_lmnb6"]
 
 [sub_resource type="TorusMesh" id="TorusMesh_4wi03"]
 rings = 12
@@ -85,12 +87,25 @@ _data = {
 "RESET": SubResource("Animation_wf1sp")
 }
 
+[sub_resource type="BoxMesh" id="BoxMesh_ro8if"]
+size = Vector3(40, 1, 40)
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_srxss"]
+data = PackedVector3Array(-20, 0.5, 20, 20, 0.5, 20, -20, -0.5, 20, 20, 0.5, 20, 20, -0.5, 20, -20, -0.5, 20, 20, 0.5, -20, -20, 0.5, -20, 20, -0.5, -20, -20, 0.5, -20, -20, -0.5, -20, 20, -0.5, -20, 20, 0.5, 20, 20, 0.5, -20, 20, -0.5, 20, 20, 0.5, -20, 20, -0.5, -20, 20, -0.5, 20, -20, 0.5, -20, -20, 0.5, 20, -20, -0.5, -20, -20, 0.5, 20, -20, -0.5, 20, -20, -0.5, -20, 20, 0.5, 20, -20, 0.5, 20, 20, 0.5, -20, -20, 0.5, 20, -20, 0.5, -20, 20, 0.5, -20, -20, -0.5, 20, 20, -0.5, 20, -20, -0.5, -20, 20, -0.5, 20, 20, -0.5, -20, -20, -0.5, -20)
+
+[sub_resource type="BoxMesh" id="BoxMesh_obbme"]
+size = Vector3(2, 8, 2)
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_slhim"]
+data = PackedVector3Array(-1, 4, 1, 1, 4, 1, -1, -4, 1, 1, 4, 1, 1, -4, 1, -1, -4, 1, 1, 4, -1, -1, 4, -1, 1, -4, -1, -1, 4, -1, -1, -4, -1, 1, -4, -1, 1, 4, 1, 1, 4, -1, 1, -4, 1, 1, 4, -1, 1, -4, -1, 1, -4, 1, -1, 4, -1, -1, 4, 1, -1, -4, -1, -1, 4, 1, -1, -4, 1, -1, -4, -1, 1, 4, 1, -1, 4, 1, 1, 4, -1, -1, 4, 1, -1, 4, -1, 1, 4, -1, -1, -4, 1, 1, -4, 1, -1, -4, -1, 1, -4, 1, 1, -4, -1, -1, -4, -1)
+
 [node name="GameScene" type="Node3D"]
 script = ExtResource("1_xitn6")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(0.686935, 0.415175, -0.596447, 0, 0.820741, 0.571301, 0.726719, -0.392447, 0.563796, -1.9499, 0, 0)
+transform = Transform3D(-0.563657, 0.4719, -0.677939, 2.40292e-08, 0.820741, 0.571301, 0.826009, 0.322018, -0.462616, -1.9499, 0, 0)
 layers = 1023
+light_color = Color(0.682639, 0.268823, 0, 1)
 
 [node name="Color" type="SubViewport" parent="."]
 audio_listener_enable_3d = true
@@ -101,7 +116,6 @@ script = ExtResource("2_7q2pr")
 [node name="Camera3D" type="Camera3D" parent="Color"]
 transform = Transform3D(-0.999501, 0.00904227, -0.0302815, 0.00851773, 0.999812, 0.0174066, 0.0304332, 0.01714, -0.99939, 0.00377429, 20.7491, 68.0624)
 cull_mask = 1
-environment = ExtResource("3_a7c60")
 current = true
 fov = 90.0
 far = 1000.0
@@ -113,12 +127,20 @@ script = ExtResource("2_7q2pr")
 
 [node name="Camera3D" type="Camera3D" parent="Horns"]
 cull_mask = 2
-environment = ExtResource("3_a7c60")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Horns/Camera3D"]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0.270063, -0.415618)
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0.433562, -0.415618)
 layers = 2
 mesh = SubResource("TorusMesh_4wi03")
+
+[node name="Camera" parent="Horns/Camera3D" instance=ExtResource("4_ry2yh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.476746, -0.370671)
+
+[node name="defaultMaterial" parent="Horns/Camera3D/Camera/Sketchfab_model/Collada visual scene group/Instant" index="0"]
+layers = 2
+
+[node name="FlashPoint" type="Node3D" parent="Horns/Camera3D/Camera"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.112785, 0.253483, -0.131423)
 
 [node name="TextureRect" type="TextureRect" parent="."]
 material = SubResource("ShaderMaterial_epuaq")
@@ -132,13 +154,45 @@ texture = SubResource("PlaceholderTexture2D_gjgu0")
 [node name="Character" parent="." instance=ExtResource("5_80ojv")]
 collision_layer = 2147483649
 
-[node name="RootCam" parent="Character" index="0" node_paths=PackedStringArray("cams")]
+[node name="RootCam" parent="Character" index="0" node_paths=PackedStringArray("cams", "no_fov_cams")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0.729163, 0)
 cams = [NodePath("../../Color/Camera3D")]
+no_fov_cams = [NodePath("../../Horns/Camera3D")]
 
 [node name="ShaderFinish" type="AnimationPlayer" parent="."]
 libraries = {
 "": SubResource("AnimationLibrary_utdd1")
 }
 
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = ExtResource("3_a7c60")
+
+[node name="World" type="Node3D" parent="."]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="World"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -3.05532, 0)
+mesh = SubResource("BoxMesh_ro8if")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="World/MeshInstance3D"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="World/MeshInstance3D/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_srxss")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="World"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.388861, -5.77376)
+mesh = SubResource("BoxMesh_obbme")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="World/MeshInstance3D2"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="World/MeshInstance3D2/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_slhim")
+
+[node name="FlashLight" type="SpotLight3D" parent="." node_paths=PackedStringArray("follow_node")]
+light_energy = 10.0
+spot_range = 40.0
+spot_angle = 50.0
+script = ExtResource("7_lmnb6")
+follow_node = NodePath("../Horns/Camera3D/Camera/FlashPoint")
+
+[editable path="Horns/Camera3D/Camera"]
 [editable path="Character"]
