@@ -3,6 +3,8 @@ extends SpotLight3D
 @export var follow_node : Node3D
 const flash_strength = 20.0
 
+@onready var noise = $FlashNoise
+
 func _ready():
 	pass # Replace with function body.
 
@@ -15,7 +17,8 @@ func _process(delta):
 func flash():
 	# TODO: check cooldown
 	light_energy = flash_strength
-	# TODO: flash sound, and save the picture
+	noise.play()
+	# TODO: save the picture
 
 func _input(event):
 	if event.is_action_pressed("Action"):

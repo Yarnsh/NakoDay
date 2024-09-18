@@ -1,8 +1,7 @@
-[gd_scene load_steps=9 format=3 uid="uid://1neqraec1bd8"]
+[gd_scene load_steps=8 format=3 uid="uid://1neqraec1bd8"]
 
 [ext_resource type="Script" path="res://CharacterBody3D.gd" id="1_nh6pq"]
 [ext_resource type="Script" path="res://test_cam.gd" id="2_de5r1"]
-[ext_resource type="AudioStream" uid="uid://m5hb13jjfmqg" path="res://SFX/footstep.wav" id="3_o0l5i"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_i3vru"]
 radius = 0.1
@@ -143,7 +142,6 @@ transform = Transform3D(0.664463, -0.664463, -0.34202, 0.707107, 0.707107, 0, 0.
 shape = SubResource("CapsuleShape3D_wg8l2")
 
 [node name="Foot" type="AudioStreamPlayer3D" parent="."]
-stream = ExtResource("3_o0l5i")
 volume_db = -34.0
 bus = &"SFX"
 
