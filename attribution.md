@@ -1,6 +1,7 @@
 ### Models
 
 - "Polaroid Camera" (https://skfb.ly/oFOvF) by Big guy is licensed under Creative Commons Attribution (http://creativecommons.org/licenses/by/4.0/).
+- "Remington 870 Shotgun" (https://skfb.ly/o9MZx) by Andrei Milin is licensed under Creative Commons Attribution (http://creativecommons.org/licenses/by/4.0/).
 
 ### SFX
 
