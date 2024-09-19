@@ -11,3 +11,4 @@ Nako's birthday present
 - Real thing chases/pushes you through a scarzy path to a room that has the surprise party in it
 - the present is a gun and you can go back through and shoot the monster
 - Death screen should be in portugese
+- Distant unknown noises at random
