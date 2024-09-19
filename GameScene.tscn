@@ -1,17 +1,105 @@
-[gd_scene load_steps=21 format=3 uid="uid://bhplchb2q2ngm"]
+[gd_scene load_steps=27 format=3 uid="uid://bhplchb2q2ngm"]
 
 [ext_resource type="Script" path="res://game_scene.gd" id="1_xitn6"]
 [ext_resource type="Script" path="res://ScreenResolutionHandling.gd" id="2_7q2pr"]
 [ext_resource type="Environment" uid="uid://dwl1k4slfqgem" path="res://visual_env.tres" id="3_a7c60"]
+[ext_resource type="PackedScene" uid="uid://s5grkaa4fasu" path="res://Models/remington_870_shotgun.glb" id="4_n0i5f"]
 [ext_resource type="Shader" path="res://final.gdshader" id="4_nidko"]
 [ext_resource type="PackedScene" uid="uid://dmxgn3ht8emhb" path="res://Models/polaroid_camera.glb" id="4_ry2yh"]
 [ext_resource type="PackedScene" uid="uid://1neqraec1bd8" path="res://character.tscn" id="5_80ojv"]
+[ext_resource type="Script" path="res://Shotgun.gd" id="5_f3qku"]
 [ext_resource type="Script" path="res://FlashLight.gd" id="7_lmnb6"]
 [ext_resource type="AudioStream" uid="uid://wounnp5iatcq" path="res://SFX/camera-flashing.wav" id="8_1ay2j"]
+[ext_resource type="Script" path="res://Gun.gd" id="11_eu0rn"]
 
 [sub_resource type="TorusMesh" id="TorusMesh_4wi03"]
 rings = 12
 ring_segments = 6
+
+[sub_resource type="Animation" id="Animation_qdo8b"]
+resource_name = "fire_and_pump"
+step = 0.0166667
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sketchfab_model/406997d5f9db455fa4abe2ebfdb2caff_fbx/RootNode:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.0666667, 0.15, 0.366667, 0.483333, 0.516667, 0.566667, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(-8.10449, -5.68587, -2.75959e-07), Vector3(-6, -1, 0), Vector3(-6, -1, 0), Vector3(-5.94376, 1.47809, -4.56513), Vector3(-6.00143, -1.06293, 2.16581), Vector3(-5.75427, 0.542904, 1.86209), Vector3(0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sketchfab_model/406997d5f9db455fa4abe2ebfdb2caff_fbx/RootNode:rotation")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.15, 0.366667, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(-1.99355e-08, -3.14824e-09, 0.433732), Vector3(-0.819067, 0.641754, 0.880712), Vector3(0, 0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sketchfab_model/406997d5f9db455fa4abe2ebfdb2caff_fbx/RootNode/Remington870/Pump:position")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.366667, 0.5, 0.733333),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 0, 0), Vector3(-0.08, 0, 0), Vector3(0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_rirlv"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sketchfab_model/406997d5f9db455fa4abe2ebfdb2caff_fbx/RootNode:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sketchfab_model/406997d5f9db455fa4abe2ebfdb2caff_fbx/RootNode:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sketchfab_model/406997d5f9db455fa4abe2ebfdb2caff_fbx/RootNode/Remington870/Pump:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_kiirr"]
+_data = {
+"RESET": SubResource("Animation_rirlv"),
+"fire_and_pump": SubResource("Animation_qdo8b")
+}
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_gyl20"]
 viewport_path = NodePath("Color")
@@ -104,9 +192,8 @@ data = PackedVector3Array(-1, 4, 1, 1, 4, 1, -1, -4, 1, 1, 4, 1, 1, -4, 1, -1, -
 script = ExtResource("1_xitn6")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(-0.563657, 0.4719, -0.677939, 2.40292e-08, 0.820741, 0.571301, 0.826009, 0.322018, -0.462616, -1.9499, 0, 0)
+transform = Transform3D(-0.211494, -0.558378, 0.802175, 1.07136e-08, 0.82074, 0.571302, -0.977379, 0.120827, -0.173582, -1.9499, 0, 0)
 layers = 1023
-light_color = Color(0.682639, 0.268823, 0, 1)
 
 [node name="Color" type="SubViewport" parent="."]
 audio_listener_enable_3d = true
@@ -138,12 +225,37 @@ mesh = SubResource("TorusMesh_4wi03")
 
 [node name="Camera" parent="Horns/Camera3D" instance=ExtResource("4_ry2yh")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.476746, -0.370671)
+visible = false
 
 [node name="defaultMaterial" parent="Horns/Camera3D/Camera/Sketchfab_model/Collada visual scene group/Instant" index="0"]
 layers = 2
 
 [node name="FlashPoint" type="Node3D" parent="Horns/Camera3D/Camera"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.112785, 0.253483, -0.131423)
+
+[node name="remington_870_shotgun" parent="Horns/Camera3D" instance=ExtResource("4_n0i5f")]
+transform = Transform3D(-4.37001e-08, 9.91695e-10, 1, 0.0226873, 0.999743, 0, -0.999743, 0.0226873, -4.37114e-08, 0, -0.133, -0.3)
+script = ExtResource("5_f3qku")
+
+[node name="RootNode" parent="Horns/Camera3D/remington_870_shotgun/Sketchfab_model/406997d5f9db455fa4abe2ebfdb2caff_fbx" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+
+[node name="Body" parent="Horns/Camera3D/remington_870_shotgun/Sketchfab_model/406997d5f9db455fa4abe2ebfdb2caff_fbx/RootNode/Remington870" index="0"]
+layers = 2
+
+[node name="Pump" parent="Horns/Camera3D/remington_870_shotgun/Sketchfab_model/406997d5f9db455fa4abe2ebfdb2caff_fbx/RootNode/Remington870" index="1"]
+layers = 2
+
+[node name="FlashPoint" type="Node3D" parent="Horns/Camera3D/remington_870_shotgun/Sketchfab_model/406997d5f9db455fa4abe2ebfdb2caff_fbx" index="1"]
+transform = Transform3D(100, -3.63798e-12, -1.19209e-06, 0, -3.57628e-05, 100, 0, -100, -3.57628e-05, 60.0481, 9.87218, 2.61432e-06)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Horns/Camera3D/remington_870_shotgun"]
+libraries = {
+"": SubResource("AnimationLibrary_kiirr")
+}
+
+[node name="SidePosition" type="Node3D" parent="Horns/Camera3D/remington_870_shotgun"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.1, -0.05, 0.05)
 
 [node name="TextureRect" type="TextureRect" parent="."]
 material = SubResource("ShaderMaterial_epuaq")
@@ -190,15 +302,24 @@ mesh = SubResource("BoxMesh_obbme")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="World/MeshInstance3D2/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_slhim")
 
-[node name="FlashLight" type="SpotLight3D" parent="." node_paths=PackedStringArray("follow_node")]
-light_energy = 10.0
+[node name="FlashLight" type="SpotLight3D" parent="." node_paths=PackedStringArray("cam_model", "follow_node")]
+light_energy = 0.0
 spot_range = 40.0
 spot_angle = 50.0
 script = ExtResource("7_lmnb6")
+cam_model = NodePath("../Horns/Camera3D/Camera")
 follow_node = NodePath("../Horns/Camera3D/Camera/FlashPoint")
 
 [node name="FlashNoise" type="AudioStreamPlayer3D" parent="FlashLight"]
 stream = ExtResource("8_1ay2j")
 
+[node name="Gun" type="OmniLight3D" parent="." node_paths=PackedStringArray("shotgun_model", "follow_node")]
+light_energy = 0.0
+omni_range = 100.0
+script = ExtResource("11_eu0rn")
+shotgun_model = NodePath("../Horns/Camera3D/remington_870_shotgun")
+follow_node = NodePath("../Horns/Camera3D/remington_870_shotgun/Sketchfab_model/406997d5f9db455fa4abe2ebfdb2caff_fbx/FlashPoint")
+
 [editable path="Horns/Camera3D/Camera"]
+[editable path="Horns/Camera3D/remington_870_shotgun"]
 [editable path="Character"]
