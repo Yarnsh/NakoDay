@@ -401,6 +401,7 @@ follow_node = NodePath("../Horns/Camera3D/Camera/Sketchfab_model/FlashPoint")
 
 [node name="FlashNoise" type="AudioStreamPlayer3D" parent="FlashLight"]
 stream = ExtResource("8_1ay2j")
+bus = &"SFX"
 
 [node name="Gun" type="OmniLight3D" parent="." node_paths=PackedStringArray("shotgun_model", "follow_node", "shell_spawn_node", "player")]
 light_energy = 0.0
@@ -414,6 +415,7 @@ player = NodePath("../Character")
 
 [node name="GunNoise" type="AudioStreamPlayer3D" parent="Gun"]
 stream = ExtResource("12_qooml")
+bus = &"SFX"
 
 [editable path="Horns/Camera3D/Camera"]
 [editable path="Horns/Camera3D/remington_870_shotgun"]
