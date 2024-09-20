@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://cun0oi0tghf2t"]
+
+[ext_resource type="PackedScene" uid="uid://c232nbb2e6h5g" path="res://Models/12_shotgun_shell.glb" id="1_im618"]
+[ext_resource type="Script" path="res://Actors/shell.gd" id="1_imkwt"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_rhfci"]
+radius = 0.00761575
+height = 0.0770719
+
+[node name="Shell" type="RigidBody3D"]
+collision_layer = 0
+can_sleep = false
+continuous_cd = true
+script = ExtResource("1_imkwt")
+
+[node name="Sketchfab_Scene" parent="." instance=ExtResource("1_im618")]
+transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 0, -0.0427303, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("CapsuleShape3D_rhfci")

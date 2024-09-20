@@ -1,14 +1,11 @@
 extends Node3D
 
-@onready var anim = $AnimationPlayer
-@onready var side_node = $SidePosition
 @onready var model = $Sketchfab_model
-var side_transform : Transform3D
-@onready var aimed_transform = model.transform
+@onready var aimed_transform = $AimPosition.transform
+@onready var side_transform = model.transform
 var target_transform : Transform3D
 
 func _ready():
-	side_transform = side_node.transform
 	target_transform = side_transform
 
 func _process(delta):
