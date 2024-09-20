@@ -12,3 +12,5 @@ Nako's birthday present
 - the present is a gun and you can go back through and shoot the monster
 - Death screen should be in portugese
 - Distant unknown noises at random
+- Make some scary stuff only show up in the camera viewport
+- Make some scary stuff only show up when the flash goes off
