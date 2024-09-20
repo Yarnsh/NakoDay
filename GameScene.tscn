@@ -282,7 +282,6 @@ mesh = SubResource("TorusMesh_4wi03")
 
 [node name="Camera" parent="Horns/Camera3D" instance=ExtResource("4_ry2yh")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.476746, -0.370671)
-visible = false
 script = ExtResource("4_ie1km")
 
 [node name="defaultMaterial" parent="Horns/Camera3D/Camera/Sketchfab_model/Collada visual scene group/Instant" index="0"]
@@ -295,6 +294,7 @@ transform = Transform3D(64.5553, 0, 0, 0, 1.43342e-14, -64.5553, 0, 64.5553, 1.4
 
 [node name="Camera3D" type="Camera3D" parent="Horns/Camera3D/Camera/Sketchfab_model/CamView" node_paths=PackedStringArray("to_follow")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00717983, -0.266639, -0.519793)
+visible = false
 cull_mask = 1048573
 fov = 50.0
 script = ExtResource("5_6hiq7")
@@ -315,9 +315,6 @@ transform = Transform3D(0.0154906, 0, 0, 0, 3.4396e-18, 0.0154906, 0, -0.0154906
 [node name="remington_870_shotgun" parent="Horns/Camera3D" instance=ExtResource("4_n0i5f")]
 transform = Transform3D(-4.37001e-08, 9.91695e-10, 1, 0.0226873, 0.999743, 0, -0.999743, 0.0226873, -4.37114e-08, 0, -0.133, -0.3)
 script = ExtResource("5_f3qku")
-
-[node name="RootNode" parent="Horns/Camera3D/remington_870_shotgun/Sketchfab_model/406997d5f9db455fa4abe2ebfdb2caff_fbx" index="0"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 
 [node name="Body" parent="Horns/Camera3D/remington_870_shotgun/Sketchfab_model/406997d5f9db455fa4abe2ebfdb2caff_fbx/RootNode/Remington870" index="0"]
 layers = 2

@@ -3,6 +3,7 @@ extends Node3D
 @onready var model = $Sketchfab_model
 @onready var aimed_transform = $AimPosition.transform
 @onready var side_transform = model.transform
+@onready var screenshot_viewport = $Sketchfab_model/CamView
 var target_transform : Transform3D
 
 func _ready():
