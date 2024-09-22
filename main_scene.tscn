@@ -142,6 +142,17 @@ text = "Ambient"
 horizontal_alignment = 2
 vertical_alignment = 1
 
+[node name="HSeparator2" type="HSeparator" parent="Menus/Settings/All/Options/Labels"]
+custom_minimum_size = Vector2(0, 35)
+layout_mode = 2
+
+[node name="CameraScreenshots" type="Label" parent="Menus/Settings/All/Options/Labels"]
+custom_minimum_size = Vector2(0, 35)
+layout_mode = 2
+text = "Camera Screenshots"
+horizontal_alignment = 2
+vertical_alignment = 1
+
 [node name="VSeparator" type="VSeparator" parent="Menus/Settings/All/Options"]
 layout_mode = 2
 
@@ -214,6 +225,17 @@ size_flags_vertical = 4
 value = 100.0
 tick_count = 7
 ticks_on_borders = true
+
+[node name="HSeparator2" type="HSeparator" parent="Menus/Settings/All/Options/Controls"]
+custom_minimum_size = Vector2(0, 35)
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="CameraScreenshots" type="CheckButton" parent="Menus/Settings/All/Options/Controls"]
+custom_minimum_size = Vector2(0, 35)
+layout_mode = 2
+size_flags_vertical = 4
+button_pressed = true
 
 [node name="HSeparator" type="HSeparator" parent="Menus/Settings/All"]
 custom_minimum_size = Vector2(0, 30)
@@ -510,6 +532,7 @@ fit_content = true
 [connection signal="drag_ended" from="Menus/Settings/All/Options/Controls/MasterVolume" to="Menus/Settings" method="_on_change"]
 [connection signal="drag_ended" from="Menus/Settings/All/Options/Controls/SFXVolume" to="Menus/Settings" method="_on_change"]
 [connection signal="drag_ended" from="Menus/Settings/All/Options/Controls/AmbientVolume" to="Menus/Settings" method="_on_change"]
+[connection signal="toggled" from="Menus/Settings/All/Options/Controls/CameraScreenshots" to="Menus/Settings" method="_on_change"]
 [connection signal="pressed" from="Menus/Settings/All/Controls" to="Menus/Settings" method="_on_controls_pressed"]
 [connection signal="pressed" from="Menus/Settings/All/Buttons/Apply" to="Menus/Settings" method="_on_apply_pressed"]
 [connection signal="pressed" from="Menus/Settings/All/Buttons/Back" to="Menus/Settings" method="_on_cancel_pressed"]

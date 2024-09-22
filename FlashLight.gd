@@ -32,8 +32,12 @@ func _input(event):
 		cam_model.set_aimed(false)
 
 func take_screenshot():
-	var date = Time.get_date_string_from_system().replace(".","_") 
-	var time :String = Time.get_time_string_from_system().replace(":","-")
-	var screenshot_path = "user://" + "screenshot_" + date+ "_" + time + ".jpg"
-	var image = cam_model.screenshot_viewport.get_texture().get_image()
-	image.save_jpg(screenshot_path)
+	if Global.camera_screenshots:
+		var dir = DirAccess.open("user://")
+		if !dir.dir_exists("user://camera"):
+			dir.make_dir("user://camera")
+		var date = Time.get_date_string_from_system().replace(".","_") 
+		var time :String = Time.get_time_string_from_system().replace(":","-")
+		var screenshot_path = "user://camera/screenshot_" + date+ "_" + time + ".jpg"
+		var image = cam_model.screenshot_viewport.get_texture().get_image()
+		image.save_jpg(screenshot_path)

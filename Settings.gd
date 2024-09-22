@@ -13,6 +13,8 @@ signal fov_changed(fov)
 @onready var sfx_volume = $All/Options/Controls/SFXVolume
 @onready var ambient_volume = $All/Options/Controls/AmbientVolume
 
+@onready var camera_screenshots = $All/Options/Controls/CameraScreenshots
+
 @onready var apply_button = $All/Buttons/Apply
 
 var last_settings = {}
@@ -30,7 +32,8 @@ func get_current_settings_dict():
 		"fov": fov.value,
 		"master_volume": master_volume.value,
 		"sfx_volume": sfx_volume.value,
-		"ambient_volume": ambient_volume.value
+		"ambient_volume": ambient_volume.value,
+		"camera_screenshots": camera_screenshots.button_pressed
 	}
 
 func set_settings_from_dict(settings):
@@ -43,6 +46,7 @@ func set_settings_from_dict(settings):
 	master_volume.value = settings.get("master_volume", 100)
 	sfx_volume.value = settings.get("sfx_volume", 100)
 	ambient_volume.value = settings.get("ambient_volume", 100)
+	camera_screenshots.button_pressed = settings.get("camera_screenshots", true)
 
 func apply_current_settings():
 	if fullscreen.button_pressed:
@@ -56,6 +60,8 @@ func apply_current_settings():
 	AudioServer.set_bus_volume_db(0, linear_to_db(float(master_volume.value)/100.0))
 	AudioServer.set_bus_volume_db(1, linear_to_db(float(sfx_volume.value)/100.0))
 	AudioServer.set_bus_volume_db(2, linear_to_db(float(ambient_volume.value)/100.0))
+	
+	Global.camera_screenshots = camera_screenshots.button_pressed
 
 func _on_apply_pressed():
 	last_settings = get_current_settings_dict()
