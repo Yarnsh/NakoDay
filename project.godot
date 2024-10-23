@@ -30,6 +30,10 @@ window/stretch/aspect="expand"
 
 project/assembly_name="SpookyColor"
 
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/anthonyec.camera_preview/plugin.cfg")
+
 [gui]
 
 theme/custom_font="res://BaskervvilleSC-Regular.ttf"

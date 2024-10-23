@@ -18,9 +18,10 @@
 [ext_resource type="PackedScene" uid="uid://cov6b4m8bg74v" path="res://Models/map.glb" id="12_kmf4x"]
 [ext_resource type="PackedScene" uid="uid://cun0oi0tghf2t" path="res://Actors/shell.tscn" id="12_lysca"]
 [ext_resource type="AudioStream" uid="uid://dlpbxj7maijwm" path="res://SFX/shotgun.wav" id="12_qooml"]
+[ext_resource type="LightmapGIData" uid="uid://cekg0eq80p26p" path="res://GameScene.lmbake" id="19_iqb76"]
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_8k3ry"]
-viewport_path = NodePath("Horns/Camera3D/Camera/Sketchfab_model/CamView")
+viewport_path = NodePath("Color/Camera3D/Camera/Sketchfab_model/CamView")
 
 [sub_resource type="Animation" id="Animation_rirlv"]
 length = 0.001
@@ -158,14 +159,10 @@ _data = {
 [sub_resource type="ViewportTexture" id="ViewportTexture_gyl20"]
 viewport_path = NodePath("Color")
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_jeutd"]
-viewport_path = NodePath("Horns")
-
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_epuaq"]
 resource_local_to_scene = true
 shader = ExtResource("4_nidko")
 shader_parameter/base = SubResource("ViewportTexture_gyl20")
-shader_parameter/horns = SubResource("ViewportTexture_jeutd")
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_gjgu0"]
 
@@ -258,96 +255,79 @@ render_target_update_mode = 4
 script = ExtResource("2_7q2pr")
 
 [node name="Camera3D" type="Camera3D" parent="Color"]
-transform = Transform3D(-0.999501, 0.00904227, -0.0302815, 0.00851773, 0.999812, 0.0174066, 0.0304332, 0.01714, -0.99939, 0.00377429, 20.7491, 68.0624)
 cull_mask = 1
 current = true
 fov = 90.0
+near = 0.001
 far = 1000.0
 
-[node name="Horns" type="SubViewport" parent="."]
-transparent_bg = true
-audio_listener_enable_3d = true
-size = Vector2i(1000, 600)
-render_target_update_mode = 4
-script = ExtResource("2_7q2pr")
-
-[node name="Camera3D" type="Camera3D" parent="Horns"]
-cull_mask = 2
-near = 0.001
-
-[node name="Camera" parent="Horns/Camera3D" instance=ExtResource("4_ry2yh")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.476746, -0.370671)
+[node name="Camera" parent="Color/Camera3D" instance=ExtResource("4_ry2yh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.482, -0.347)
 script = ExtResource("4_ie1km")
 
-[node name="defaultMaterial" parent="Horns/Camera3D/Camera/Sketchfab_model/Collada visual scene group/Instant" index="0"]
-layers = 2
+[node name="defaultMaterial" parent="Color/Camera3D/Camera/Sketchfab_model/Collada visual scene group/Instant" index="0"]
 cast_shadow = 0
 
-[node name="FlashPoint" type="Node3D" parent="Horns/Camera3D/Camera/Sketchfab_model" index="1"]
+[node name="FlashPoint" type="Node3D" parent="Color/Camera3D/Camera/Sketchfab_model" index="1"]
 transform = Transform3D(64.5553, 0, 0, 0, 1.43342e-14, -64.5553, 0, 64.5553, 1.43342e-14, 7.28087, 8.48406, 16.3637)
 
-[node name="CamView" type="SubViewport" parent="Horns/Camera3D/Camera/Sketchfab_model" index="2"]
+[node name="CamView" type="SubViewport" parent="Color/Camera3D/Camera/Sketchfab_model" index="2"]
 render_target_update_mode = 4
 
-[node name="Camera3D" type="Camera3D" parent="Horns/Camera3D/Camera/Sketchfab_model/CamView" node_paths=PackedStringArray("to_follow")]
+[node name="Camera3D" type="Camera3D" parent="Color/Camera3D/Camera/Sketchfab_model/CamView" node_paths=PackedStringArray("to_follow")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00717983, -0.266639, -0.519793)
-visible = false
 cull_mask = 1048573
 fov = 50.0
 script = ExtResource("5_6hiq7")
 to_follow = NodePath("../../CamViewNode")
 
-[node name="CamViewNode" type="Node3D" parent="Horns/Camera3D/Camera/Sketchfab_model" index="3"]
+[node name="CamViewNode" type="Node3D" parent="Color/Camera3D/Camera/Sketchfab_model" index="3"]
 transform = Transform3D(64.5553, 0, 0, 0, 1.43342e-14, -64.5553, 0, 64.5553, 1.43342e-14, 0.463496, 9.6266, 13.5635)
 
-[node name="Sprite3D" type="Sprite3D" parent="Horns/Camera3D/Camera/Sketchfab_model" index="4"]
+[node name="Sprite3D" type="Sprite3D" parent="Color/Camera3D/Camera/Sketchfab_model" index="4"]
 transform = Transform3D(0.3, -2.62268e-08, 2.62268e-08, -2.62268e-08, -0.3, 0, 2.62268e-08, -2.29282e-15, -0.3, -7.83282, -9.54834, 16.0566)
-layers = 2
 axis = 1
 texture = SubResource("ViewportTexture_8k3ry")
 
-[node name="AimPosition" type="Node3D" parent="Horns/Camera3D/Camera"]
+[node name="AimPosition" type="Node3D" parent="Color/Camera3D/Camera"]
 transform = Transform3D(0.0154906, 0, 0, 0, 3.4396e-18, 0.0154906, 0, -0.0154906, 3.4396e-18, 0.122, 0.231, 0.18)
 
-[node name="remington_870_shotgun" parent="Horns/Camera3D" instance=ExtResource("4_n0i5f")]
-transform = Transform3D(-4.37001e-08, 9.91695e-10, 1, 0.0226873, 0.999743, 0, -0.999743, 0.0226873, -4.37114e-08, 0, -0.133, -0.3)
+[node name="remington_870_shotgun" parent="Color/Camera3D" instance=ExtResource("4_n0i5f")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, -0.135, -0.215096)
 visible = false
 script = ExtResource("5_f3qku")
 
-[node name="Body" parent="Horns/Camera3D/remington_870_shotgun/Sketchfab_model/406997d5f9db455fa4abe2ebfdb2caff_fbx/RootNode/Remington870" index="0"]
-layers = 2
+[node name="Body" parent="Color/Camera3D/remington_870_shotgun/Sketchfab_model/406997d5f9db455fa4abe2ebfdb2caff_fbx/RootNode/Remington870" index="0"]
 cast_shadow = 0
 
-[node name="ShellSpawn" type="Node3D" parent="Horns/Camera3D/remington_870_shotgun/Sketchfab_model/406997d5f9db455fa4abe2ebfdb2caff_fbx/RootNode/Remington870/Body" index="0"]
+[node name="ShellSpawn" type="Node3D" parent="Color/Camera3D/remington_870_shotgun/Sketchfab_model/406997d5f9db455fa4abe2ebfdb2caff_fbx/RootNode/Remington870/Body" index="0"]
 transform = Transform3D(-4.37114e-08, 1, 0, -1, -4.37114e-08, -4.31877e-14, -1.05749e-14, -3.72529e-09, 1, -0.0300563, -0.0344285, 0.0988872)
 
-[node name="MuzzleFlash" type="Sprite3D" parent="Horns/Camera3D/remington_870_shotgun/Sketchfab_model/406997d5f9db455fa4abe2ebfdb2caff_fbx/RootNode/Remington870/Body" index="1"]
+[node name="MuzzleFlash" type="Sprite3D" parent="Color/Camera3D/remington_870_shotgun/Sketchfab_model/406997d5f9db455fa4abe2ebfdb2caff_fbx/RootNode/Remington870/Body" index="1"]
 transform = Transform3D(0.5, 8.88178e-15, 1.02445e-08, -8.88178e-15, 0.5, 1.21098e-13, -1.02445e-08, -1.21098e-13, 0.5, 0.596375, -6.20782e-08, 0.10099)
 visible = false
 layers = 2
 axis = 0
 texture = ExtResource("8_7oenv")
 
-[node name="Pump" parent="Horns/Camera3D/remington_870_shotgun/Sketchfab_model/406997d5f9db455fa4abe2ebfdb2caff_fbx/RootNode/Remington870" index="1"]
-layers = 2
+[node name="Pump" parent="Color/Camera3D/remington_870_shotgun/Sketchfab_model/406997d5f9db455fa4abe2ebfdb2caff_fbx/RootNode/Remington870" index="1"]
 cast_shadow = 0
 
-[node name="FlashPoint" type="Node3D" parent="Horns/Camera3D/remington_870_shotgun/Sketchfab_model/406997d5f9db455fa4abe2ebfdb2caff_fbx" index="1"]
+[node name="FlashPoint" type="Node3D" parent="Color/Camera3D/remington_870_shotgun/Sketchfab_model/406997d5f9db455fa4abe2ebfdb2caff_fbx" index="1"]
 transform = Transform3D(100, -3.63798e-12, -1.19209e-06, 0, -3.57628e-05, 100, 0, -100, -3.57628e-05, 60.0481, 9.87218, 2.61432e-06)
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Horns/Camera3D/remington_870_shotgun"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Color/Camera3D/remington_870_shotgun"]
 libraries = {
 "": SubResource("AnimationLibrary_kiirr")
 }
 
-[node name="SidePosition" type="Node3D" parent="Horns/Camera3D/remington_870_shotgun"]
+[node name="SidePosition" type="Node3D" parent="Color/Camera3D/remington_870_shotgun"]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -0.1, -0.05, 0.05)
 
-[node name="NakoHornsVroid8" parent="Horns/Camera3D" instance=ExtResource("9_jybnh")]
-transform = Transform3D(-1.2, 0, -1.43446e-07, 0, 1, 0, 1.81195e-07, 0, -0.95, 0, 0.129985, 0)
+[node name="NakoHornsVroid8" parent="Color/Camera3D" instance=ExtResource("9_jybnh")]
+transform = Transform3D(-1.2, 0, -8.30516e-08, 0, 1, 0, 1.04907e-07, 0, -0.95, 0, 0.14576, 0.00871119)
 
-[node name="RetopoHorns" parent="Horns/Camera3D/NakoHornsVroid8" index="0"]
-layers = 3
+[node name="RetopoHorns" parent="Color/Camera3D/NakoHornsVroid8" index="0"]
 cast_shadow = 0
 
 [node name="TextureRect" type="TextureRect" parent="."]
@@ -363,10 +343,9 @@ texture = SubResource("PlaceholderTexture2D_gjgu0")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0346425, -3.1628)
 collision_layer = 2147483650
 
-[node name="RootCam" parent="Character" index="0" node_paths=PackedStringArray("cams", "no_fov_cams")]
+[node name="RootCam" parent="Character" index="0" node_paths=PackedStringArray("cams")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0.729163, 0)
 cams = [NodePath("../../Color/Camera3D")]
-no_fov_cams = [NodePath("../../Horns/Camera3D")]
 
 [node name="ShaderFinish" type="AnimationPlayer" parent="."]
 libraries = {
@@ -389,6 +368,7 @@ shape = SubResource("ConcavePolygonShape3D_srxss")
 
 [node name="MeshInstance3D2" type="MeshInstance3D" parent="World"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.388861, -5.77376)
+visible = false
 mesh = SubResource("BoxMesh_obbme")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="World/MeshInstance3D2"]
@@ -398,11 +378,12 @@ shape = SubResource("ConcavePolygonShape3D_slhim")
 
 [node name="FlashLight" type="SpotLight3D" parent="." node_paths=PackedStringArray("cam_model", "follow_node")]
 light_energy = 0.0
+shadow_enabled = true
 spot_range = 40.0
 spot_angle = 50.0
 script = ExtResource("7_lmnb6")
-cam_model = NodePath("../Horns/Camera3D/Camera")
-follow_node = NodePath("../Horns/Camera3D/Camera/Sketchfab_model/FlashPoint")
+cam_model = NodePath("../Color/Camera3D/Camera")
+follow_node = NodePath("../Color/Camera3D/Camera/Sketchfab_model/FlashPoint")
 
 [node name="FlashNoise" type="AudioStreamPlayer3D" parent="FlashLight"]
 stream = ExtResource("8_1ay2j")
@@ -410,22 +391,30 @@ bus = &"SFX"
 
 [node name="Gun" type="OmniLight3D" parent="." node_paths=PackedStringArray("shotgun_model", "follow_node", "shell_spawn_node", "player")]
 light_energy = 0.0
+shadow_enabled = true
 omni_range = 100.0
 script = ExtResource("11_eu0rn")
-shotgun_model = NodePath("../Horns/Camera3D/remington_870_shotgun")
-follow_node = NodePath("../Horns/Camera3D/remington_870_shotgun/Sketchfab_model/406997d5f9db455fa4abe2ebfdb2caff_fbx/FlashPoint")
+shotgun_model = NodePath("../Color/Camera3D/remington_870_shotgun")
+follow_node = NodePath("../Color/Camera3D/remington_870_shotgun/Sketchfab_model/406997d5f9db455fa4abe2ebfdb2caff_fbx/FlashPoint")
 shell_prefab = ExtResource("12_lysca")
-shell_spawn_node = NodePath("../Horns/Camera3D/remington_870_shotgun/Sketchfab_model/406997d5f9db455fa4abe2ebfdb2caff_fbx/RootNode/Remington870/Body/ShellSpawn")
+shell_spawn_node = NodePath("../Color/Camera3D/remington_870_shotgun/Sketchfab_model/406997d5f9db455fa4abe2ebfdb2caff_fbx/RootNode/Remington870/Body/ShellSpawn")
 player = NodePath("../Character")
 
 [node name="GunNoise" type="AudioStreamPlayer3D" parent="Gun"]
 stream = ExtResource("12_qooml")
 bus = &"SFX"
 
-[node name="map" parent="." instance=ExtResource("12_kmf4x")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.49322, 3.95965)
+[node name="LightmapGI" type="LightmapGI" parent="."]
+layers = 1023
+quality = 3
+bounces = 4
+generate_probes_subdiv = 3
+light_data = ExtResource("19_iqb76")
 
-[editable path="Horns/Camera3D/Camera"]
-[editable path="Horns/Camera3D/remington_870_shotgun"]
-[editable path="Horns/Camera3D/NakoHornsVroid8"]
+[node name="map" parent="." instance=ExtResource("12_kmf4x")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.34076, 1.54468, 9.34857)
+
+[editable path="Color/Camera3D/Camera"]
+[editable path="Color/Camera3D/remington_870_shotgun"]
+[editable path="Color/Camera3D/NakoHornsVroid8"]
 [editable path="Character"]
