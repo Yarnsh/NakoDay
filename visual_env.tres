@@ -1,14 +1,22 @@
-[gd_resource type="Environment" load_steps=3 format=3 uid="uid://dwl1k4slfqgem"]
+[gd_resource type="Environment" load_steps=4 format=3 uid="uid://dwl1k4slfqgem"]
 
-[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_rgmar"]
+[ext_resource type="Texture2D" uid="uid://c8cokllo35ar5" path="res://Images/skypanorama.jpg" id="1_6fquu"]
+
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_p2qu7"]
+panorama = ExtResource("1_6fquu")
 
 [sub_resource type="Sky" id="Sky_00rrr"]
-sky_material = SubResource("ProceduralSkyMaterial_rgmar")
+sky_material = SubResource("PanoramaSkyMaterial_p2qu7")
+radiance_size = 2
 
 [resource]
 background_mode = 2
 sky = SubResource("Sky_00rrr")
-ambient_light_source = 1
-ambient_light_sky_contribution = 0.0
-ambient_light_energy = 0.0
+sky_rotation = Vector3(0, 3.05433, 0)
+ambient_light_source = 3
+ambient_light_sky_contribution = 0.51
 reflected_light_source = 1
+glow_enabled = true
+glow_strength = 0.7
+glow_bloom = 1.0
+glow_blend_mode = 0

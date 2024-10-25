@@ -2,10 +2,12 @@ extends SpotLight3D
 
 @export var cam_model : Node3D
 @export var follow_node : Node3D
-const flash_strength = 20.0
+const flash_strength = 3.0
 var next_allowed = 0
 
 @onready var noise = $FlashNoise
+var shot_delay = 0
+var need_screenshot = false
 
 func _ready():
 	pass # Replace with function body.
@@ -15,12 +17,19 @@ func _process(delta):
 	
 	var rate = 20
 	light_energy = lerpf(light_energy, 0.0, (rate * delta)*(rate * delta))
+	
+	if need_screenshot:
+		shot_delay -= 1
+		if shot_delay <= 0:
+			take_screenshot()
+			need_screenshot = false
 
 func flash():
 	light_energy = flash_strength
 	noise.play()
 	next_allowed = Time.get_ticks_msec() + 2000
-	take_screenshot()
+	need_screenshot = true
+	shot_delay = 2
 
 func _input(event):
 	if cam_model.visible and event.is_action_pressed("Action"):
