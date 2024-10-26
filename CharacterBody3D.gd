@@ -16,13 +16,13 @@ extends CharacterBody3D
 @onready var interact_1 = $"RootCam/InteractButton"
 @onready var interact_2 = $"RootCam/InteractButton2"
 
-var SPEED = 4.0
+var SPEED = 2.0
 
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 var was_on_floor = false
 var was_moving = false
 var foot_start_time = 999999999999.9
-const foot_delay = 850
+const foot_delay = 550
 
 const NORMAL_STATE = 0
 const CUTSCENE_STATE = 1
@@ -48,7 +48,7 @@ func _physics_process(delta):
 	if Global.debug and Input.is_action_pressed("speed_up"):
 		SPEED = 22.0
 	else:
-		SPEED = 4.0
+		SPEED = 3.0
 	
 	if (state == NORMAL_STATE):
 		if is_on_floor():

@@ -205,7 +205,7 @@ mesh = SubResource("ArrayMesh_8jmrx")
 skeleton = NodePath("")
 
 [node name="Leaf_6" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.999119, 0.0419628, 0, -0.0419628, 0.999119, 0, 0, 0, 1, 0, 0, 0)
+transform = Transform3D(0.999119, 0.0419629, 0, -0.0419629, 0.999119, 0, 0, 0, 1, 0, 0, 0)
 gi_mode = 2
 mesh = SubResource("ArrayMesh_up0gk")
 skeleton = NodePath("")
