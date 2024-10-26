@@ -5,6 +5,9 @@
 - "Remington 870 Shotgun" (https://skfb.ly/o9MZx) by Andrei Milin is licensed under Creative Commons Attribution (http://creativecommons.org/licenses/by/4.0/).
 - "12 Shotgun Shell" (https://skfb.ly/6vzIK) by lumoize is licensed under Creative Commons Attribution (http://creativecommons.org/licenses/by/4.0/).
 - "Tree Animate" (https://skfb.ly/oy78T) by Node_λrt is licensed under Creative Commons Attribution (http://creativecommons.org/licenses/by/4.0/).
+- "Construction Debris" (https://skfb.ly/oFnYO) by Derin Pinarbasi is licensed under Creative Commons Attribution (http://creativecommons.org/licenses/by/4.0/).
+- "Destroyed construction debris" (https://skfb.ly/orWxF) by matousekfoto is licensed under Creative Commons Attribution (http://creativecommons.org/licenses/by/4.0/).
+- "Wooden Ladder" (https://skfb.ly/6AGun) by romullus is licensed under Creative Commons Attribution-ShareAlike (http://creativecommons.org/licenses/by-sa/4.0/).
 
 ### SFX
 
