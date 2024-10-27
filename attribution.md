@@ -17,3 +17,7 @@
 - shotgun.wav:
   - DD Shotgun 2 by DTheTech -- https://freesound.org/s/734057/ -- License: Attribution NonCommercial 4.0
   - rack 12-guage shotgun.mp3 by zekybomb -- https://freesound.org/s/677662/ -- License: Creative Commons 0
+
+### Decal textures
+
+- Raw files sourced from texturelib.com, modified to have transparency
