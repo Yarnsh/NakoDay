@@ -31,6 +31,10 @@ var state = NORMAL_STATE
 func _ready():
 	pass
 
+func teleport_to(t_pos):
+	# TODO: add a camera fade out/in
+	global_position = t_pos
+
 func play_sfx(sound, db):
 	sfx_player.stream = sound
 	sfx_player.volume_db = db

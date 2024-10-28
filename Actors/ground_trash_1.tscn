@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://di367yeh1grp4"]
+
+[ext_resource type="Texture2D" uid="uid://f42cw3smcbyl" path="res://Images/grounddirt1.png" id="1_dplce"]
+
+[node name="GroundTrash1" type="Decal"]
+transform = Transform3D(0.999999, 0, 0, 0, 1, 0, 0, 0, 0.999999, 0, 0, 0)
+texture_albedo = ExtResource("1_dplce")

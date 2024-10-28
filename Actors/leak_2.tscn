@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://bo2xcfqp8gois"]
+
+[ext_resource type="Texture2D" uid="uid://tfhwx1j7hlpq" path="res://Images/leak2.png" id="1_nb5id"]
+
+[node name="Leak2" type="Decal"]
+texture_albedo = ExtResource("1_nb5id")

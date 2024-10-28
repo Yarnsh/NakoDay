@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://bltad7ktu2gyk"]
+
+[ext_resource type="Texture2D" uid="uid://w80wi6kyya1" path="res://Images/grounddirt2.png" id="1_ci2yx"]
+
+[node name="GroundTrash2" type="Decal"]
+texture_albedo = ExtResource("1_ci2yx")

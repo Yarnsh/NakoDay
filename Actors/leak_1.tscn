@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://0n23dvtx3lby"]
+
+[ext_resource type="Texture2D" uid="uid://cx01cs7m1y6xt" path="res://Images/leak1.png" id="1_do6t0"]
+
+[node name="Leak1" type="Decal"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -0.950195, 0.604318, -1.22977)
+size = Vector3(3.90039, 2, 2)
+texture_albedo = ExtResource("1_do6t0")
