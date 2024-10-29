@@ -16,5 +16,10 @@ script = ExtResource("1_imkwt")
 [node name="Sketchfab_Scene" parent="." instance=ExtResource("1_im618")]
 transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 0, -0.0427303, 0)
 
+[node name="pPipe1_lambert1_0" parent="Sketchfab_Scene/Sketchfab_model/7d9888c8faf94fa58c1faccd15761aef_fbx/RootNode/pPipe1" index="0"]
+layers = 2
+
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("CapsuleShape3D_rhfci")
+
+[editable path="Sketchfab_Scene"]

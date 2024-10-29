@@ -49,13 +49,6 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 alignment = 1
 
-[node name="Continue" type="Button" parent="Menus/Main/VBoxContainer/VBoxContainer"]
-layout_mode = 2
-size_flags_vertical = 4
-disabled = true
-text = "Continue
-"
-
 [node name="NewGame" type="Button" parent="Menus/Main/VBoxContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 4
@@ -521,7 +514,6 @@ Thanks for playing ╰(✿´⌣`✿)╯♡
 [/center]"
 fit_content = true
 
-[connection signal="pressed" from="Menus/Main/VBoxContainer/VBoxContainer/Continue" to="Menus/Main" method="resume"]
 [connection signal="pressed" from="Menus/Main/VBoxContainer/VBoxContainer/NewGame" to="Menus/Main" method="new_game"]
 [connection signal="pressed" from="Menus/Main/VBoxContainer/VBoxContainer/Settings" to="Menus/Main" method="settings"]
 [connection signal="pressed" from="Menus/Main/VBoxContainer/VBoxContainer/Quit" to="Menus/Main" method="quit"]

@@ -15,17 +15,11 @@ var loaded_flags = {}
 func _ready():
 	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 	get_window().grab_focus()
-	
-	loaded_flags = load_flags()
-	if loaded_flags != {}:
-		main.resume_button.text = "Continue"
-		main.resume_button.disabled = false
 
 func stop_game():
 	if game_scene != null:
 		remove_child(game_scene)
 		game_scene.free()
-	main.resume_button.text = "Continue"
 
 func back_to_checkpoint():
 	if game_scene == null:
@@ -47,9 +41,6 @@ func start_game(flags):
 	game_scene = game_prefab.instantiate()
 	add_child(game_scene)
 	game_scene.apply_flags(flags)
-	
-	main.resume_button.text = "Resume"
-	main.resume_button.disabled = false
 
 func get_fov():
 	return settings.fov.value
@@ -120,7 +111,5 @@ func show_credits():
 	call_deferred("stop_game")
 	credits.start_credits()
 	set_mode(5)
-	main.resume_button.text = "Continue"
-	main.resume_button.disabled = true
 	loaded_flags = {}
 	save_flags({})

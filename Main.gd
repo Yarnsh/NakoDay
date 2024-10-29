@@ -1,7 +1,6 @@
 extends PanelContainer
 
 @onready var main_scene = $"../.."
-@onready var resume_button = $VBoxContainer/VBoxContainer/Continue
 
 func new_game():
 	main_scene.start_game({})
