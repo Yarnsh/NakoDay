@@ -1,7 +1,7 @@
 extends Node3D
 
 @export var game_prefab : PackedScene
-var game_scene = null
+@onready var game_scene = $GameScene
 
 @onready var main = $Menus/Main
 @onready var settings = $Menus/Settings
@@ -10,7 +10,6 @@ var game_scene = null
 @onready var credits = $Menus/Credits
 
 var mode = 1
-var loaded_flags = {}
 
 func _ready():
 	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
@@ -23,24 +22,23 @@ func stop_game():
 
 func back_to_checkpoint():
 	if game_scene == null:
-		start_game(loaded_flags)
+		start_game()
 	else:
-		start_game(game_scene.get_flags())
+		start_game()
 	set_mode(0)
 
 func resume():
 	if game_scene == null:
-		start_game(loaded_flags)
+		start_game()
 	set_mode(0)
 
-func start_game(flags):
+func start_game():
 	stop_game()
 	AudioServer.set_bus_effect_enabled(1, 0, false)
 	
-	loaded_flags = flags
 	game_scene = game_prefab.instantiate()
 	add_child(game_scene)
-	game_scene.apply_flags(flags)
+	game_scene.create_player()
 
 func get_fov():
 	return settings.fov.value
@@ -80,27 +78,6 @@ func _input(event):
 			set_mode(1)
 		elif mode == 3:
 			set_mode(2)
-	
-	# debug
-	if Global.debug and event.is_action_pressed("PreGreen"):
-		game_scene.update_player_stuff()
-		save_flags(game_scene.get_flags())
-
-func load_flags(path = "user://save.dat"):
-	if not FileAccess.file_exists(path):
-		save_flags({})
-		return {}
-
-	var file := FileAccess.open(path, FileAccess.READ)
-	var flags: Dictionary = file.get_var(true)
-	file.close()
-	
-	return flags
-
-func save_flags(flags):
-	var file := FileAccess.open("user://save.dat", FileAccess.WRITE)
-	file.store_var(flags, true)
-	file.close()
 
 func show_death(description, sound, db):
 	call_deferred("stop_game")
@@ -111,5 +88,3 @@ func show_credits():
 	call_deferred("stop_game")
 	credits.start_credits()
 	set_mode(5)
-	loaded_flags = {}
-	save_flags({})

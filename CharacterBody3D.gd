@@ -1,6 +1,6 @@
 extends CharacterBody3D
 
-@onready var main_scene = $"../.."
+@onready var main_scene = $"../../.."
 @onready var game_scene = $".."
 
 @onready var cam = $RootCam

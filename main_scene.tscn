@@ -514,6 +514,11 @@ Thanks for playing ╰(✿´⌣`✿)╯♡
 [/center]"
 fit_content = true
 
+[node name="GameScene" parent="." instance=ExtResource("2_mr8bg")]
+
+[node name="MenuCam" type="Camera3D" parent="."]
+transform = Transform3D(-0.577858, 0.0711311, -0.813032, 0, 0.996195, 0.0871557, 0.816138, 0.0503636, -0.575659, -24.392, 6.13508, -28.5984)
+
 [connection signal="pressed" from="Menus/Main/VBoxContainer/VBoxContainer/NewGame" to="Menus/Main" method="new_game"]
 [connection signal="pressed" from="Menus/Main/VBoxContainer/VBoxContainer/Settings" to="Menus/Main" method="settings"]
 [connection signal="pressed" from="Menus/Main/VBoxContainer/VBoxContainer/Quit" to="Menus/Main" method="quit"]

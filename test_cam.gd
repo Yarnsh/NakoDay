@@ -1,6 +1,6 @@
 extends Node3D
 
-@onready var main_scene = $"../../.."
+@onready var main_scene = $"../../../.."
 @export var cams : Array[Camera3D]
 @export var no_fov_cams : Array[Camera3D]
 @onready var cast = $ShapeCast3D

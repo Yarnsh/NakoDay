@@ -1,0 +1,17 @@
+[gd_resource type="StandardMaterial3D" load_steps=4 format=3 uid="uid://cepppue1wwply"]
+
+[ext_resource type="Texture2D" uid="uid://couc8ir4yflga" path="res://Models/map_charcoal-albedo2.png" id="1_xlpb0"]
+[ext_resource type="Texture2D" uid="uid://7qk2eun1hjii" path="res://Models/map_charcoal-metalness-charcoal-roughness.png" id="2_3ffcr"]
+[ext_resource type="Texture2D" uid="uid://cfi0dvehud6br" path="res://Models/map_charcoal-normal-ogl.png" id="3_mtxh2"]
+
+[resource]
+resource_name = "BurntWood"
+cull_mode = 2
+albedo_texture = ExtResource("1_xlpb0")
+metallic = 1.0
+metallic_texture = ExtResource("2_3ffcr")
+metallic_texture_channel = 2
+roughness_texture = ExtResource("2_3ffcr")
+roughness_texture_channel = 1
+normal_enabled = true
+normal_texture = ExtResource("3_mtxh2")

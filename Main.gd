@@ -3,7 +3,7 @@ extends PanelContainer
 @onready var main_scene = $"../.."
 
 func new_game():
-	main_scene.start_game({})
+	main_scene.start_game()
 	main_scene.set_mode(0)
 
 func resume():
