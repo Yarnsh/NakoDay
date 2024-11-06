@@ -1,4 +1,4 @@
-[gd_scene load_steps=64 format=3 uid="uid://bhplchb2q2ngm"]
+[gd_scene load_steps=77 format=3 uid="uid://bhplchb2q2ngm"]
 
 [ext_resource type="Script" path="res://game_scene.gd" id="1_xitn6"]
 [ext_resource type="PackedScene" uid="uid://cn5ae0e1bge3n" path="res://player_stuff.tscn" id="2_iks5c"]
@@ -51,8 +51,14 @@
 [ext_resource type="Texture2D" uid="uid://bgplj2v2pvtm8" path="res://Images/vevol.png" id="55_fqy2h"]
 [ext_resource type="Texture2D" uid="uid://jsmmfjcvs6dw" path="res://Images/toad.png" id="55_yieyx"]
 [ext_resource type="Texture2D" uid="uid://bu86d1gaed0x1" path="res://Images/g2.png" id="56_agm5j"]
+[ext_resource type="AudioStream" uid="uid://dhpk523xj83te" path="res://SFX/birds.mp3" id="56_ob0ok"]
 [ext_resource type="Texture2D" uid="uid://dupmofkmjkeeq" path="res://Images/g3.png" id="57_0eylc"]
+[ext_resource type="Script" path="res://BirdStopper.gd" id="57_pvxah"]
+[ext_resource type="PackedScene" uid="uid://7jr2e4ib4elo" path="res://Actors/SFXArea.tscn" id="58_xqhvb"]
 [ext_resource type="Texture2D" uid="uid://bbhf8jepqxgjn" path="res://Images/jcda.png" id="59_bk3l6"]
+[ext_resource type="AudioStream" uid="uid://bgfq0ehi7ashj" path="res://SFX/creak.wav" id="59_wmiqk"]
+[ext_resource type="AudioStream" uid="uid://cto5htfhhn1ed" path="res://SFX/creak2.wav" id="60_rip0l"]
+[ext_resource type="AudioStream" uid="uid://27x5rlft3qtd" path="res://SFX/scream.wav" id="61_6dhnm"]
 [ext_resource type="Texture2D" uid="uid://hwx6iumxtj4y" path="res://Images/image.png" id="63_j2rk8"]
 [ext_resource type="Texture2D" uid="uid://cs1p2gsnognlv" path="res://Images/algo.png" id="64_fvxbj"]
 
@@ -151,6 +157,103 @@ data = PackedVector3Array(-0.1177, 0.1628, -0.0226, -0.1179, 0.1633, -0.0211, -0
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_mpxie"]
 size = Vector3(0.220398, 1.20056, 0.0579224)
+
+[sub_resource type="Animation" id="Animation_68j5m"]
+resource_name = "stop_outdoor"
+length = 5.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:volume_db")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, -20.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:pitch_scale")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1, 5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [1.0, 1.0, 0.57]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:playing")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(4.9),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_1cmuj"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:volume_db")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:pitch_scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:playing")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_34ytc"]
+_data = {
+"RESET": SubResource("Animation_1cmuj"),
+"stop_outdoor": SubResource("Animation_68j5m")
+}
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_nbdbw"]
+size = Vector3(2.91211, 3.04004, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_mw2re"]
+size = Vector3(3.09387, 1, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_rdbv5"]
+size = Vector3(2.74951, 0.740234, 5.64856)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_q71cw"]
+size = Vector3(2.86658, 1.93274, 1)
 
 [node name="GameScene" type="Node3D"]
 script = ExtResource("1_xitn6")
@@ -1737,3 +1840,60 @@ texture_albedo = ExtResource("56_agm5j")
 transform = Transform3D(-0.989556, -8.02088e-08, 0.144149, -0.144149, -5.58568e-08, -0.989556, 8.74228e-08, -1, 4.37114e-08, 1.14081, -1.66104, -1.37566)
 size = Vector3(0.58947, 0.059494, 0.244972)
 texture_albedo = ExtResource("57_0eylc")
+
+[node name="OutdoorNoise" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("56_ob0ok")
+autoplay = true
+bus = &"SFX"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="OutdoorNoise"]
+libraries = {
+"": SubResource("AnimationLibrary_34ytc")
+}
+
+[node name="BirdStopper" type="Area3D" parent="OutdoorNoise"]
+collision_mask = 2
+script = ExtResource("57_pvxah")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="OutdoorNoise/BirdStopper"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0200195, -1.02002, 0.597988)
+shape = SubResource("BoxShape3D_nbdbw")
+
+[node name="Noises" type="Node3D" parent="."]
+
+[node name="Creak" parent="Noises" instance=ExtResource("58_xqhvb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0276099, -1.96721, 1.12433)
+
+[node name="CollisionShape3D" parent="Noises/Creak" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.177307, 0, 0)
+shape = SubResource("BoxShape3D_mw2re")
+
+[node name="AudioStreamPlayer3D" parent="Noises/Creak" index="1"]
+stream = ExtResource("59_wmiqk")
+
+[node name="Creak2" parent="Noises" instance=ExtResource("58_xqhvb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.0004, -2.21957, 8.6002)
+
+[node name="CollisionShape3D" parent="Noises/Creak2" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00952148, -0.129883, -0.427917)
+shape = SubResource("BoxShape3D_rdbv5")
+
+[node name="AudioStreamPlayer3D" parent="Noises/Creak2" index="1"]
+stream = ExtResource("60_rip0l")
+
+[node name="Creak3" parent="Noises" instance=ExtResource("58_xqhvb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.38395, -5.08216, 8.18738)
+
+[node name="CollisionShape3D" parent="Noises/Creak3" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.4117, 3.85953, 0)
+shape = SubResource("BoxShape3D_q71cw")
+
+[node name="AudioStreamPlayer3D" parent="Noises/Creak3" index="1"]
+stream = ExtResource("61_6dhnm")
+attenuation_model = 3
+
+[connection signal="body_entered" from="OutdoorNoise/BirdStopper" to="OutdoorNoise/BirdStopper" method="_on_body_entered"]
+
+[editable path="Noises/Creak"]
+[editable path="Noises/Creak2"]
+[editable path="Noises/Creak3"]

@@ -22,7 +22,7 @@ var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 var was_on_floor = false
 var was_moving = false
 var foot_start_time = 999999999999.9
-const foot_delay = 550
+const foot_delay = 350
 
 const NORMAL_STATE = 0
 const CUTSCENE_STATE = 1

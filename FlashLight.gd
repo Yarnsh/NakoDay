@@ -15,8 +15,8 @@ func _ready():
 func _process(delta):
 	global_transform = follow_node.global_transform
 	
-	var rate = 20
-	light_energy = lerpf(light_energy, 0.0, (rate * delta)*(rate * delta))
+	var rate = 3.0
+	light_energy = max(light_energy - (rate * delta), 0.0)
 	
 	if need_screenshot:
 		shot_delay -= 1

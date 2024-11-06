@@ -6,7 +6,7 @@ extends OmniLight3D
 @export var shell_spawn_node : Node3D
 @export var player : CharacterBody3D
 @onready var noise = $GunNoise
-const flash_strength = 20.0
+const flash_strength = 6.0
 
 @export var should_spawn_shell = false
 
@@ -18,8 +18,8 @@ func _ready():
 func _process(delta):
 	global_transform = follow_node.global_transform
 	
-	var rate = 80 # TODO: make this less painful somehow
-	light_energy = lerpf(light_energy, 0.0, (rate * delta)*(rate * delta))
+	var rate = 30
+	light_energy = max(light_energy - (rate * delta), 0.0)
 	
 	if should_spawn_shell:
 		var shell = shell_prefab.instantiate()
