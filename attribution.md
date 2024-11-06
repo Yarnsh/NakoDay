@@ -21,6 +21,7 @@
 - Creaking Wood 11.wav by Greg_Surr -- https://freesound.org/s/590148/ -- License: Creative Commons 0
 - WOOD_CREEK_LONG_SCATTERED_001.wav by JoelAudio -- https://freesound.org/s/135466/ -- License: Attribution 4.0
 - Scream3_Hissy.aif by RutgerMuller -- https://freesound.org/s/104030/ -- License: Creative Commons 0
+- Destruction, Wooden, A.wav by InspectorJ -- https://freesound.org/s/352513/ -- License: Attribution 4.0
 
 ### Decal textures
 
