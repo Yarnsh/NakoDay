@@ -17,7 +17,6 @@
 - shotgun.wav:
   - DD Shotgun 2 by DTheTech -- https://freesound.org/s/734057/ -- License: Attribution NonCommercial 4.0
   - rack 12-guage shotgun.mp3 by zekybomb -- https://freesound.org/s/677662/ -- License: Creative Commons 0
-    
 - Village pond with bird sounds and natural background by Garuda1982 -- https://freesound.org/s/759738/ -- License: Creative Commons 0
 - Creaking Wood 11.wav by Greg_Surr -- https://freesound.org/s/590148/ -- License: Creative Commons 0
 - WOOD_CREEK_LONG_SCATTERED_001.wav by JoelAudio -- https://freesound.org/s/135466/ -- License: Attribution 4.0
