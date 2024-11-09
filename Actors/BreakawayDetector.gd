@@ -22,4 +22,4 @@ func _process(delta):
 
 func _on_body_entered(body):
 	breaking = true
-	set_collision_mask_value(2, false)
+	set_collision_mask_value(32, false)

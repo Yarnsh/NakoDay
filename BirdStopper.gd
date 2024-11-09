@@ -11,5 +11,5 @@ func _process(delta):
 	pass
 
 func _on_body_entered(body):
-	set_collision_mask_value(2, false)
+	set_collision_mask_value(32, false)
 	animp.play("stop_outdoor")

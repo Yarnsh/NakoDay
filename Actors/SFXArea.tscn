@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://SFXArea.gd" id="1_y1scc"]
 
 [node name="Creak" type="Area3D"]
-collision_mask = 2
+collision_mask = 2147483648
 script = ExtResource("1_y1scc")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]

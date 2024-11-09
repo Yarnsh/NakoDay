@@ -4,4 +4,4 @@ extends Area3D
 
 func _on_body_entered(body):
 	sfx.play()
-	set_collision_mask_value(2, false)
+	set_collision_mask_value(32, false)

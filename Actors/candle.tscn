@@ -1,0 +1,56 @@
+[gd_scene load_steps=9 format=3 uid="uid://cmdtabhunrq83"]
+
+[ext_resource type="Script" path="res://Actors/candle.gd" id="1_b00br"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_em3yc"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_bqx4o"]
+material = SubResource("StandardMaterial3D_em3yc")
+top_radius = 0.005
+bottom_radius = 0.005
+height = 0.08
+radial_segments = 8
+rings = 1
+
+[sub_resource type="Curve" id="Curve_vkx4w"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.164835), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_aaro0"]
+curve = SubResource("Curve_vkx4w")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_rg4gr"]
+spread = 0.0
+gravity = Vector3(0, 9.8, 0)
+scale_min = 0.0
+scale_curve = SubResource("CurveTexture_aaro0")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_soun5"]
+shading_mode = 0
+albedo_color = Color(1, 0.87451, 0.639216, 1)
+disable_receive_shadows = true
+
+[sub_resource type="SphereMesh" id="SphereMesh_2ddt3"]
+material = SubResource("StandardMaterial3D_soun5")
+radius = 0.01
+height = 0.02
+radial_segments = 6
+rings = 3
+
+[node name="Candle" type="MeshInstance3D"]
+mesh = SubResource("CylinderMesh_bqx4o")
+script = ExtResource("1_b00br")
+
+[node name="Flame" type="GPUParticles3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0482082, 0)
+visible = false
+amount = 16
+lifetime = 0.05
+process_material = SubResource("ParticleProcessMaterial_rg4gr")
+draw_pass_1 = SubResource("SphereMesh_2ddt3")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Flame"]
+light_color = Color(1, 0.780392, 0.67451, 1)
+light_energy = 0.5
+light_bake_mode = 0
+omni_range = 1.0

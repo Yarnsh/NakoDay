@@ -16,6 +16,9 @@ extends CharacterBody3D
 @onready var interact_1 = $"RootCam/InteractButton"
 @onready var interact_2 = $"RootCam/InteractButton2"
 
+@export var camera_obj : Node3D
+@export var shotgun_obj : Node3D
+
 var SPEED = 2.0
 
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
@@ -30,6 +33,11 @@ var state = NORMAL_STATE
 
 func _ready():
 	pass
+
+func give_shotgun():
+	camera_obj.hide()
+	shotgun_obj.show()
+	shotgun_obj.anim.play("pump")
 
 func teleport_to(t_pos):
 	# TODO: add a camera fade out/in
