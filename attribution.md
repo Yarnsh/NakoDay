@@ -8,6 +8,8 @@
 - "Construction Debris" (https://skfb.ly/oFnYO) by Derin Pinarbasi is licensed under Creative Commons Attribution (http://creativecommons.org/licenses/by/4.0/).
 - "Destroyed construction debris" (https://skfb.ly/orWxF) by matousekfoto is licensed under Creative Commons Attribution (http://creativecommons.org/licenses/by/4.0/).
 - "Wooden Ladder" (https://skfb.ly/6AGun) by romullus is licensed under Creative Commons Attribution-ShareAlike (http://creativecommons.org/licenses/by-sa/4.0/).
+- "Cake 3D" (https://skfb.ly/6Rx7w) by Johana-PS is licensed under Creative Commons Attribution (http://creativecommons.org/licenses/by/4.0/).
+- "Christmas Present Box Set 🎁" (https://skfb.ly/oBzrx) by Glowbox 3D is licensed under Creative Commons Attribution (http://creativecommons.org/licenses/by/4.0/).
 
 ### SFX
 
