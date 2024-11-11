@@ -1,0 +1,110 @@
+[gd_scene load_steps=15 format=3 uid="uid://goc38op4h6sp"]
+
+[ext_resource type="Script" path="res://Actors/pellet_impact.gd" id="1_ic53k"]
+
+[sub_resource type="Curve" id="Curve_jjlnj"]
+_data = [Vector2(0.00724638, 1), 0.0, -0.372906, 0, 0, Vector2(1, 0), -3.41209, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_xdsqs"]
+texture_mode = 1
+curve = SubResource("Curve_jjlnj")
+
+[sub_resource type="Curve" id="Curve_xodg6"]
+_data = [Vector2(0, 0), 0.0, 2.86447, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_3vvkn"]
+curve = SubResource("Curve_xodg6")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_ay1p6"]
+angle_min = -720.0
+angle_max = 720.0
+direction = Vector3(0, 0, -1)
+spread = 20.0
+initial_velocity_min = 0.2
+initial_velocity_max = 2.0
+gravity = Vector3(0, 0, 0)
+damping_min = 1.0
+damping_max = 2.0
+scale_curve = SubResource("CurveTexture_3vvkn")
+scale_over_velocity_max = 1.0
+color = Color(1, 1, 1, 0.807843)
+alpha_curve = SubResource("CurveTexture_xdsqs")
+
+[sub_resource type="Gradient" id="Gradient_bnyfx"]
+offsets = PackedFloat32Array(0.00877193, 1)
+colors = PackedColorArray(0, 0, 0, 0, 1, 1, 1, 1)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_dcaf3"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_sm13o"]
+seamless = true
+color_ramp = SubResource("Gradient_bnyfx")
+noise = SubResource("FastNoiseLite_dcaf3")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_upmvu"]
+transparency = 3
+alpha_hash_scale = 1.0
+alpha_antialiasing_mode = 0
+disable_ambient_light = true
+vertex_color_use_as_albedo = true
+albedo_texture = SubResource("NoiseTexture2D_sm13o")
+
+[sub_resource type="SphereMesh" id="SphereMesh_pyxmm"]
+lightmap_size_hint = Vector2i(17, 9)
+material = SubResource("StandardMaterial3D_upmvu")
+add_uv2 = true
+radial_segments = 8
+rings = 4
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_jb542"]
+angle_min = -720.0
+angle_max = 720.0
+direction = Vector3(0, 0, -1)
+spread = 40.0
+initial_velocity_min = 0.2
+initial_velocity_max = 5.0
+gravity = Vector3(0, -2, 0)
+scale_curve = SubResource("CurveTexture_3vvkn")
+scale_over_velocity_max = 1.0
+color = Color(1, 1, 1, 0.807843)
+alpha_curve = SubResource("CurveTexture_xdsqs")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_e1b6s"]
+shading_mode = 0
+albedo_color = Color(0, 0, 0, 1)
+billboard_mode = 3
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="QuadMesh" id="QuadMesh_xcv30"]
+material = SubResource("StandardMaterial3D_e1b6s")
+size = Vector2(0.02, 0.02)
+
+[node name="PelletImpact" type="Node3D"]
+script = ExtResource("1_ic53k")
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="."]
+cast_shadow = 0
+gi_mode = 2
+emitting = false
+amount = 6
+lifetime = 2.0
+one_shot = true
+explosiveness = 1.0
+process_material = SubResource("ParticleProcessMaterial_ay1p6")
+draw_pass_1 = SubResource("SphereMesh_pyxmm")
+
+[node name="GPUParticles3D2" type="GPUParticles3D" parent="."]
+cast_shadow = 0
+emitting = false
+amount = 24
+lifetime = 0.5
+one_shot = true
+explosiveness = 1.0
+process_material = SubResource("ParticleProcessMaterial_jb542")
+draw_pass_1 = SubResource("QuadMesh_xcv30")
+
+[connection signal="finished" from="GPUParticles3D" to="." method="_on_gpu_particles_3d_finished"]

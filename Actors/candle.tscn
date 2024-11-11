@@ -50,7 +50,7 @@ process_material = SubResource("ParticleProcessMaterial_rg4gr")
 draw_pass_1 = SubResource("SphereMesh_2ddt3")
 
 [node name="OmniLight3D" type="OmniLight3D" parent="Flame"]
-light_color = Color(1, 0.780392, 0.67451, 1)
-light_energy = 0.5
+light_color = Color(0.523461, 0.407349, 2.88785e-07, 1)
+light_energy = 0.05
 light_bake_mode = 0
-omni_range = 1.0
+omni_range = 3.0

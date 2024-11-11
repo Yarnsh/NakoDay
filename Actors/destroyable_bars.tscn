@@ -1,16 +1,20 @@
-[gd_scene load_steps=10 format=3 uid="uid://dmxjfwqn6r6ub"]
+[gd_scene load_steps=21 format=3 uid="uid://dmxjfwqn6r6ub"]
 
 [ext_resource type="Script" path="res://Actors/destroyable_bars.gd" id="1_e268d"]
 [ext_resource type="Texture2D" uid="uid://cku8pxvqhmlce" path="res://Models/map_heavily-rusted-metal_albedo.png" id="1_skb4p"]
 [ext_resource type="Texture2D" uid="uid://bm6h4a3jmx6k3" path="res://BlendFiles/wall_mat/heavily-rusted-metal-bl/heavily-rusted-metal_metallic.png" id="2_hjfnp"]
 [ext_resource type="Texture2D" uid="uid://cph740gwv5igt" path="res://BlendFiles/wall_mat/heavily-rusted-metal-bl/heavily-rusted-metal_normal-ogl.png" id="3_5tvem"]
 [ext_resource type="Texture2D" uid="uid://dj1uroh25fuol" path="res://BlendFiles/wall_mat/heavily-rusted-metal-bl/heavily-rusted-metal_roughness.png" id="4_0mmn2"]
+[ext_resource type="Texture2D" uid="uid://c4rqs5gt6gnhe" path="res://BlendFiles/wall_mat/heavily-rusted-metal-bl/heavily-rusted-metal_albedo.png" id="6_5giij"]
+[ext_resource type="AudioStream" uid="uid://dfe4884r51y7p" path="res://SFX/metal_crash.wav" id="7_wthed"]
+[ext_resource type="AudioStream" uid="uid://bx0fjnm3er5tw" path="res://SFX/door_slam.wav" id="8_fwx0n"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_a5qdr"]
 albedo_texture = ExtResource("1_skb4p")
 metallic = 1.0
 metallic_texture = ExtResource("2_hjfnp")
 roughness_texture = ExtResource("4_0mmn2")
+emission = Color(0, 0.0392157, 0.0470588, 1)
 normal_enabled = true
 normal_texture = ExtResource("3_5tvem")
 
@@ -47,6 +51,69 @@ shadow_mesh = SubResource("ArrayMesh_4q43v")
 [sub_resource type="BoxShape3D" id="BoxShape3D_1ec1b"]
 size = Vector3(2.22961, 2.80151, 0.0316772)
 
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_5rp5y"]
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(1.1, 1.2, 0)
+angle_min = -720.0
+angle_max = 720.0
+direction = Vector3(0, 1, 0)
+spread = 180.0
+initial_velocity_min = 3.0
+initial_velocity_max = 4.0
+collision_mode = 1
+collision_friction = 0.0
+collision_bounce = 0.5
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0tc0f"]
+disable_ambient_light = true
+albedo_texture = ExtResource("6_5giij")
+
+[sub_resource type="BoxMesh" id="BoxMesh_4lvin"]
+lightmap_size_hint = Vector2i(5, 11)
+material = SubResource("StandardMaterial3D_0tc0f")
+add_uv2 = true
+size = Vector3(0.03, 0.5, 0.03)
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_e8vbk"]
+particle_flag_rotate_y = true
+emission_shape = 3
+emission_box_extents = Vector3(1.1, 1.2, 0)
+angle_min = -720.0
+angle_max = 720.0
+direction = Vector3(0, 1, 0)
+spread = 180.0
+initial_velocity_min = 3.0
+initial_velocity_max = 4.0
+collision_mode = 1
+collision_friction = 0.0
+collision_bounce = 0.5
+
+[sub_resource type="BoxMesh" id="BoxMesh_olc4v"]
+lightmap_size_hint = Vector2i(6, 8)
+material = SubResource("StandardMaterial3D_0tc0f")
+add_uv2 = true
+size = Vector3(0.5, 0.03, 0.03)
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_m1imb"]
+emission_shape = 3
+emission_box_extents = Vector3(1.1, 1.2, 0)
+spread = 180.0
+initial_velocity_min = 2.0
+initial_velocity_max = 2.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_l00ed"]
+shading_mode = 0
+albedo_color = Color(1, 1, 0.564706, 1)
+billboard_mode = 3
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="QuadMesh" id="QuadMesh_y2fqw"]
+material = SubResource("StandardMaterial3D_l00ed")
+size = Vector2(0.02, 0.02)
+
 [node name="DestroyableBars" type="StaticBody3D"]
 collision_layer = 5
 script = ExtResource("1_e268d")
@@ -60,3 +127,36 @@ skeleton = NodePath("")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.000915527, -0.000854492, 0.00161743)
 shape = SubResource("BoxShape3D_1ec1b")
+
+[node name="DoorDestroyEffect" type="Node3D" parent="."]
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="DoorDestroyEffect"]
+emitting = false
+amount = 20
+one_shot = true
+explosiveness = 1.0
+process_material = SubResource("ParticleProcessMaterial_5rp5y")
+draw_pass_1 = SubResource("BoxMesh_4lvin")
+
+[node name="GPUParticles3D2" type="GPUParticles3D" parent="DoorDestroyEffect"]
+emitting = false
+amount = 20
+one_shot = true
+explosiveness = 1.0
+process_material = SubResource("ParticleProcessMaterial_e8vbk")
+draw_pass_1 = SubResource("BoxMesh_olc4v")
+
+[node name="Spark" type="GPUParticles3D" parent="DoorDestroyEffect"]
+emitting = false
+amount = 42
+one_shot = true
+explosiveness = 1.0
+process_material = SubResource("ParticleProcessMaterial_m1imb")
+draw_pass_1 = SubResource("QuadMesh_y2fqw")
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="DoorDestroyEffect"]
+stream = ExtResource("7_wthed")
+bus = &"SFX"
+
+[node name="Close" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("8_fwx0n")

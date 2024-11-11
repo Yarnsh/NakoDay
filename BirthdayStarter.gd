@@ -4,6 +4,16 @@ extends Area3D
 @onready var present = $"../present"
 @onready var door = $"../DestroyableBars"
 
+@onready var c1 = $"../ExtraCandles/Candle"
+@onready var c2 = $"../ExtraCandles/Candle2"
+@onready var c3 = $"../ExtraCandles/Candle3"
+@onready var c4 = $"../ExtraCandles/Candle4"
+@onready var p1 = $"../GPUParticles3D"
+@onready var p2 = $"../GPUParticles3D2"
+
+@onready var pop = $"../Pop"
+@onready var horn = $"../Horn"
+
 var prepare = false
 var wait_time = 5.0
 
@@ -19,6 +29,14 @@ func _process(delta):
 		if wait_time <= 0.0:
 			prepare = false
 			cake.light()
+			c1.light()
+			c2.light()
+			c3.light()
+			c4.light()
+			p1.emitting = true
+			p2.emitting = true
+			pop.play()
+			horn.play()
 			present.allow_pickup()
 			# TODO: sounds and stuff
 
