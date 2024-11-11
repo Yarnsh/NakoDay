@@ -6,6 +6,7 @@ extends Node3D
 var side_transform : Transform3D
 @onready var aimed_transform = model.transform
 var target_transform : Transform3D
+@onready var shooter = $"Sketchfab_model/406997d5f9db455fa4abe2ebfdb2caff_fbx/RootNode/Remington870/Body/Shooter"
 
 func _ready():
 	side_transform = side_node.transform
@@ -20,3 +21,6 @@ func set_aimed(aimed):
 		target_transform = aimed_transform
 	else:
 		target_transform = side_transform
+
+func shoot():
+	shooter.shoot()

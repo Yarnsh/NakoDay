@@ -2,6 +2,7 @@ extends Area3D
 
 @onready var cake = $"../Cake"
 @onready var present = $"../present"
+@onready var door = $"../DestroyableBars"
 
 var prepare = false
 var wait_time = 5.0
@@ -24,4 +25,5 @@ func _process(delta):
 
 func _on_body_entered(body):
 	set_collision_mask_value(32, false)
+	door.close()
 	prepare = true

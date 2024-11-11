@@ -1,4 +1,4 @@
-[gd_scene load_steps=105 format=3 uid="uid://bhplchb2q2ngm"]
+[gd_scene load_steps=106 format=3 uid="uid://bhplchb2q2ngm"]
 
 [ext_resource type="Script" path="res://game_scene.gd" id="1_xitn6"]
 [ext_resource type="PackedScene" uid="uid://cn5ae0e1bge3n" path="res://player_stuff.tscn" id="2_iks5c"]
@@ -70,6 +70,7 @@
 [ext_resource type="Texture2D" uid="uid://dekduiutnrmko" path="res://Models/present_Image_2.png" id="66_f5bn2"]
 [ext_resource type="PackedScene" uid="uid://s5grkaa4fasu" path="res://Models/remington_870_shotgun.glb" id="67_anfkq"]
 [ext_resource type="PackedScene" uid="uid://yow038h2pvlr" path="res://Models/wooden_table.glb" id="69_kr8oq"]
+[ext_resource type="PackedScene" uid="uid://dmxjfwqn6r6ub" path="res://Actors/destroyable_bars.tscn" id="72_sv5v1"]
 [ext_resource type="Script" path="res://BirthdayStarter.gd" id="73_cig8s"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_chkya"]
@@ -565,6 +566,7 @@ shadow_enabled = true
 environment = ExtResource("3_a7c60")
 
 [node name="LightmapGI" type="LightmapGI" parent="."]
+visible = false
 layers = 1023
 quality = 2
 bounces = 4
@@ -2252,7 +2254,7 @@ light_cull_mask = 4294967293
 shadow_enabled = true
 
 [node name="remington_870_shotgun" parent="BirthdayStuff/present" instance=ExtResource("67_anfkq")]
-transform = Transform3D(1, 0, 0, 0, 0.13518, -0.990821, 0, 0.990821, 0.13518, 0, 0.0320501, -0.00913715)
+transform = Transform3D(1, 0, 0, 0, 0.135181, -0.990821, 0, 0.990821, 0.135181, 0, 0.0320501, -0.00913715)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="BirthdayStuff/present"]
 libraries = {
@@ -2281,6 +2283,16 @@ script = ExtResource("73_cig8s")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="BirthdayStuff/BirthdayStarter"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00566101, 0, -2.55984)
 shape = SubResource("BoxShape3D_chigv")
+
+[node name="DestroyableBars" parent="BirthdayStuff" instance=ExtResource("72_sv5v1")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -1.74275, 0, -4.17007)
+open = true
+
+[node name="DestroyableBars2" parent="BirthdayStuff" instance=ExtResource("72_sv5v1")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 1.70885, 0, -4.17007)
+
+[node name="DestroyableBars" parent="." instance=ExtResource("72_sv5v1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -5.026, -1.53413)
 
 [connection signal="body_entered" from="OutdoorNoise/BirdStopper" to="OutdoorNoise/BirdStopper" method="_on_body_entered"]
 [connection signal="animation_finished" from="BirthdayStuff/present/AnimationPlayer" to="BirthdayStuff/present" method="_on_animation_player_animation_finished"]

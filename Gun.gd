@@ -32,6 +32,7 @@ func _process(delta):
 func fire():
 	light_energy = flash_strength
 	shotgun_model.anim.play("fire_and_pump")
+	shotgun_model.shoot()
 	noise.play()
 
 func _input(event):
