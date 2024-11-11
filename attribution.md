@@ -25,6 +25,12 @@
 - WOOD_CREEK_LONG_SCATTERED_001.wav by JoelAudio -- https://freesound.org/s/135466/ -- License: Attribution 4.0
 - Scream3_Hissy.aif by RutgerMuller -- https://freesound.org/s/104030/ -- License: Creative Commons 0
 - Destruction, Wooden, A.wav by InspectorJ -- https://freesound.org/s/352513/ -- License: Attribution 4.0
+- Scrap metal dropping / crashing by SamsterBirdies -- https://freesound.org/s/587443/ -- License: Creative Commons 0
+- Metal Pipe Scraped on Concrete in Basement.aif by RutgerMuller -- https://freesound.org/s/104361/ -- License: Creative Commons 0
+- Wet Splat by JustInvoke -- https://freesound.org/s/446115/ -- License: Attribution 4.0
+- Party Pack, Horn Coil 01, Long, 01.wav by InspectorJ -- https://freesound.org/s/484267/ -- License: Attribution 4.0
+- chamber_choir_parallel_fifths_1.wav by uair01 -- https://freesound.org/s/64426/ -- License: Attribution 3.0
+- storm door slam 02.wav by volivieri -- https://freesound.org/s/161189/ -- License: Attribution 4.0
 
 ### Decal textures
 
