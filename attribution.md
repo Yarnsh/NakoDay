@@ -11,6 +11,7 @@
 - "Cake 3D" (https://skfb.ly/6Rx7w) by Johana-PS is licensed under Creative Commons Attribution (http://creativecommons.org/licenses/by/4.0/).
 - "Christmas Present Box Set 🎁" (https://skfb.ly/oBzrx) by Glowbox 3D is licensed under Creative Commons Attribution (http://creativecommons.org/licenses/by/4.0/).
 - "Wooden Table" (https://skfb.ly/6sHoo) by FlukierJupiter is licensed under Creative Commons Attribution (http://creativecommons.org/licenses/by/4.0/).
+- Manaquin and it's animations taken off Mixamo
 
 ### SFX
 
