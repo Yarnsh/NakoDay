@@ -12,6 +12,7 @@ extends Node3D
 var mode = 1
 
 func _ready():
+	Global.main = self
 	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 	get_window().grab_focus()
 

@@ -5,7 +5,7 @@ extends CharacterBody3D
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 
 func _ready():
-	anim.play("Walk")
+	anim.play("Pose")
 
 func _physics_process(delta):
 	if is_on_floor():

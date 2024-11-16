@@ -4,6 +4,7 @@ var now = 0
 const debug = false
 
 var camera_screenshots = true
+var main : Node
 
 # Called when the node enters the scene tree for the first time.
 func _ready():

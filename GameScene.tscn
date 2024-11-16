@@ -1,4 +1,4 @@
-[gd_scene load_steps=128 format=3 uid="uid://bhplchb2q2ngm"]
+[gd_scene load_steps=140 format=3 uid="uid://bhplchb2q2ngm"]
 
 [ext_resource type="Script" path="res://game_scene.gd" id="1_xitn6"]
 [ext_resource type="PackedScene" uid="uid://cn5ae0e1bge3n" path="res://player_stuff.tscn" id="2_iks5c"]
@@ -81,6 +81,7 @@
 [ext_resource type="AudioStream" uid="uid://gi4lsdp4tvce" path="res://SFX/stone_footstep.wav" id="78_1v6fo"]
 [ext_resource type="AudioStream" uid="uid://c7ujomvlj5qp4" path="res://SFX/horn.wav" id="80_2xm11"]
 [ext_resource type="PackedScene" uid="uid://dtl5p2ctq1fxt" path="res://Actors/freak.tscn" id="81_q4ljd"]
+[ext_resource type="Script" path="res://Ending.gd" id="82_olnce"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_chkya"]
 resource_name = "Planks_SHD"
@@ -660,6 +661,39 @@ lightmap_size_hint = Vector2i(2, 2)
 material = SubResource("StandardMaterial3D_jrfqr")
 add_uv2 = true
 size = Vector2(0.1, 0.1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_4sjfm"]
+size = Vector3(2.3468, 1, 2.06754)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_kpcub"]
+size = Vector3(8.01828, 4.82367, 2.06754)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_pwxx1"]
+size = Vector3(5.04953, 4.82367, 2.06754)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ke5l6"]
+size = Vector3(5.04953, 4.82367, 2.06754)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_a5qrb"]
+size = Vector3(2.85812, 4.94211, 2.06754)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_2ool7"]
+size = Vector3(2.85812, 4.94211, 2.06754)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_wh5pg"]
+size = Vector3(1, 1, 3.3324)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_5bpkl"]
+size = Vector3(0.874878, 1, 3.3324)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_e3cfd"]
+size = Vector3(6.15625, 1, 3.27158)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_lb514"]
+size = Vector3(1, 1, 2.90747)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_3i08j"]
+size = Vector3(1, 1, 2.90747)
 
 [node name="GameScene" type="Node3D"]
 script = ExtResource("1_xitn6")
@@ -2376,10 +2410,11 @@ libraries = {
 "": SubResource("AnimationLibrary_j5amd")
 }
 
-[node name="present" type="StaticBody3D" parent="BirthdayStuff"]
+[node name="present" type="StaticBody3D" parent="BirthdayStuff" node_paths=PackedStringArray("walls")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.605176, -0.658538)
 collision_layer = 4
 script = ExtResource("64_ytr5s")
+walls = NodePath("../../InvisibleWalls")
 
 [node name="Top" type="MeshInstance3D" parent="BirthdayStuff/present"]
 transform = Transform3D(0.253, 0, 0, 0, 0.075, 0, 0, 0, 0.121, 0, 0, 0)
@@ -2693,9 +2728,64 @@ omni_range = 6.0
 [node name="Freak" parent="." instance=ExtResource("81_q4ljd")]
 transform = Transform3D(0.00123914, 0, 0.999999, 0, 1, 0, -0.999999, 0, 0.00123914, -1.6932, -1.6102, 3.80038)
 
+[node name="InvisibleWalls" type="StaticBody3D" parent="."]
+collision_layer = 0
+collision_mask = 0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="InvisibleWalls"]
+transform = Transform3D(0.999995, 0, -0.00307176, 0, 1, 0, 0.00307176, 0, 0.999995, -3.29756, -1.47143, 0.871669)
+shape = SubResource("BoxShape3D_4sjfm")
+
+[node name="CollisionShape3D5" type="CollisionShape3D" parent="InvisibleWalls"]
+transform = Transform3D(0.999995, 0, -0.00307176, 0, 1, 0, 0.00307176, 0, 0.999995, -0.194124, -3.12456, -7.70983)
+shape = SubResource("BoxShape3D_kpcub")
+
+[node name="CollisionShape3D6" type="CollisionShape3D" parent="InvisibleWalls"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -4.04941, -3.12456, -4.53377)
+shape = SubResource("BoxShape3D_pwxx1")
+
+[node name="CollisionShape3D7" type="CollisionShape3D" parent="InvisibleWalls"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 3.76766, -3.12456, -4.53377)
+shape = SubResource("BoxShape3D_ke5l6")
+
+[node name="CollisionShape3D8" type="CollisionShape3D" parent="InvisibleWalls"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 2.36551, -3.06534, -3.08473)
+shape = SubResource("BoxShape3D_a5qrb")
+
+[node name="CollisionShape3D9" type="CollisionShape3D" parent="InvisibleWalls"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -2.45546, -3.06534, -3.08473)
+shape = SubResource("BoxShape3D_2ool7")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="InvisibleWalls"]
+transform = Transform3D(0.867566, 0, 0.497322, 0, 1, 0, -0.497322, 0, 0.867566, -4.18952, -1.47143, 3.8887)
+shape = SubResource("BoxShape3D_wh5pg")
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="InvisibleWalls"]
+transform = Transform3D(-0.000436381, 0, 1, 0, 1, 0, -1, 0, -0.000436381, 0.0390741, -1.47143, 6.12452)
+shape = SubResource("BoxShape3D_5bpkl")
+
+[node name="CollisionShape3D4" type="CollisionShape3D" parent="InvisibleWalls"]
+transform = Transform3D(-0.000436381, 0, 1, 0, 1, 0, -1, 0, -0.000436381, 5.9833, 2.59466, 8.12666)
+shape = SubResource("BoxShape3D_e3cfd")
+
+[node name="Ending" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -4.53428, -2.68908)
+collision_layer = 0
+collision_mask = 2147483648
+script = ExtResource("82_olnce")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Ending"]
+transform = Transform3D(0.878267, 0, 0.478171, 0, 1, 0, -0.478171, 0, 0.878267, 3.95261, 0, -0.620913)
+shape = SubResource("BoxShape3D_lb514")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="Ending"]
+transform = Transform3D(0.877983, 0, -0.478692, 0, 1, 0, 0.478692, 0, 0.877983, -3.953, 0, -0.621)
+shape = SubResource("BoxShape3D_3i08j")
+
 [connection signal="body_entered" from="OutdoorNoise/BirdStopper" to="OutdoorNoise/BirdStopper" method="_on_body_entered"]
 [connection signal="animation_finished" from="BirthdayStuff/present/AnimationPlayer" to="BirthdayStuff/present" method="_on_animation_player_animation_finished"]
 [connection signal="body_entered" from="BirthdayStuff/BirthdayStarter" to="BirthdayStuff/BirthdayStarter" method="_on_body_entered"]
+[connection signal="body_entered" from="Ending" to="Ending" method="_on_body_entered"]
 
 [editable path="Noises/Creak"]
 [editable path="Noises/Creak2"]
