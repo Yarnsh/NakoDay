@@ -16,4 +16,4 @@ func _on_body_entered(body):
 	set_collision_mask_value(32, false)
 	for child in get_children():
 		if child is CharacterBody3D:
-			child.mode = 1
+			child.mode = 2

@@ -8,11 +8,16 @@ extends CharacterBody3D
 @onready var particles = $GPUParticles3D
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 
+@onready var activate_noise = $ActivateNoise
+@onready var hit_noise = $SlapNoise
+
 var alive = true
 var attacking = false
 var hitting = false
 var attack_time = 0
 var mode = 0
+var prev_mode = 0
+var wake_time = 0
 
 const ATTACK_DISTANCE = 1.0
 const HIT_DISTANCE = 1.2
@@ -39,7 +44,18 @@ func _physics_process(delta):
 	if mode == 0: # static non-character thing
 		static_mode(delta)
 	elif mode == 1: # chasing
+		if prev_mode == 0:
+			activate_noise.play()
 		chase_mode(delta)
+	elif mode == 2: # randomized wakeup wait
+		if prev_mode == 0:
+			wake_time = Time.get_ticks_msec() + randi_range(0, 1200)
+		if Time.get_ticks_msec() >= wake_time:
+			mode = 1
+			prev_mode = 0 # dirty hack
+			return
+	
+	prev_mode = mode
 
 func static_mode(delta):
 	_disable_character_collision()
@@ -71,6 +87,7 @@ func chase_mode(delta):
 				hitting = false
 				if p.global_position.distance_to(global_position) < HIT_DISTANCE:
 					p.hit()
+					hit_noise.play()
 	else:
 		anim.play("Idle")
 	
@@ -84,8 +101,7 @@ func destroy():
 	alive = false
 	armature.hide()
 	particles.emitting = true
-	# TODO: death effects
-
+	# TODO: death sound effects
 
 func _on_animation_player_animation_finished(anim_name):
 	if anim_name == "Swipe" and attacking:

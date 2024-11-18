@@ -10,8 +10,15 @@ func _ready():
 	target_transform = side_transform
 
 func _process(delta):
-	var rate = 50
-	model.transform = model.transform.interpolate_with(target_transform, (rate * delta)*(rate * delta))
+	var rate = 3.0
+	#model.transform = model.transform.interpolate_with(target_transform, (rate * delta)*(rate * delta))
+	var dir = model.transform.origin.direction_to(target_transform.origin)
+	var dist = model.transform.origin.distance_to(target_transform.origin)
+	
+	if dist <= rate*delta:
+		model.transform.origin = target_transform.origin
+	else:
+		model.transform.origin += dir * rate * delta
 
 func set_aimed(aimed):
 	if aimed:
