@@ -32,6 +32,8 @@
 - Party Pack, Horn Coil 01, Long, 01.wav by InspectorJ -- https://freesound.org/s/484267/ -- License: Attribution 4.0
 - chamber_choir_parallel_fifths_1.wav by uair01 -- https://freesound.org/s/64426/ -- License: Attribution 3.0
 - storm door slam 02.wav by volivieri -- https://freesound.org/s/161189/ -- License: Attribution 4.0
+- Choir Sting 4 by nomiqbomi -- https://freesound.org/s/578326/ -- License: Creative Commons 0
+- slap_concrete_03.wav by movingplaid -- https://freesound.org/s/88553/ -- License: Attribution 4.0
 
 ### Decal textures
 
