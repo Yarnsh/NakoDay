@@ -14,12 +14,18 @@ var last_interactable = null
 var pitch = 0.0
 var yaw = 0.0
 
+var offset = Vector3.ZERO
+
 func _ready():
 	cast.add_exception(character)
 	pitch = global_rotation.x
 	yaw = global_rotation.y
 	set_fov(main_scene.get_fov())
 	main_scene.settings.connect("fov_changed", set_fov)
+
+func give_offset():
+	var target_dir = Vector3.UP.rotated(Vector3.RIGHT, randf_range(0.0, 2.0*PI)).rotated(Vector3.FORWARD, randf_range(0.0, 2.0*PI))
+	offset = target_dir * 0.2
 
 func set_fov(fov):
 	for cam in cams:
@@ -31,6 +37,11 @@ func set_grot(grot):
 	yaw = global_rotation.y
 
 func _process(delta):
+	if offset.length_squared() > 0.0:
+		var length = offset.length()
+		length = max(0.0, length - delta)
+		offset =  offset.normalized() * length
+	
 	if character.state == character.NORMAL_STATE:
 		global_rotation = Vector3(pitch, yaw, 0.0)
 		set_subtitles("")
@@ -39,10 +50,10 @@ func _process(delta):
 		yaw = global_rotation.y
 	
 	for cam in cams:
-		cam.global_position = global_position
+		cam.global_position = global_position + offset
 		cam.global_rotation = global_rotation
 	for cam in no_fov_cams:
-		cam.global_position = global_position
+		cam.global_position = global_position + offset
 		cam.global_rotation = global_rotation
 
 func _physics_process(delta):

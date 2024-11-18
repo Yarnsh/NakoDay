@@ -9,6 +9,8 @@ extends CharacterBody3D
 
 @onready var sfx_player = $SFXPlayer
 
+@export var screams : Array[AudioStream] = []
+
 @onready var grassy_foot_step = load("res://SFX/footstep.wav")
 @onready var stony_foot_step = load("res://SFX/stone_footstep.wav")
 @export var grassy_collider : StaticBody3D
@@ -32,7 +34,11 @@ const CUTSCENE_STATE = 1
 var state = NORMAL_STATE
 
 func _ready():
-	pass
+	Global.player = self
+
+func hit():
+	play_sfx(screams[randi_range(0,2)], 0.0)
+	cam.give_offset()
 
 func give_shotgun():
 	camera_obj.hide()

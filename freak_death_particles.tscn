@@ -1,0 +1,46 @@
+[gd_scene load_steps=6 format=3 uid="uid://cc7883epjbt6d"]
+
+[ext_resource type="Material" uid="uid://dswqgr1fbx8dy" path="res://Actors/freak_mat.tres" id="1_1m2qp"]
+
+[sub_resource type="Curve" id="Curve_jjlnj"]
+_data = [Vector2(0.00724638, 1), 0.0, -0.372906, 0, 0, Vector2(1, 0), -3.41209, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_xdsqs"]
+texture_mode = 1
+curve = SubResource("Curve_jjlnj")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_xwswr"]
+particle_flag_rotate_y = true
+emission_shape = 3
+emission_box_extents = Vector3(0.1, 0.5, 0.1)
+angle_min = -720.0
+angle_max = 720.0
+direction = Vector3(0, 0, -1)
+spread = 180.0
+initial_velocity_min = 0.2
+initial_velocity_max = 8.0
+damping_min = 1.0
+damping_max = 2.0
+scale_over_velocity_max = 1.0
+color = Color(1, 1, 1, 0.807843)
+alpha_curve = SubResource("CurveTexture_xdsqs")
+
+[sub_resource type="SphereMesh" id="SphereMesh_77blb"]
+lightmap_size_hint = Vector2i(5, 3)
+material = ExtResource("1_1m2qp")
+add_uv2 = true
+radius = 0.1
+height = 0.2
+radial_segments = 8
+rings = 4
+
+[node name="GPUParticles3D" type="GPUParticles3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.04099, 0)
+emitting = false
+amount = 64
+lifetime = 2.0
+one_shot = true
+explosiveness = 1.0
+process_material = SubResource("ParticleProcessMaterial_xwswr")
+draw_pass_1 = SubResource("SphereMesh_77blb")

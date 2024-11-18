@@ -1,4 +1,4 @@
-[gd_scene load_steps=140 format=3 uid="uid://bhplchb2q2ngm"]
+[gd_scene load_steps=146 format=3 uid="uid://bhplchb2q2ngm"]
 
 [ext_resource type="Script" path="res://game_scene.gd" id="1_xitn6"]
 [ext_resource type="PackedScene" uid="uid://cn5ae0e1bge3n" path="res://player_stuff.tscn" id="2_iks5c"]
@@ -81,7 +81,10 @@
 [ext_resource type="AudioStream" uid="uid://gi4lsdp4tvce" path="res://SFX/stone_footstep.wav" id="78_1v6fo"]
 [ext_resource type="AudioStream" uid="uid://c7ujomvlj5qp4" path="res://SFX/horn.wav" id="80_2xm11"]
 [ext_resource type="PackedScene" uid="uid://dtl5p2ctq1fxt" path="res://Actors/freak.tscn" id="81_q4ljd"]
+[ext_resource type="PackedScene" uid="uid://bn70tfnbvjgl" path="res://Actors/freaktivator.tscn" id="82_amspt"]
 [ext_resource type="Script" path="res://Ending.gd" id="82_olnce"]
+[ext_resource type="Script" path="res://FallArea.gd" id="82_ujspk"]
+[ext_resource type="PackedScene" uid="uid://oy8af4i45xwf" path="res://Actors/static_freak.tscn" id="84_wmg7v"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_chkya"]
 resource_name = "Planks_SHD"
@@ -695,6 +698,15 @@ size = Vector3(1, 1, 2.90747)
 [sub_resource type="BoxShape3D" id="BoxShape3D_3i08j"]
 size = Vector3(1, 1, 2.90747)
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_xont3"]
+size = Vector3(2.63818, 0.0565796, 1.60205)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_eqdwi"]
+size = Vector3(3.68628, 0.0565796, 3.11047)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_iy4sk"]
+size = Vector3(5.6427, 1.92285, 1)
+
 [node name="GameScene" type="Node3D"]
 script = ExtResource("1_xitn6")
 player_prefab = ExtResource("2_iks5c")
@@ -710,6 +722,7 @@ shadow_enabled = true
 environment = ExtResource("3_a7c60")
 
 [node name="LightmapGI" type="LightmapGI" parent="."]
+visible = false
 layers = 1023
 quality = 0
 generate_probes_subdiv = 3
@@ -2725,11 +2738,8 @@ light_bake_mode = 1
 shadow_enabled = true
 omni_range = 6.0
 
-[node name="Freak" parent="." instance=ExtResource("81_q4ljd")]
-transform = Transform3D(0.00123914, 0, 0.999999, 0, 1, 0, -0.999999, 0, 0.00123914, -1.6932, -1.6102, 3.80038)
-
 [node name="InvisibleWalls" type="StaticBody3D" parent="."]
-collision_layer = 0
+collision_layer = 16
 collision_mask = 0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="InvisibleWalls"]
@@ -2782,12 +2792,65 @@ shape = SubResource("BoxShape3D_lb514")
 transform = Transform3D(0.877983, 0, -0.478692, 0, 1, 0, 0.478692, 0, 0.877983, -3.953, 0, -0.621)
 shape = SubResource("BoxShape3D_3i08j")
 
+[node name="Fall" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.72233, 1.69563, 12.4652)
+collision_layer = 0
+collision_mask = 2147483648
+script = ExtResource("82_ujspk")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Fall"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.69375, -0.0243933, -0.301025)
+shape = SubResource("BoxShape3D_xont3")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="Fall"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.82553, -0.0243933, 0.453186)
+shape = SubResource("BoxShape3D_eqdwi")
+
+[node name="ActiveFreaks" type="Node3D" parent="."]
+
+[node name="Freaktivator" parent="ActiveFreaks" instance=ExtResource("82_amspt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.86267, -6.29352, 10.1697)
+
+[node name="CollisionShape3D" parent="ActiveFreaks/Freaktivator" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.84746, 0.92749, 1.1377)
+shape = SubResource("BoxShape3D_iy4sk")
+
+[node name="Freak" parent="ActiveFreaks/Freaktivator" instance=ExtResource("81_q4ljd")]
+transform = Transform3D(0.983885, 0, 0.178802, 0.0421652, 0.971797, -0.23202, -0.173759, 0.235821, 0.956136, -0.2701, -0.174404, 3.83901)
+
+[node name="InactiveFreaks" type="Node3D" parent="."]
+
+[node name="StaticFreak" parent="InactiveFreaks" instance=ExtResource("84_wmg7v")]
+
+[node name="StaticFreak2" parent="InactiveFreaks" instance=ExtResource("84_wmg7v")]
+transform = Transform3D(0.781063, 0.623424, -0.0358264, 0, 0.0573726, 0.998353, 0.624452, -0.779777, 0.0448116, -4.95577, -2.207, 3.79771)
+
+[node name="StaticFreak3" parent="InactiveFreaks" instance=ExtResource("84_wmg7v")]
+transform = Transform3D(1, 0, 0, 0, 0.947289, -0.320382, 0, 0.320382, 0.947289, 4.52419, 2.17953, 10.5948)
+
+[node name="StaticFreak4" parent="InactiveFreaks" instance=ExtResource("84_wmg7v")]
+transform = Transform3D(1, 0, 0, 0, 0.904983, -0.425448, 0, 0.425448, 0.904983, 4.52419, 2.17953, 10.211)
+
+[node name="StaticFreak5" parent="InactiveFreaks" instance=ExtResource("84_wmg7v")]
+transform = Transform3D(1, 0, 0, 0, 0.7291, -0.684408, 0, 0.684408, 0.7291, 4.52419, 2.17953, 9.54612)
+
+[node name="StaticFreak6" parent="InactiveFreaks" instance=ExtResource("84_wmg7v")]
+transform = Transform3D(-0.160611, 0.778592, 0.606631, 0.300901, 0.623977, -0.721188, -0.940033, 0.0667052, -0.334496, 4.49443, 2.24433, 7.12419)
+
+[node name="StaticFreak7" parent="InactiveFreaks" instance=ExtResource("84_wmg7v")]
+transform = Transform3D(-0.168567, 0.761698, 0.625621, 0.296517, 0.64449, -0.704778, -0.940033, 0.0667052, -0.334496, 6.23725, 2.29105, 11.022)
+
+[node name="StaticFreak8" parent="InactiveFreaks" instance=ExtResource("84_wmg7v")]
+transform = Transform3D(0.309484, -0.287101, 0.906528, -0.0450267, 0.947839, 0.315556, -0.949838, -0.138477, 0.280414, 5.22696, 2.11407, 11.1865)
+
 [connection signal="body_entered" from="OutdoorNoise/BirdStopper" to="OutdoorNoise/BirdStopper" method="_on_body_entered"]
 [connection signal="animation_finished" from="BirthdayStuff/present/AnimationPlayer" to="BirthdayStuff/present" method="_on_animation_player_animation_finished"]
 [connection signal="body_entered" from="BirthdayStuff/BirthdayStarter" to="BirthdayStuff/BirthdayStarter" method="_on_body_entered"]
 [connection signal="body_entered" from="Ending" to="Ending" method="_on_body_entered"]
+[connection signal="body_entered" from="Fall" to="Fall" method="_on_body_entered"]
 
 [editable path="Noises/Creak"]
 [editable path="Noises/Creak2"]
 [editable path="Noises/Creak3"]
 [editable path="Noises/Creak4"]
+[editable path="ActiveFreaks/Freaktivator"]

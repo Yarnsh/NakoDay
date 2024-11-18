@@ -5,6 +5,7 @@ const debug = false
 
 var camera_screenshots = true
 var main : Node
+var player : CharacterBody3D
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
