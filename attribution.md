@@ -34,6 +34,7 @@
 - storm door slam 02.wav by volivieri -- https://freesound.org/s/161189/ -- License: Attribution 4.0
 - Choir Sting 4 by nomiqbomi -- https://freesound.org/s/578326/ -- License: Creative Commons 0
 - slap_concrete_03.wav by movingplaid -- https://freesound.org/s/88553/ -- License: Attribution 4.0
+- steps on squeeky wooden attic ladder.wav by pointnemoprod -- https://freesound.org/s/693244/ -- License: Creative Commons 0
 
 ### Decal textures
 
