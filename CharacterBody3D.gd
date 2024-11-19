@@ -20,6 +20,7 @@ extends CharacterBody3D
 
 @export var camera_obj : Node3D
 @export var shotgun_obj : Node3D
+@export var fade_anim : AnimationPlayer
 
 var SPEED = 2.0
 
@@ -29,12 +30,16 @@ var was_moving = false
 var foot_start_time = 999999999999.9
 const foot_delay = 350
 
+var tele_transform = Transform3D.IDENTITY
+var tele_time = -1
+
 const NORMAL_STATE = 0
 const CUTSCENE_STATE = 1
-var state = NORMAL_STATE
+@export var state = NORMAL_STATE
 
 func _ready():
 	Global.player = self
+	fade_anim.play("FadeIn")
 
 func hit():
 	play_sfx(screams[randi_range(0,2)], 0.0)
@@ -46,8 +51,9 @@ func give_shotgun():
 	shotgun_obj.anim.play("pump")
 
 func teleport_to(t_pos):
-	# TODO: add a camera fade out/in
-	global_position = t_pos
+	fade_anim.play("Fade")
+	tele_transform = t_pos
+	tele_time = Time.get_ticks_msec() + 2000
 
 func play_sfx(sound, db):
 	sfx_player.stream = sound
@@ -116,6 +122,11 @@ func _physics_process(delta):
 			was_on_floor = false
 	
 	elif (state == CUTSCENE_STATE):
+		if tele_time > 0 and tele_time < Time.get_ticks_msec():
+			global_position = tele_transform.origin
+			cam.global_basis = tele_transform.basis
+			tele_time = -1
+		
 		if is_on_floor():
 			velocity.x = 0.0
 			velocity.z = 0.0

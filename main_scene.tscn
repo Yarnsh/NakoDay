@@ -517,6 +517,7 @@ Happy Birthday ╰(✿´⌣`✿)╯♡
 fit_content = true
 
 [node name="Poloroids" type="Node2D" parent="Menus/Credits"]
+visible = false
 
 [node name="Side1" type="Node2D" parent="Menus/Credits/Poloroids"]
 

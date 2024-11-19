@@ -17,6 +17,8 @@ func _process(delta):
 			get_tree().quit()
 
 func start_credits():
+	credits.global_position.y = size.y + 30
+	
 	sides[0].position.x = size.x * 0.35
 	sides[1].position.x = size.x * -0.35
 	sides[2].position.x = size.x * 0.25
@@ -55,7 +57,7 @@ func start_credits():
 		print("An error occurred when trying to access the path.")
 	
 	moving = true
-	credits.global_position.y = size.y
 
 func _on_visibility_changed():
 	credits.visible = visible
+	poloroids.visible = visible

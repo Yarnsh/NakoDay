@@ -83,6 +83,7 @@ func chase_mode(delta):
 				attacking = true
 				hitting = true
 		elif hitting:
+			velocity = Vector3.ZERO
 			if attack_time + HIT_TIME <= Time.get_ticks_msec():
 				hitting = false
 				if p.global_position.distance_to(global_position) < HIT_DISTANCE:

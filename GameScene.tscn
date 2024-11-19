@@ -1,8 +1,9 @@
-[gd_scene load_steps=149 format=3 uid="uid://bhplchb2q2ngm"]
+[gd_scene load_steps=150 format=3 uid="uid://bhplchb2q2ngm"]
 
 [ext_resource type="Script" path="res://game_scene.gd" id="1_xitn6"]
 [ext_resource type="PackedScene" uid="uid://cn5ae0e1bge3n" path="res://player_stuff.tscn" id="2_iks5c"]
 [ext_resource type="Environment" uid="uid://dwl1k4slfqgem" path="res://visual_env.tres" id="3_a7c60"]
+[ext_resource type="AudioStream" uid="uid://cpi60870vkt2q" path="res://SFX/ladder.wav" id="17_gfv15"]
 [ext_resource type="LightmapGIData" uid="uid://cekg0eq80p26p" path="res://GameScene.lmbake" id="19_iqb76"]
 [ext_resource type="PackedScene" uid="uid://b2b52r0gphun8" path="res://Actors/map.tscn" id="20_35phv"]
 [ext_resource type="PackedScene" uid="uid://c21rramlm0gas" path="res://Actors/tree.tscn" id="23_adboj"]
@@ -729,9 +730,9 @@ shadow_enabled = true
 environment = ExtResource("3_a7c60")
 
 [node name="LightmapGI" type="LightmapGI" parent="."]
-visible = false
 layers = 1023
-quality = 0
+quality = 2
+bounces = 5
 generate_probes_subdiv = 3
 light_data = ExtResource("19_iqb76")
 
@@ -1029,6 +1030,7 @@ shape = SubResource("ConcavePolygonShape3D_2xixm")
 collision_layer = 2
 collision_mask = 0
 script = ExtResource("31_8iigv")
+climb_noise = ExtResource("17_gfv15")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Ladder/ladder/Ladder_Ladder_0/Interaction"]
 transform = Transform3D(1, 1.08573e-08, 1.36986e-09, -1.08573e-08, 0.968661, 0.248386, 1.36986e-09, -0.248386, 0.968661, -0.0072937, 0.580522, -0.150186)
