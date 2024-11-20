@@ -1,0 +1,13 @@
+Make moving freaks pure black, baked lighting doesnt work on them so just make em evil
+do something about the zfighting if possible
+see if anything can be done about the light leaking
+fix whatever flash happens when the credits start
+fix freak placement
+freak speed seems dependent on framerate, fix that
+
+garbage noise when walking in the big piles (maybe slowdown too?)
+movement below you while in south west room
+do something to make the ladder more visible (fake light baking on all windows?)
+creak on first F2 spot
+have freaks peek in when you are half way through falling into the basement
+better sounds on the freaks

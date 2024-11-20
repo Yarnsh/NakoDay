@@ -732,7 +732,7 @@ environment = ExtResource("3_a7c60")
 [node name="LightmapGI" type="LightmapGI" parent="."]
 layers = 1023
 quality = 2
-bounces = 5
+use_texture_for_bounces = false
 generate_probes_subdiv = 3
 light_data = ExtResource("19_iqb76")
 
@@ -2859,7 +2859,7 @@ shape = SubResource("BoxShape3D_wpgju")
 transform = Transform3D(-0.257839, -0.952448, 0.162366, 0.387788, -0.255933, -0.885505, 0.884952, -0.165354, 0.435337, -4.71221, 0.178277, 3.7038)
 
 [node name="Freak5" parent="ActiveFreaks/Freaktivator3" instance=ExtResource("81_q4ljd")]
-transform = Transform3D(0.915759, 0.216309, 0.338518, 0.387788, -0.255933, -0.885505, -0.104905, 0.942183, -0.318255, -5.2141, 0.178277, 0.0244882)
+transform = Transform3D(0.915759, 0.216309, 0.338518, 0.387788, -0.255933, -0.885505, -0.104905, 0.942183, -0.318255, -5.2141, 0.246644, 0.0244882)
 
 [node name="Freak4" parent="ActiveFreaks/Freaktivator3" instance=ExtResource("81_q4ljd")]
 transform = Transform3D(0.918633, -0.323779, 0.226452, 0.278285, 0.937059, 0.210899, -0.280483, -0.130721, 0.950916, 4.58047, -0.117474, -1.06554)
