@@ -35,6 +35,8 @@
 - Choir Sting 4 by nomiqbomi -- https://freesound.org/s/578326/ -- License: Creative Commons 0
 - slap_concrete_03.wav by movingplaid -- https://freesound.org/s/88553/ -- License: Attribution 4.0
 - steps on squeeky wooden attic ladder.wav by pointnemoprod -- https://freesound.org/s/693244/ -- License: Creative Commons 0
+- Cracking Knuckles by Clearwavsound -- https://freesound.org/s/524608/ -- License: Attribution 3.0
+- Zombie_007.wav by jayroo9 -- https://freesound.org/s/541617/ -- License: Attribution NonCommercial 4.0
 
 ### Decal textures
 
