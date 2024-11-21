@@ -15,9 +15,11 @@ func _process(delta):
 		
 		if credits.global_position.y + credits.size.y <= 0.0:
 			get_tree().quit()
+		
+		poloroids.visible = visible
 
 func start_credits():
-	credits.global_position.y = size.y + 30
+	credits.global_position.y = size.y + 80
 	
 	sides[0].position.x = size.x * 0.35
 	sides[1].position.x = size.x * -0.35
@@ -60,4 +62,3 @@ func start_credits():
 
 func _on_visibility_changed():
 	credits.visible = visible
-	poloroids.visible = visible

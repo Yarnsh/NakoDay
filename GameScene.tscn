@@ -1,4 +1,4 @@
-[gd_scene load_steps=150 format=3 uid="uid://bhplchb2q2ngm"]
+[gd_scene load_steps=151 format=3 uid="uid://bhplchb2q2ngm"]
 
 [ext_resource type="Script" path="res://game_scene.gd" id="1_xitn6"]
 [ext_resource type="PackedScene" uid="uid://cn5ae0e1bge3n" path="res://player_stuff.tscn" id="2_iks5c"]
@@ -708,6 +708,9 @@ size = Vector3(3.68628, 0.0565796, 3.11047)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_iy4sk"]
 size = Vector3(5.6427, 1.92285, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_8b7vc"]
+size = Vector3(6.30719, 1.92285, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_tlayv"]
 size = Vector3(5.6427, 1.92285, 1)
@@ -2747,6 +2750,134 @@ light_bake_mode = 1
 shadow_enabled = true
 omni_range = 6.0
 
+[node name="NonBasement" type="Node3D" parent="WindowLights"]
+
+[node name="OmniLight3D2" type="OmniLight3D" parent="WindowLights/NonBasement"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.6506, -0.846369, -1.26949)
+light_color = Color(0.960784, 1, 0.909804, 1)
+light_energy = 0.1
+light_bake_mode = 1
+shadow_enabled = true
+omni_range = 6.0
+
+[node name="OmniLight3D4" type="OmniLight3D" parent="WindowLights/NonBasement"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.66137, -0.846369, -1.26949)
+light_color = Color(0.960784, 1, 0.909804, 1)
+light_energy = 0.1
+light_bake_mode = 1
+shadow_enabled = true
+omni_range = 6.0
+
+[node name="OmniLight3D5" type="OmniLight3D" parent="WindowLights/NonBasement"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.523777, -0.846369, -1.26949)
+light_color = Color(0.960784, 1, 0.909804, 1)
+light_energy = 0.1
+light_bake_mode = 1
+shadow_enabled = true
+omni_range = 6.0
+
+[node name="OmniLight3D6" type="OmniLight3D" parent="WindowLights/NonBasement"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.440299, -0.846369, -1.26949)
+light_color = Color(0.960784, 1, 0.909804, 1)
+light_energy = 0.1
+light_bake_mode = 1
+shadow_enabled = true
+omni_range = 6.0
+
+[node name="OmniLight3D7" type="OmniLight3D" parent="WindowLights/NonBasement"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.23368, -0.846369, -1.26949)
+light_color = Color(0.960784, 1, 0.909804, 1)
+light_energy = 0.1
+light_bake_mode = 1
+shadow_enabled = true
+omni_range = 6.0
+
+[node name="OmniLight3D8" type="OmniLight3D" parent="WindowLights/NonBasement"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.91033, -0.779699, -1.26949)
+light_color = Color(0.960784, 1, 0.909804, 1)
+light_energy = 0.15
+light_bake_mode = 1
+shadow_enabled = true
+omni_range = 6.0
+
+[node name="OmniLight3D9" type="OmniLight3D" parent="WindowLights/NonBasement"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.57047, -0.870602, -1.26949)
+light_color = Color(0.960784, 1, 0.909804, 1)
+light_energy = 0.15
+light_bake_mode = 1
+shadow_enabled = true
+omni_range = 6.0
+
+[node name="OmniLight3D3" type="OmniLight3D" parent="WindowLights/NonBasement"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.90055, -0.846369, -1.26949)
+light_color = Color(0.960784, 1, 0.909804, 1)
+light_energy = 0.1
+light_bake_mode = 1
+shadow_enabled = true
+omni_range = 6.0
+
+[node name="OmniLight3D10" type="OmniLight3D" parent="WindowLights/NonBasement"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.5566, -1.37097, 3.36956)
+light_color = Color(0.960784, 1, 0.909804, 1)
+light_energy = 0.03
+light_bake_mode = 1
+shadow_enabled = true
+omni_range = 3.0
+
+[node name="OmniLight3D11" type="OmniLight3D" parent="WindowLights/NonBasement"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.39053, -1.37097, 14.2498)
+light_color = Color(0.960784, 1, 0.909804, 1)
+light_energy = 0.05
+light_bake_mode = 1
+shadow_enabled = true
+omni_range = 3.0
+
+[node name="OmniLight3D12" type="OmniLight3D" parent="WindowLights/NonBasement"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.18545, -1.09556, 14.67)
+light_color = Color(0.960784, 1, 0.909804, 1)
+light_energy = 0.05
+light_bake_mode = 1
+shadow_enabled = true
+omni_range = 3.0
+
+[node name="OmniLight3D13" type="OmniLight3D" parent="WindowLights/NonBasement"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.35652, -1.09556, 14.67)
+light_color = Color(0.960784, 1, 0.909804, 1)
+light_energy = 0.05
+light_bake_mode = 1
+shadow_enabled = true
+omni_range = 3.0
+
+[node name="OmniLight3D14" type="OmniLight3D" parent="WindowLights/NonBasement"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.19794, 3.40891, 14.67)
+light_color = Color(0.960784, 1, 0.909804, 1)
+light_energy = 0.05
+light_bake_mode = 1
+shadow_enabled = true
+omni_range = 3.0
+
+[node name="OmniLight3D16" type="OmniLight3D" parent="WindowLights/NonBasement"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.19614, 3.40891, 14.6313)
+light_color = Color(0.960784, 1, 0.909804, 1)
+light_energy = 0.08
+light_bake_mode = 1
+shadow_enabled = true
+
+[node name="OmniLight3D17" type="OmniLight3D" parent="WindowLights/NonBasement"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.57644, 3.40891, 14.514)
+light_color = Color(0.960784, 1, 0.909804, 1)
+light_energy = 0.05
+light_bake_mode = 1
+shadow_enabled = true
+
+[node name="OmniLight3D15" type="OmniLight3D" parent="WindowLights/NonBasement"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.19794, 5.62732, 14.67)
+light_color = Color(0.960784, 1, 0.909804, 1)
+light_energy = 0.05
+light_bake_mode = 1
+shadow_enabled = true
+omni_range = 3.0
+
 [node name="InvisibleWalls" type="StaticBody3D" parent="."]
 collision_layer = 16
 collision_mask = 0
@@ -2826,46 +2957,56 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.86267, -6.29352, 10.1697)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.84746, 0.92749, 1.1377)
 shape = SubResource("BoxShape3D_iy4sk")
 
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="ActiveFreaks/Freaktivator"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.1797, 0.92749, -5.9813)
+shape = SubResource("BoxShape3D_8b7vc")
+
 [node name="Freak" parent="ActiveFreaks/Freaktivator" instance=ExtResource("81_q4ljd")]
-transform = Transform3D(0.86921, -0.419655, 0.261465, 0.462906, 0.876515, -0.132059, -0.173759, 0.235821, 0.956136, -0.2701, -0.174404, 3.83901)
+transform = Transform3D(-0.0229889, -0.205453, -0.978397, -0.00482608, 0.978667, -0.205396, 0.999724, 0, -0.02349, -0.370778, -0.12944, 3.83901)
 
 [node name="Freak2" parent="ActiveFreaks/Freaktivator" instance=ExtResource("81_q4ljd")]
-transform = Transform3D(-0.112426, 0.382246, 0.917196, 0.0601867, 0.923973, -0.377693, -0.991836, 0.0127406, -0.126884, 0.855914, -0.174404, 3.83901)
+transform = Transform3D(1, 0, 0, 0, 0.981614, -0.190878, 0, 0.190878, 0.981614, 0.947958, -0.12946, 3.69445)
+
+[node name="Freak3" parent="ActiveFreaks/Freaktivator" instance=ExtResource("81_q4ljd")]
+transform = Transform3D(1, 0, 0, 0, 0.891695, 0.452637, 0, -0.452637, 0.891695, 5.08757, -0.12946, 2.00199)
 
 [node name="Freaktivator2" parent="ActiveFreaks" instance=ExtResource("82_amspt")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.86267, -6.29352, -0.089113)
 
 [node name="CollisionShape3D" parent="ActiveFreaks/Freaktivator2" index="0"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.75849, 0.92749, 5.50763)
+transform = Transform3D(-0.0751528, 0, 0.997172, 0, 1, 0, -0.997172, 0, -0.0751528, -1.83149, 0.92749, 1.9765)
 shape = SubResource("BoxShape3D_tlayv")
 
 [node name="Freak" parent="ActiveFreaks/Freaktivator2" instance=ExtResource("81_q4ljd")]
-transform = Transform3D(-0.0345247, -0.041883, 0.998526, -0.124575, 0.99151, 0.0372815, -0.991609, -0.123104, -0.039449, 2.25172, -0.00808382, -0.455307)
+transform = Transform3D(0.183955, 0.45877, -0.869305, -0.0531877, 0.887748, 0.457247, 0.981494, -0.0378768, 0.187707, 5.15057, -0.129473, 1.30635)
+
+[node name="Freak4" parent="ActiveFreaks/Freaktivator2" instance=ExtResource("81_q4ljd")]
+transform = Transform3D(-0.968672, 0.183345, 0.167508, 0.19029, 0.114564, 0.975021, 0.159574, 0.976351, -0.145863, 2.30949, -0.129473, 1.55608)
 
 [node name="Freak3" parent="ActiveFreaks/Freaktivator2" instance=ExtResource("81_q4ljd")]
-transform = Transform3D(0.828696, 0.0833085, 0.553463, 0.142478, 0.924884, -0.352547, -0.54126, 0.371011, 0.754579, 2.25172, -0.00808382, 10.446)
+transform = Transform3D(0.981319, -0.182242, -0.061643, 0.19096, 0.88377, 0.427183, -0.0233725, -0.430974, 0.902061, 2.52724, -0.129503, 9.13044)
 
 [node name="Freak2" parent="ActiveFreaks/Freaktivator2" instance=ExtResource("81_q4ljd")]
-transform = Transform3D(-0.112426, 0.382246, 0.917196, 0.0601867, 0.923973, -0.377693, -0.991836, 0.0127406, -0.126884, 5.12591, -0.0452771, 3.83901)
+transform = Transform3D(0.986729, 0.162379, 0, -0.161094, 0.978918, -0.125576, -0.0203908, 0.123909, 0.992084, 5.08287, -0.129462, 7.4178)
 
 [node name="Freaktivator3" parent="ActiveFreaks" instance=ExtResource("82_amspt")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.82278, -6.29352, -0.089113)
 
 [node name="CollisionShape3D" parent="ActiveFreaks/Freaktivator3" index="0"]
-transform = Transform3D(-0.477297, 0, -0.878742, 0, 1, 0, 0.878742, 0, -0.477297, 1.15262, 0.92749, 2.03226)
+transform = Transform3D(-0.0048174, 0, -0.999988, 0, 1, 0, 0.999988, 0, -0.0048174, 2.36608, 0.92749, 2.03226)
 shape = SubResource("BoxShape3D_wpgju")
 
 [node name="Freak3" parent="ActiveFreaks/Freaktivator3" instance=ExtResource("81_q4ljd")]
-transform = Transform3D(-0.257839, -0.952448, 0.162366, 0.387788, -0.255933, -0.885505, 0.884952, -0.165354, 0.435337, -4.71221, 0.178277, 3.7038)
+transform = Transform3D(0.932129, -0.350521, 0.0909439, 0.12576, 0.548844, 0.826411, -0.339588, -0.758885, 0.555674, -5.92973, -0.129417, 0.28566)
 
 [node name="Freak5" parent="ActiveFreaks/Freaktivator3" instance=ExtResource("81_q4ljd")]
-transform = Transform3D(0.915759, 0.216309, 0.338518, 0.387788, -0.255933, -0.885505, -0.104905, 0.942183, -0.318255, -5.2141, 0.246644, 0.0244882)
+transform = Transform3D(1, 0, 0, 0, 0.0556298, -0.998451, 0, 0.998451, 0.0556298, 8.39514, 0.101376, 0.0244882)
 
 [node name="Freak4" parent="ActiveFreaks/Freaktivator3" instance=ExtResource("81_q4ljd")]
-transform = Transform3D(0.918633, -0.323779, 0.226452, 0.278285, 0.937059, 0.210899, -0.280483, -0.130721, 0.950916, 4.58047, -0.117474, -1.06554)
+transform = Transform3D(1, 0, 0, 0, 0.969842, 0.243734, 0, -0.243734, 0.969842, 4.58047, -0.117474, -1.06554)
 
 [node name="Freak2" parent="ActiveFreaks/Freaktivator3" instance=ExtResource("81_q4ljd")]
-transform = Transform3D(0.91742, -0.200306, -0.343827, 0.0601867, 0.923973, -0.377693, 0.393341, 0.32581, 0.859727, 4.07662, -0.0452771, 7.41092)
+transform = Transform3D(0.799468, -0.407303, -0.441537, 0.202069, 0.874537, -0.440854, 0.565702, 0.263228, 0.781468, 4.56451, -0.129426, 7.2047)
 
 [node name="Freaktivator4" parent="ActiveFreaks" instance=ExtResource("82_amspt")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.86321, -6.29352, 7.95521)
@@ -2875,13 +3016,19 @@ transform = Transform3D(-0.999949, 0, 0.0100878, 0, 1, 0, -0.0100878, 0, -0.9999
 shape = SubResource("BoxShape3D_wpgju")
 
 [node name="Freak3" parent="ActiveFreaks/Freaktivator4" instance=ExtResource("81_q4ljd")]
-transform = Transform3D(-0.93019, -0.150727, 0.334706, -0.166106, 0.98595, -0.0176299, -0.327346, -0.0719959, -0.942157, -5.03274, 0.0376172, 6.2348)
+transform = Transform3D(-0.0350259, -0.276962, -0.960241, -0.0100958, 0.96088, -0.276778, 0.999335, -8.49111e-10, -0.0364519, -4.82589, -0.129467, 3.27839)
 
 [node name="Freak4" parent="ActiveFreaks/Freaktivator4" instance=ExtResource("81_q4ljd")]
-transform = Transform3D(-0.90423, 0.313264, 0.29023, 0.274248, 0.946933, -0.167646, -0.327346, -0.0719959, -0.942157, 0.384285, 0.0507069, 6.12092)
+transform = Transform3D(0.964257, -0.264967, 0, 0.264967, 0.964257, 0, 0, 0, 0.999999, 0.482266, -0.129448, 6.12092)
+
+[node name="Freak6" parent="ActiveFreaks/Freaktivator4" instance=ExtResource("81_q4ljd")]
+transform = Transform3D(0.971829, 0.235685, 0, -0.235685, 0.971829, 0, 0, 0, 0.999999, -0.678329, -0.129448, 6.12092)
 
 [node name="Freak5" parent="ActiveFreaks/Freaktivator4" instance=ExtResource("81_q4ljd")]
-transform = Transform3D(-0.898521, 0.374436, 0.229037, 0.300806, 0.905296, -0.299927, -0.319649, -0.200595, -0.926059, -2.65671, -0.0171094, -4.80581)
+transform = Transform3D(-0.256035, -0.551166, 0.794142, -0.245096, 0.831695, 0.498209, -0.93508, -0.0670826, -0.348031, -4.97868, -0.129457, -4.27517)
+
+[node name="Freak7" parent="ActiveFreaks/Freaktivator4" instance=ExtResource("81_q4ljd")]
+transform = Transform3D(0.00196745, -0.513029, 0.858369, -0.220622, 0.836998, 0.500761, -0.975357, -0.190361, -0.111539, -4.97868, -0.129457, -0.744612)
 
 [node name="InactiveFreaks" type="Node3D" parent="."]
 

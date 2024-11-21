@@ -10,6 +10,7 @@ var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 
 @onready var activate_noise = $ActivateNoise
 @onready var hit_noise = $SlapNoise
+@onready var loop_noise = $Loop
 
 var alive = true
 var attacking = false
@@ -18,6 +19,7 @@ var attack_time = 0
 var mode = 0
 var prev_mode = 0
 var wake_time = 0
+var root_vel = Vector3.ZERO
 
 const ATTACK_DISTANCE = 1.0
 const HIT_DISTANCE = 1.2
@@ -30,12 +32,17 @@ func _ready():
 func _disable_character_collision():
 	set_collision_layer_value(4, false)
 	set_collision_mask_value(1, false)
+	set_collision_mask_value(4, false)
 
 func _enable_character_collision():
 	global_rotation.x = 0.0
 	global_rotation.z = 0.0
 	set_collision_layer_value(4, true)
 	set_collision_mask_value(1, true)
+	set_collision_mask_value(4, true)
+
+func _process(delta):
+	root_vel += anim.get_root_motion_position()
 
 func _physics_process(delta):
 	if !alive:
@@ -46,6 +53,7 @@ func _physics_process(delta):
 	elif mode == 1: # chasing
 		if prev_mode == 0:
 			activate_noise.play()
+			loop_noise.play()
 		chase_mode(delta)
 	elif mode == 2: # randomized wakeup wait
 		if prev_mode == 0:
@@ -55,6 +63,7 @@ func _physics_process(delta):
 			prev_mode = 0 # dirty hack
 			return
 	
+	root_vel = Vector3.ZERO
 	prev_mode = mode
 
 func static_mode(delta):
@@ -72,7 +81,7 @@ func chase_mode(delta):
 			if is_on_floor():
 				anim.play("Walk")
 				look_at_from_position(Vector3(global_position.x, p.global_position.y, global_position.z), p.global_position, Vector3.UP)
-				velocity = quaternion * armature.quaternion * (anim.get_root_motion_position())
+				velocity = quaternion * armature.quaternion * (root_vel)
 				velocity.y = 0.0
 			else:
 				pass # some kinda fall logic
@@ -102,7 +111,7 @@ func destroy():
 	alive = false
 	armature.hide()
 	particles.emitting = true
-	# TODO: death sound effects
+	loop_noise.stop()
 
 func _on_animation_player_animation_finished(anim_name):
 	if anim_name == "Swipe" and attacking:
