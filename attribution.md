@@ -37,6 +37,7 @@
 - steps on squeeky wooden attic ladder.wav by pointnemoprod -- https://freesound.org/s/693244/ -- License: Creative Commons 0
 - Cracking Knuckles by Clearwavsound -- https://freesound.org/s/524608/ -- License: Attribution 3.0
 - Zombie_007.wav by jayroo9 -- https://freesound.org/s/541617/ -- License: Attribution NonCommercial 4.0
+- Lego Rustling Sound.wav by Tallis0410 -- https://freesound.org/s/707522/ -- License: Creative Commons 0
 
 ### Decal textures
 
