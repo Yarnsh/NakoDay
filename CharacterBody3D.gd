@@ -15,6 +15,9 @@ extends CharacterBody3D
 @onready var stony_foot_step = load("res://SFX/stone_footstep.wav")
 @export var grassy_collider : StaticBody3D
 
+@onready var rustling_foot = $Foot2
+var rustle_movement = false
+
 @onready var interact_1 = $"RootCam/InteractButton"
 @onready var interact_2 = $"RootCam/InteractButton2"
 
@@ -40,6 +43,7 @@ const CUTSCENE_STATE = 1
 func _ready():
 	Global.player = self
 	fade_anim.play("FadeIn")
+	rustling_foot.set_stream_paused(true)
 
 func hit():
 	play_sfx(screams[randi_range(0,2)], 0.0)
@@ -108,6 +112,11 @@ func _physics_process(delta):
 					was_moving = true
 			
 			velocity = velocity.normalized() * SPEED
+			
+			if was_moving and rustle_movement and !rustling_foot.playing:
+				rustling_foot.set_stream_paused(false)
+			elif (!was_moving or !rustle_movement) and rustling_foot.playing:
+				rustling_foot.set_stream_paused(true)
 			
 			if ((Input.is_action_just_released("left")
 				or Input.is_action_just_released("right")

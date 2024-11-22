@@ -1,4 +1,4 @@
-[gd_scene load_steps=151 format=3 uid="uid://bhplchb2q2ngm"]
+[gd_scene load_steps=178 format=3 uid="uid://bhplchb2q2ngm"]
 
 [ext_resource type="Script" path="res://game_scene.gd" id="1_xitn6"]
 [ext_resource type="PackedScene" uid="uid://cn5ae0e1bge3n" path="res://player_stuff.tscn" id="2_iks5c"]
@@ -87,6 +87,8 @@
 [ext_resource type="Script" path="res://FallArea.gd" id="82_ujspk"]
 [ext_resource type="Script" path="res://ShowOnStartup.gd" id="83_rajoj"]
 [ext_resource type="PackedScene" uid="uid://oy8af4i45xwf" path="res://Actors/static_freak.tscn" id="84_wmg7v"]
+[ext_resource type="Script" path="res://Rustler.gd" id="88_evwk0"]
+[ext_resource type="Script" path="res://CrawlScare.gd" id="89_7xrjj"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_chkya"]
 resource_name = "Planks_SHD"
@@ -274,6 +276,12 @@ size = Vector3(2.91211, 3.04004, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_mw2re"]
 size = Vector3(3.09387, 1, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_c216n"]
+size = Vector3(2.27838, 1, 4.49451)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_2gykc"]
+size = Vector3(0.89505, 0.704956, 1.2758)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_rdbv5"]
 size = Vector3(2.74951, 0.740234, 5.64856)
@@ -718,6 +726,115 @@ size = Vector3(5.6427, 1.92285, 1)
 [sub_resource type="BoxShape3D" id="BoxShape3D_wpgju"]
 size = Vector3(8.43729, 1.92285, 1)
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_j6ql3"]
+size = Vector3(4.69824, 1, 2.66113)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_yd7er"]
+size = Vector3(1.27222, 1, 1.7467)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_bymh3"]
+size = Vector3(1.33661, 1, 2.47977)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_tx3ni"]
+size = Vector3(1.33661, 1, 0.474155)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ohwox"]
+size = Vector3(0.805878, 1, 1.26686)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ou4ou"]
+size = Vector3(0.742294, 1, 1.29994)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_6qgbq"]
+size = Vector3(9.7777, 1, 2.55677)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_6twjq"]
+size = Vector3(1.73764, 1, 3.36432)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_x0snv"]
+size = Vector3(0.663414, 1, 0.994401)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_utogq"]
+size = Vector3(0.815105, 1, 3.2967)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_20wt2"]
+size = Vector3(2.80558, 1, 3.01212)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_488k2"]
+size = Vector3(2.96578, 1, 2.30528)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_81iut"]
+size = Vector3(1.22654, 1, 1.26494)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_6qcbm"]
+size = Vector3(2.90148, 1, 2.97336)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_66n6s"]
+size = Vector3(1.71109, 1, 5.27447)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_eoh3x"]
+size = Vector3(5.623, 1, 2.72317)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_uol58"]
+size = Vector3(0.954526, 1, 0.660709)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ufdm8"]
+size = Vector3(1.53957, 1, 1.29715)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ffeds"]
+size = Vector3(1.3733, 1, 1.29715)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_f4gen"]
+size = Vector3(3.69287, 1, 1)
+
+[sub_resource type="Animation" id="Animation_fcr6q"]
+resource_name = "Scare"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Freak:mode")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [3, -1]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Freak:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("AudioStreamPlayer3D:playing")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_18y1v"]
+resource_name = "I_HATE_GODOT"
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_hjg1l"]
+_data = {
+"I_HATE_GODOT": SubResource("Animation_18y1v"),
+"Scare": SubResource("Animation_fcr6q")
+}
+
 [node name="GameScene" type="Node3D"]
 script = ExtResource("1_xitn6")
 player_prefab = ExtResource("2_iks5c")
@@ -1048,12 +1165,14 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.57313, -0.486801)
 transform = Transform3D(-1, -8.74228e-08, 3.82137e-15, 0, -4.37114e-08, -1, 8.74228e-08, -1, 4.37114e-08, 0.0487053, 0.626913, 2.18989)
 size = Vector3(3.09479, 0.466843, 2.54773)
 albedo_mix = 0.91
+cull_mask = 1048573
 
 [node name="Leak17" parent="Decals" instance=ExtResource("32_y2563")]
 transform = Transform3D(-1, -8.74228e-08, 3.82137e-15, 0, -4.37114e-08, -1, 8.74228e-08, -1, 4.37114e-08, 0.19556, 0.626913, 5.04599)
 size = Vector3(9.6089, 0.0267391, 2.54773)
 modulate = Color(0, 0.556863, 0.12549, 1)
 albedo_mix = 0.74
+cull_mask = 1048573
 
 [node name="Leak34" parent="Decals" instance=ExtResource("32_y2563")]
 transform = Transform3D(-1, -8.74228e-08, 3.82137e-15, 0, -4.37114e-08, -1, 8.74228e-08, -1, 4.37114e-08, -7.37074, 0.219962, 5.69653)
@@ -1061,178 +1180,218 @@ size = Vector3(4.89332, 0.0267391, 3.36163)
 modulate = Color(0, 0.556863, 0.12549, 1)
 albedo_mix = 0.74
 normal_fade = 0.761
+cull_mask = 1048573
 
 [node name="Leak29" parent="Decals" instance=ExtResource("32_y2563")]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 2.94388, 0.250662, 14.5006)
 size = Vector3(9.02893, 0.0267391, 3.30023)
 modulate = Color(0, 0.556863, 0.12549, 1)
 albedo_mix = 0.74
+cull_mask = 1048573
 
 [node name="Leak32" parent="Decals" instance=ExtResource("32_y2563")]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 1.15143, -0.91311, 11.2607)
 size = Vector3(5.44403, 0.0267391, 5.62778)
 modulate = Color(0, 0.556863, 0.12549, 1)
 albedo_mix = 0.74
+cull_mask = 1048573
 
 [node name="Leak16" parent="Decals" instance=ExtResource("32_y2563")]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -3.10775, 0.618399, -1.02434)
 size = Vector3(9.34352, 0.205101, 2.5307)
 normal_fade = 0.447
+cull_mask = 1048573
 
 [node name="Leak13" parent="Decals" instance=ExtResource("32_y2563")]
 transform = Transform3D(-1, -8.74228e-08, 3.82137e-15, 0, -4.37114e-08, -1, 8.74228e-08, -1, 4.37114e-08, 0.256168, 4.84423, 2.18989)
 size = Vector3(15.4227, 0.466843, 5.24457)
 normal_fade = 0.381
+cull_mask = 1048573
 
 [node name="Leak57" parent="Decals" instance=ExtResource("32_y2563")]
 transform = Transform3D(-1, -8.74228e-08, 3.82137e-15, 0, -4.37114e-08, -1, 8.74228e-08, -1, 4.37114e-08, -7.12828, 8.27198, -1.65551)
 size = Vector3(10.7729, 0.466843, 1.97482)
 albedo_mix = 0.87
 normal_fade = 0.381
+cull_mask = 1048573
 
 [node name="Leak58" parent="Decals" instance=ExtResource("32_y2563")]
 transform = Transform3D(-1, -8.74228e-08, 3.82137e-15, 0, -4.37114e-08, -1, 8.74228e-08, -1, 4.37114e-08, 2.7161, 8.27198, -1.65551)
 size = Vector3(10.7729, 0.466843, 1.97482)
 albedo_mix = 0.87
 normal_fade = 0.381
+cull_mask = 1048573
 
 [node name="Leak59" parent="Decals" instance=ExtResource("32_y2563")]
 transform = Transform3D(-1, -8.74228e-08, 3.82137e-15, 0, -4.37114e-08, -1, 8.74228e-08, -1, 4.37114e-08, 12.7976, 8.27198, -1.65551)
 size = Vector3(10.7729, 0.466843, 1.97482)
 albedo_mix = 0.87
 normal_fade = 0.381
+cull_mask = 1048573
 
 [node name="Leak60" parent="Decals" instance=ExtResource("32_y2563")]
 transform = Transform3D(-4.37114e-08, -1, 4.37114e-08, 0, -4.37114e-08, -1, 1, -4.37114e-08, 1.91069e-15, -11.9541, 8.27198, 10.1064)
 size = Vector3(10.7729, 0.466843, 1.97482)
 albedo_mix = 0.87
 normal_fade = 0.381
+cull_mask = 1048573
 
 [node name="Leak61" parent="Decals" instance=ExtResource("32_y2563")]
 transform = Transform3D(-4.37114e-08, -1, 4.37114e-08, 0, -4.37114e-08, -1, 1, -4.37114e-08, 1.91069e-15, -12.1154, 8.27198, 0.263307)
 size = Vector3(10.7729, 0.466843, 1.97482)
 albedo_mix = 0.87
 normal_fade = 0.381
+cull_mask = 1048573
 
 [node name="Leak3" parent="Decals" instance=ExtResource("32_y2563")]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -0.00360781, 0.626913, 8.00119)
 size = Vector3(3.02039, 0.545788, 2.54773)
+cull_mask = 1048573
 
 [node name="Leak4" parent="Decals" instance=ExtResource("32_y2563")]
 transform = Transform3D(-4.37114e-08, 1, -4.37114e-08, 0, -4.37114e-08, -1, -1, -4.37114e-08, 1.91069e-15, 1.41042, 0.626913, 6.50467)
 size = Vector3(2.89203, 0.545788, 2.54773)
+cull_mask = 1048573
 
 [node name="Leak81" parent="Decals" instance=ExtResource("32_y2563")]
 transform = Transform3D(-3.85194e-08, 0.881221, 0.472705, -2.06626e-08, 0.472705, -0.881221, -1, -4.37114e-08, 2.06878e-15, -11.5183, 2.23762, 0.845625)
 size = Vector3(1.27172, 0.785467, 1.11664)
+cull_mask = 1048573
 
 [node name="Leak83" parent="Decals" instance=ExtResource("32_y2563")]
 transform = Transform3D(1, 0, 0, 0, 0.472551, -0.881303, 0, 0.881303, 0.472551, -5.91775, 2.29569, -0.986404)
 size = Vector3(1.27172, 0.539706, 1.11664)
+cull_mask = 1048573
 
 [node name="Leak87" parent="Decals" instance=ExtResource("32_y2563")]
 transform = Transform3D(1, 0, 0, 0, 0.472551, -0.881303, 0, 0.881303, 0.472551, 5.90008, 2.23762, -1.0947)
 size = Vector3(1.27172, 0.785467, 1.11664)
+cull_mask = 1048573
 
 [node name="Leak88" parent="Decals" instance=ExtResource("32_y2563")]
 transform = Transform3D(-4.37114e-08, -0.881303, -0.472551, 0, 0.472551, -0.881304, 1, -3.8523e-08, -2.06559e-08, 11.222, 2.23762, 0.831759)
 size = Vector3(1.27172, 0.785467, 1.11664)
+cull_mask = 1048573
 
 [node name="Leak89" parent="Decals" instance=ExtResource("32_y2563")]
 transform = Transform3D(-4.37114e-08, -0.881303, -0.472551, 0, 0.472551, -0.881304, 1, -3.8523e-08, -2.06559e-08, 11.5122, 2.23762, 3.77621)
 size = Vector3(1.27172, 0.785467, 1.11664)
+cull_mask = 1048573
 
 [node name="Leak91" parent="Decals" instance=ExtResource("32_y2563")]
 transform = Transform3D(-4.37114e-08, -0.881303, -0.472551, 0, 0.472551, -0.881304, 1, -3.8523e-08, -2.06559e-08, 11.5122, 2.23762, 9.68693)
 size = Vector3(1.27172, 0.785467, 1.11664)
+cull_mask = 1048573
 
 [node name="Leak90" parent="Decals" instance=ExtResource("32_y2563")]
 transform = Transform3D(-2.75914e-08, 0.922807, -0.385262, 3.39028e-08, -0.385262, -0.922807, -1, -3.8523e-08, -2.06559e-08, 11.5122, 2.23762, 6.76606)
 size = Vector3(1.27172, 0.785467, 1.11664)
+cull_mask = 1048573
 
 [node name="Leak92" parent="Decals" instance=ExtResource("32_y2563")]
 transform = Transform3D(-2.75914e-08, 0.922807, -0.385262, 3.39028e-08, -0.385262, -0.922807, -1, -3.8523e-08, -2.06559e-08, 11.4897, 2.24318, 12.68)
 size = Vector3(1.27172, 0.785467, 0.999863)
+cull_mask = 1048573
 
 [node name="Leak95" parent="Decals" instance=ExtResource("32_y2563")]
 transform = Transform3D(1, -6.77193e-09, -3.3737e-08, -3.3737e-08, -0.385906, -0.922538, -6.77193e-09, 0.922538, -0.385906, 2.70509, 2.18774, 14.7057)
 size = Vector3(1.27172, 0.785467, 0.999863)
+cull_mask = 1048573
 
 [node name="Leak96" parent="Decals" instance=ExtResource("32_y2563")]
 transform = Transform3D(1, -6.77193e-09, -3.3737e-08, -3.3737e-08, -0.385906, -0.922538, -6.77193e-09, 0.922538, -0.385906, 4.19256, 2.30346, 14.6521)
 size = Vector3(0.440917, 0.901523, 0.999863)
+cull_mask = 1048573
 
 [node name="Leak97" parent="Decals" instance=ExtResource("32_y2563")]
 transform = Transform3D(1, -6.77193e-09, -3.3737e-08, -3.3737e-08, -0.385906, -0.922538, -6.77193e-09, 0.922538, -0.385906, 2.70509, 4.49271, 14.7057)
 size = Vector3(1.27172, 0.785467, 0.999863)
+cull_mask = 1048573
 
 [node name="Leak98" parent="Decals" instance=ExtResource("32_y2563")]
 transform = Transform3D(1, -6.77193e-09, -3.3737e-08, -3.3737e-08, -0.385906, -0.922538, -6.77193e-09, 0.922538, -0.385906, 4.19256, 4.60843, 14.6521)
 size = Vector3(0.440917, 0.901523, 0.999863)
+cull_mask = 1048573
 
 [node name="Leak93" parent="Decals" instance=ExtResource("32_y2563")]
 transform = Transform3D(1, -6.77193e-09, -3.3737e-08, -3.3737e-08, -0.385906, -0.922538, -6.77193e-09, 0.922538, -0.385906, 9.60558, 2.08762, 14.5501)
 size = Vector3(1.27172, 0.645175, 0.999863)
+cull_mask = 1048573
 
 [node name="Leak94" parent="Decals" instance=ExtResource("32_y2563")]
 transform = Transform3D(1, -6.77193e-09, -3.3737e-08, -3.3737e-08, -0.385906, -0.922538, -6.77193e-09, 0.922538, -0.385906, 5.88563, 2.28286, 14.636)
 size = Vector3(1.27172, 0.645175, 0.999863)
+cull_mask = 1048573
 
 [node name="Leak84" parent="Decals" instance=ExtResource("32_y2563")]
 transform = Transform3D(1, 0, 0, 0, 0.472551, -0.881303, 0, 0.881303, 0.472551, -9.60772, 1.57394, -1.01287)
 size = Vector3(1.27172, 0.599765, 1.11664)
+cull_mask = 1048573
 
 [node name="Leak106" parent="Decals" instance=ExtResource("32_y2563")]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -9.60772, -2.58526, -1.45577)
 size = Vector3(1.27172, 0.373125, 1.26622)
+cull_mask = 1048573
 
 [node name="Leak107" parent="Decals" instance=ExtResource("32_y2563")]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -2.97803, -2.58526, -1.45577)
 size = Vector3(1.27172, 0.373125, 1.26622)
+cull_mask = 1048573
 
 [node name="Leak108" parent="Decals" instance=ExtResource("32_y2563")]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 5.89249, -2.58526, -1.45577)
 size = Vector3(1.27172, 0.373125, 1.26622)
+cull_mask = 1048573
 
 [node name="Leak109" parent="Decals" instance=ExtResource("32_y2563")]
 transform = Transform3D(-1, -8.74228e-08, 3.82137e-15, 0, -4.37114e-08, -1, 8.74228e-08, -1, 4.37114e-08, 9.60998, -2.58526, -1.45577)
 size = Vector3(1.27172, 0.373125, 1.26622)
+cull_mask = 1048573
 
 [node name="Leak85" parent="Decals" instance=ExtResource("32_y2563")]
 transform = Transform3D(1, 0, 0, 0, 0.472551, -0.881303, 0, 0.881303, 0.472551, -2.96877, 1.60578, -0.953484)
 size = Vector3(1.27172, 0.464999, 1.11664)
+cull_mask = 1048573
 
 [node name="Leak86" parent="Decals" instance=ExtResource("32_y2563")]
 transform = Transform3D(1, 0, 0, 0, 0.472551, -0.881303, 0, 0.881303, 0.472551, -0.0142006, 1.50673, -1.08219)
 size = Vector3(1.27172, 0.785467, 1.06369)
+cull_mask = 1048573
 
 [node name="Leak82" parent="Decals" instance=ExtResource("32_y2563")]
 transform = Transform3D(-3.85194e-08, 0.881221, 0.472705, -2.06626e-08, 0.472705, -0.881221, -1, -4.37114e-08, 2.06878e-15, -11.5183, 2.23762, 3.79517)
 size = Vector3(1.28869, 0.785467, 1.11664)
+cull_mask = 1048573
 
 [node name="Leak22" parent="Decals" instance=ExtResource("32_y2563")]
 transform = Transform3D(-4.37114e-08, 1, -4.37114e-08, 0, -4.37114e-08, -1, -1, -4.37114e-08, 1.91069e-15, 7.54694, 0.626913, 0.607784)
 size = Vector3(3.25363, 0.320529, 2.54773)
+cull_mask = 1048573
 
 [node name="Leak23" parent="Decals" instance=ExtResource("32_y2563")]
 transform = Transform3D(-4.37114e-08, 1, -4.37114e-08, 0, -4.37114e-08, -1, -1, -4.37114e-08, 1.91069e-15, 7.54694, 0.380606, 5.15434)
 size = Vector3(6.26189, 0.320529, 3.04034)
+cull_mask = 1048573
 
 [node name="Leak5" parent="Decals" instance=ExtResource("32_y2563")]
 transform = Transform3D(-4.37114e-08, 1, -4.37114e-08, 0, -4.37114e-08, -1, -1, -4.37114e-08, 1.91069e-15, -1.4215, 0.626913, 6.50815)
 size = Vector3(2.88507, 0.545788, 2.54773)
+cull_mask = 1048573
 
 [node name="Leak6" parent="Decals" instance=ExtResource("32_y2563")]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -0.00360781, 6.17294, 8.00119)
 size = Vector3(3.02039, 0.545788, 2.54773)
+cull_mask = 1048573
 
 [node name="Leak9" parent="Decals" instance=ExtResource("32_y2563")]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -0.00360781, 6.04568, 5.22419)
 size = Vector3(3.02039, 0.635959, 2.54773)
+cull_mask = 1048573
 
 [node name="Leak7" parent="Decals" instance=ExtResource("32_y2563")]
 transform = Transform3D(-4.37114e-08, 1, -4.37114e-08, 0, -4.37114e-08, -1, -1, -4.37114e-08, 1.91069e-15, 1.41042, 6.17294, 6.51029)
 size = Vector3(2.8808, 0.545788, 2.54773)
+cull_mask = 1048573
 
 [node name="Leak46" parent="Decals" instance=ExtResource("32_y2563")]
 transform = Transform3D(-4.37114e-08, 1, -4.37114e-08, 0, -4.37114e-08, -1, -1, -4.37114e-08, 1.91069e-15, 4.52797, 6.17294, 12.9094)
@@ -1240,6 +1399,7 @@ size = Vector3(3.72399, 0.213351, 2.54773)
 albedo_mix = 0.78
 upper_fade = 1e-05
 lower_fade = 1e-05
+cull_mask = 1048573
 
 [node name="Leak47" parent="Decals" instance=ExtResource("32_y2563")]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 3.0537, 5.51452, 11.1555)
@@ -1247,335 +1407,400 @@ size = Vector3(3.15301, 0.213351, 3.86456)
 albedo_mix = 0.78
 upper_fade = 1e-05
 lower_fade = 1e-05
+cull_mask = 1048573
 
 [node name="Leak41" parent="Decals" instance=ExtResource("32_y2563")]
 transform = Transform3D(-4.37114e-08, 1, -4.37114e-08, 0, -4.37114e-08, -1, -1, -4.37114e-08, 1.91069e-15, 1.55827, 5.71006, 11.338)
 size = Vector3(7.07604, 0.193454, 3.70926)
 albedo_mix = 0.77
 normal_fade = 0.225
+cull_mask = 1048573
 
 [node name="Leak42" parent="Decals" instance=ExtResource("32_y2563")]
 transform = Transform3D(-4.37114e-08, -1, 4.37114e-08, 0, -4.37114e-08, -1, 1, -4.37114e-08, 1.91069e-15, 7.43383, 5.71006, 4.99784)
 size = Vector3(12.7348, 0.193454, 3.70926)
 albedo_mix = 0.77
 normal_fade = 0.225
+cull_mask = 1048573
 
 [node name="Leak50" parent="Decals" instance=ExtResource("32_y2563")]
 transform = Transform3D(-4.37114e-08, 1, -4.37114e-08, 0, -4.37114e-08, -1, -1, -4.37114e-08, 1.91069e-15, 4.60586, 5.71006, 4.32531)
 size = Vector3(5.01225, 0.193454, 3.70926)
 albedo_mix = 0.77
 normal_fade = 0.225
+cull_mask = 1048573
 
 [node name="Leak8" parent="Decals" instance=ExtResource("32_y2563")]
 transform = Transform3D(-4.37114e-08, 1, -4.37114e-08, 0, -4.37114e-08, -1, -1, -4.37114e-08, 1.91069e-15, -1.4215, 6.17294, 6.51499)
 size = Vector3(2.8714, 0.545788, 2.54773)
+cull_mask = 1048573
 
 [node name="Leak2" parent="Decals" instance=ExtResource("33_88xnm")]
 transform = Transform3D(-4.37114e-08, 1, -4.37114e-08, 0, -4.37114e-08, -1, -1, -4.37114e-08, 1.91069e-15, 1.51695, 1.01671, 0.795063)
 size = Vector3(1.3356, 0.260742, 1.63631)
+cull_mask = 1048573
 
 [node name="Leak62" parent="Decals" instance=ExtResource("33_88xnm")]
 transform = Transform3D(-3.89211e-08, 0.890411, -0.455156, 1.98955e-08, -0.455156, -0.890411, -1, -4.37114e-08, 1.91069e-15, 11.4598, -2.20192, 0.828416)
 size = Vector3(1.30855, 0.380371, 0.786885)
 albedo_mix = 0.85
+cull_mask = 1048573
 
 [node name="Leak70" parent="Decals" instance=ExtResource("33_88xnm")]
 transform = Transform3D(-1, 8.74228e-08, 0, -3.9825e-08, -0.455545, -0.890213, -7.78249e-08, -0.890213, 0.455545, 5.89535, -2.20192, -1.05144)
 size = Vector3(1.30855, 0.380371, 0.786885)
 albedo_mix = 0.85
+cull_mask = 1048573
 
 [node name="Leak64" parent="Decals" instance=ExtResource("33_88xnm")]
 transform = Transform3D(-3.89211e-08, 0.890411, -0.455156, 1.98955e-08, -0.455156, -0.890411, -1, -4.37114e-08, 1.91069e-15, 11.4598, -2.20192, 6.73392)
 size = Vector3(1.31624, 0.380371, 0.786885)
 albedo_mix = 0.85
+cull_mask = 1048573
 
 [node name="Leak66" parent="Decals" instance=ExtResource("33_88xnm")]
 transform = Transform3D(-3.89211e-08, 0.890411, -0.455156, 1.98955e-08, -0.455156, -0.890411, -1, -4.37114e-08, 1.91069e-15, 11.4598, -2.20192, 12.6408)
 size = Vector3(1.31624, 0.380371, 0.786885)
 albedo_mix = 0.85
+cull_mask = 1048573
 
 [node name="Leak63" parent="Decals" instance=ExtResource("33_88xnm")]
 transform = Transform3D(-1.26206e-07, -0.949546, -0.313628, 2.07144e-08, 0.313628, -0.949546, 1, -1.26335e-07, -1.99125e-08, 11.4598, -2.20192, 3.79784)
 size = Vector3(1.3356, 0.380371, 0.786885)
 albedo_mix = 0.85
+cull_mask = 1048573
 
 [node name="Leak69" parent="Decals" instance=ExtResource("33_88xnm")]
 transform = Transform3D(1, 0, 0, 0, 0.313992, -0.949426, 0, 0.949425, 0.313993, 9.6121, -2.20192, -0.993734)
 size = Vector3(1.30842, 0.380371, 0.786885)
 albedo_mix = 0.85
+cull_mask = 1048573
 
 [node name="Leak71" parent="Decals" instance=ExtResource("33_88xnm")]
 transform = Transform3D(1, 0, 0, 0, 0.313992, -0.949426, 0, 0.949425, 0.313993, 2.96452, -2.20192, -0.993734)
 size = Vector3(1.30842, 0.380371, 0.786885)
 albedo_mix = 0.85
+cull_mask = 1048573
 
 [node name="Leak72" parent="Decals" instance=ExtResource("33_88xnm")]
 transform = Transform3D(-1, 8.74228e-08, 0, -3.9825e-08, -0.455545, -0.890213, -7.78249e-08, -0.890213, 0.455545, -2.9638, -2.20192, -1.05144)
 size = Vector3(1.30855, 0.380371, 0.786885)
 albedo_mix = 0.85
+cull_mask = 1048573
 
 [node name="Leak74" parent="Decals" instance=ExtResource("33_88xnm")]
 transform = Transform3D(-1, 8.74228e-08, 0, -3.9825e-08, -0.455545, -0.890213, -7.78249e-08, -0.890213, 0.455545, -9.60474, -2.21507, -1.04471)
 size = Vector3(1.30855, 0.380371, 0.816416)
 albedo_mix = 0.85
+cull_mask = 1048573
 
 [node name="Leak75" parent="Decals" instance=ExtResource("33_88xnm")]
 transform = Transform3D(1.21536e-07, -0.890213, 0.455545, 3.9825e-08, -0.455545, -0.890213, 1, 1.26335e-07, -1.99125e-08, -11.4507, -2.21507, 0.843286)
 size = Vector3(1.30855, 0.380371, 0.816416)
 albedo_mix = 0.85
+cull_mask = 1048573
 
 [node name="Leak76" parent="Decals" instance=ExtResource("33_88xnm")]
 transform = Transform3D(1.21536e-07, -0.890213, 0.455545, 3.9825e-08, -0.455545, -0.890213, 1, 1.26335e-07, -1.99125e-08, -11.4507, -2.21507, 3.80919)
 size = Vector3(1.30855, 0.380371, 0.816416)
 albedo_mix = 0.85
+cull_mask = 1048573
 
 [node name="Leak77" parent="Decals" instance=ExtResource("33_88xnm")]
 transform = Transform3D(1.21536e-07, -0.890213, 0.455545, 3.9825e-08, -0.455545, -0.890213, 1, 1.26335e-07, -1.99125e-08, -11.4507, -2.21507, 6.74965)
 size = Vector3(1.30855, 0.380371, 0.816416)
 albedo_mix = 0.85
+cull_mask = 1048573
 
 [node name="Leak78" parent="Decals" instance=ExtResource("33_88xnm")]
 transform = Transform3D(1.21536e-07, -0.890213, 0.455545, 3.9825e-08, -0.455545, -0.890213, 1, 1.26335e-07, -1.99125e-08, -11.4507, -2.21507, 9.70589)
 size = Vector3(1.30855, 0.380371, 0.816416)
 albedo_mix = 0.85
+cull_mask = 1048573
 
 [node name="Leak79" parent="Decals" instance=ExtResource("33_88xnm")]
 transform = Transform3D(1.21536e-07, -0.890213, 0.455545, 3.9825e-08, -0.455545, -0.890213, 1, 1.26335e-07, -1.99125e-08, -11.4507, -2.21507, 12.6608)
 size = Vector3(1.30855, 0.380371, 0.816416)
 albedo_mix = 0.85
+cull_mask = 1048573
 
 [node name="Leak80" parent="Decals" instance=ExtResource("33_88xnm")]
 transform = Transform3D(1, -9.5979e-09, -3.9825e-08, -3.9825e-08, -0.455545, -0.890213, -9.59791e-09, 0.890213, -0.455545, -9.59758, -2.21507, 14.4506)
 size = Vector3(1.30855, 0.380371, 0.816416)
 albedo_mix = 0.85
+cull_mask = 1048573
 
 [node name="Leak73" parent="Decals" instance=ExtResource("33_88xnm")]
 transform = Transform3D(1, 0, 0, 0, 0.313992, -0.949426, 0, 0.949425, 0.313993, -5.89462, -2.20192, -0.993734)
 size = Vector3(1.30842, 0.380371, 0.786885)
 albedo_mix = 0.85
+cull_mask = 1048573
 
 [node name="Leak65" parent="Decals" instance=ExtResource("33_88xnm")]
 transform = Transform3D(-1.26206e-07, -0.949546, -0.313628, 2.07144e-08, 0.313628, -0.949546, 1, -1.26335e-07, -1.99125e-08, 11.4598, -2.20192, 9.72215)
 size = Vector3(1.3356, 0.380371, 0.786885)
 albedo_mix = 0.85
+cull_mask = 1048573
 
 [node name="Leak67" parent="Decals" instance=ExtResource("33_88xnm")]
 transform = Transform3D(-1, -8.30014e-08, -2.74501e-08, 0, 0.313992, -0.949426, 8.74228e-08, -0.949425, -0.313993, 9.59758, -2.20192, 14.4838)
 size = Vector3(1.23014, 0.380371, 0.786885)
 albedo_mix = 0.85
+cull_mask = 1048573
 
 [node name="Leak68" parent="Decals" instance=ExtResource("33_88xnm")]
 transform = Transform3D(-1, -8.30014e-08, -2.74501e-08, 0, 0.313992, -0.949426, 8.74228e-08, -0.949425, -0.313993, 2.68408, -2.20192, 14.4838)
 size = Vector3(1.23014, 0.380371, 0.786885)
 albedo_mix = 0.85
+cull_mask = 1048573
 
 [node name="Leak14" parent="Decals" instance=ExtResource("33_88xnm")]
 transform = Transform3D(-4.37114e-08, -1, 4.37114e-08, 0, -4.37114e-08, -1, 1, -4.37114e-08, 1.91069e-15, 1.51695, 3.09838, 0.661659)
 size = Vector3(3.42069, 0.260742, 8.58486)
 normal_fade = 0.086
+cull_mask = 1048573
 
 [node name="Leak51" parent="Decals" instance=ExtResource("33_88xnm")]
 transform = Transform3D(-1, -8.74228e-08, 3.82137e-15, 0, -4.37114e-08, -1, 8.74228e-08, -1, 4.37114e-08, -0.06284, 5.57478, -1.59873)
 size = Vector3(25.4708, 0.638672, 4.60056)
 albedo_mix = 0.65
 normal_fade = 0.086
+cull_mask = 1048573
 
 [node name="Leak52" parent="Decals" instance=ExtResource("33_88xnm")]
 transform = Transform3D(-1, -8.74228e-08, 3.82137e-15, 0, -4.37114e-08, -1, 8.74228e-08, -1, 4.37114e-08, -2.18964, 3.41973, -1.59873)
 size = Vector3(31.2871, 0.638672, 6.48339)
 albedo_mix = 0.48
 normal_fade = 0.086
+cull_mask = 1048573
 
 [node name="Leak53" parent="Decals" instance=ExtResource("33_88xnm")]
 transform = Transform3D(-1, -8.74228e-08, 3.82137e-15, 0, -4.37114e-08, -1, 8.74228e-08, -1, 4.37114e-08, 1.32566, -1.60497, -1.59873)
 size = Vector3(31.2871, 0.638672, 6.90136)
 albedo_mix = 0.48
 normal_fade = 0.086
+cull_mask = 1048573
 
 [node name="Leak54" parent="Decals" instance=ExtResource("33_88xnm")]
 transform = Transform3D(-4.37114e-08, -1, 4.37114e-08, 0, -4.37114e-08, -1, 1, -4.37114e-08, 1.91069e-15, -12.0507, 5.57478, 4.31928)
 size = Vector3(25.4708, 0.638672, 4.60056)
 albedo_mix = 0.65
 normal_fade = 0.086
+cull_mask = 1048573
 
 [node name="Leak55" parent="Decals" instance=ExtResource("33_88xnm")]
 transform = Transform3D(-4.37114e-08, -1, 4.37114e-08, 0, -4.37114e-08, -1, 1, -4.37114e-08, 1.91069e-15, -11.7654, 3.41973, 4.31928)
 size = Vector3(31.2871, 0.638672, 6.48339)
 albedo_mix = 0.48
 normal_fade = 0.086
+cull_mask = 1048573
 
 [node name="Leak56" parent="Decals" instance=ExtResource("33_88xnm")]
 transform = Transform3D(-4.37114e-08, -1, 4.37114e-08, 0, -4.37114e-08, -1, 1, -4.37114e-08, 1.91069e-15, -11.6937, -1.60497, 4.31928)
 size = Vector3(31.2871, 0.638672, 6.90136)
 albedo_mix = 0.48
 normal_fade = 0.086
+cull_mask = 1048573
 
 [node name="Leak33" parent="Decals" instance=ExtResource("33_88xnm")]
 transform = Transform3D(-4.37114e-08, 1, -4.37114e-08, 0, -4.37114e-08, -1, -1, -4.37114e-08, 1.91069e-15, -11.4256, 4.91675, 4.50351)
 size = Vector3(12.0213, 0.235229, 5.25093)
 normal_fade = 0.086
+cull_mask = 1048573
 
 [node name="Leak15" parent="Decals" instance=ExtResource("33_88xnm")]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -5.06544, 4.83408, -1.00195)
 size = Vector3(13.3994, 0.260742, 5.35488)
 normal_fade = 0.086
+cull_mask = 1048573
 
 [node name="Leak48" parent="Decals" instance=ExtResource("33_88xnm")]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 2.80166, 4.83408, 5.18261)
 size = Vector3(13.3994, 0.260742, 5.35488)
 normal_fade = 0.086
+cull_mask = 1048573
 
 [node name="Leak49" parent="Decals" instance=ExtResource("33_88xnm")]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 1.16466, 3.87616, 2.3852)
 size = Vector3(13.3994, 0.260742, 7.2707)
 normal_fade = 0.086
+cull_mask = 1048573
 
 [node name="Leak43" parent="Decals" instance=ExtResource("33_88xnm")]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 8.2467, 4.86557, -1.04338)
 size = Vector3(13.3994, 0.260742, 5.41787)
 normal_fade = 0.086
+cull_mask = 1048573
 
 [node name="Leak10" parent="Decals" instance=ExtResource("33_88xnm")]
 transform = Transform3D(-4.37114e-08, 1, -4.37114e-08, 0, -4.37114e-08, -1, -1, -4.37114e-08, 1.91069e-15, -1.49739, 1.05224, 0.600289)
 size = Vector3(3.33872, 0.260742, 1.63631)
+cull_mask = 1048573
 
 [node name="Leak24" parent="Decals" instance=ExtResource("33_88xnm")]
 transform = Transform3D(-4.37114e-08, 1, -4.37114e-08, 0, -4.37114e-08, -1, -1, -4.37114e-08, 1.91069e-15, 1.66342, 1.05224, 0.600289)
 size = Vector3(3.33872, 0.260742, 1.63631)
 normal_fade = 0.355
+cull_mask = 1048573
 
 [node name="Leak26" parent="Decals" instance=ExtResource("33_88xnm")]
 transform = Transform3D(-4.37114e-08, -1, 4.37114e-08, 0, -4.37114e-08, -1, 1, -4.37114e-08, 1.91069e-15, 7.37349, 0.25141, 11.1931)
 size = Vector3(6.95568, 0.260742, 3.32998)
 albedo_mix = 0.85
 normal_fade = 0.355
+cull_mask = 1048573
 
 [node name="Leak30" parent="Decals" instance=ExtResource("33_88xnm")]
 transform = Transform3D(-4.37114e-08, -1, 4.37114e-08, 0, -4.37114e-08, -1, 1, -4.37114e-08, 1.91069e-15, 4.48688, 0.228409, 9.73171)
 size = Vector3(10.2986, 0.260742, 3.28397)
 albedo_mix = 0.85
 normal_fade = 0.355
+cull_mask = 1048573
 
 [node name="Leak31" parent="Decals" instance=ExtResource("33_88xnm")]
 transform = Transform3D(-4.37114e-08, 1, -4.37114e-08, 0, -4.37114e-08, -1, -1, -4.37114e-08, 1.91069e-15, 1.59045, -1.22642, 11.2029)
 size = Vector3(7.35627, 0.260742, 6.44801)
 albedo_mix = 0.72
 normal_fade = 0.355
+cull_mask = 1048573
 
 [node name="Leak27" parent="Decals" instance=ExtResource("33_88xnm")]
 transform = Transform3D(-4.37114e-08, 1, -4.37114e-08, 0, -4.37114e-08, -1, -1, -4.37114e-08, 1.91069e-15, 4.61913, -0.788426, 8.11296)
 size = Vector3(6.71963, 0.260742, 5.45754)
 albedo_mix = 0.74
 normal_fade = 0.355
+cull_mask = 1048573
 
 [node name="Leak35" parent="Decals" instance=ExtResource("33_88xnm")]
 transform = Transform3D(-4.37114e-08, 1, -4.37114e-08, 0, -4.37114e-08, -1, -1, -4.37114e-08, 1.91069e-15, 4.61913, 0.704399, 13.3136)
 size = Vector3(2.62007, 0.260742, 2.35895)
 albedo_mix = 0.85
 normal_fade = 0.355
+cull_mask = 1048573
 
 [node name="Leak28" parent="Decals" instance=ExtResource("33_88xnm")]
 transform = Transform3D(-4.37114e-08, 1, -4.37114e-08, 0, -4.37114e-08, -1, -1, -4.37114e-08, 1.91069e-15, -7.40589, -0.80481, 9.71204)
 size = Vector3(9.91778, 0.260742, 5.45754)
 albedo_mix = 0.75
 normal_fade = 0.355
+cull_mask = 1048573
 
 [node name="Leak25" parent="Decals" instance=ExtResource("33_88xnm")]
 transform = Transform3D(-4.37114e-08, -1, 4.37114e-08, 0, -4.37114e-08, -1, 1, -4.37114e-08, 1.91069e-15, 11.4602, -1.22549, 5.14894)
 size = Vector3(12.436, 0.260742, 6.34322)
 albedo_mix = 0.75
 normal_fade = 0.355
+cull_mask = 1048573
 
 [node name="Leak18" parent="Decals" instance=ExtResource("33_88xnm")]
 transform = Transform3D(-4.37114e-08, -1, 4.37114e-08, 0, -4.37114e-08, -1, 1, -4.37114e-08, 1.91069e-15, -7.41876, 1.05224, 0.600289)
 size = Vector3(3.33872, 0.260742, 1.63631)
+cull_mask = 1048573
 
 [node name="Leak99" parent="Decals" instance=ExtResource("33_88xnm")]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -5.89465, 1.87925, -1.36308)
 size = Vector3(1.55636, 0.260742, 1.63631)
+cull_mask = 1048573
 
 [node name="Leak100" parent="Decals" instance=ExtResource("33_88xnm")]
 transform = Transform3D(-1, -8.74228e-08, 3.82137e-15, 0, -4.37114e-08, -1, 8.74228e-08, -1, 4.37114e-08, -2.97141, 1.14345, -1.36308)
 size = Vector3(1.55636, 0.260742, 1.63631)
 albedo_mix = 0.7
+cull_mask = 1048573
 
 [node name="Leak101" parent="Decals" instance=ExtResource("33_88xnm")]
 transform = Transform3D(-1, -8.74228e-08, 3.82137e-15, 0, -4.37114e-08, -1, 8.74228e-08, -1, 4.37114e-08, 9.67163, 1.18533, -1.37524)
 size = Vector3(1.92418, 0.221191, 1.63631)
 albedo_mix = 0.7
+cull_mask = 1048573
 
 [node name="Leak102" parent="Decals" instance=ExtResource("33_88xnm")]
 transform = Transform3D(-1, -8.74228e-08, 3.82137e-15, 0, -4.37114e-08, -1, 8.74228e-08, -1, 4.37114e-08, 10.1673, 0.81778, -1.37524)
 size = Vector3(0.932791, 0.221191, 1.63631)
 albedo_mix = 0.7
+cull_mask = 1048573
 
 [node name="Leak103" parent="Decals" instance=ExtResource("33_88xnm")]
 transform = Transform3D(-1, -8.74228e-08, 3.82137e-15, 0, -4.37114e-08, -1, 8.74228e-08, -1, 4.37114e-08, 9.25996, 0.81778, -1.37524)
 size = Vector3(0.932791, 0.221191, 1.63631)
 albedo_mix = 0.7
+cull_mask = 1048573
 
 [node name="Leak104" parent="Decals" instance=ExtResource("33_88xnm")]
 transform = Transform3D(-1, -8.74228e-08, 3.82137e-15, 0, -4.37114e-08, -1, 8.74228e-08, -1, 4.37114e-08, 3.1638, 1.18184, -1.37524)
 size = Vector3(0.932791, 0.221191, 1.63631)
 albedo_mix = 0.7
+cull_mask = 1048573
 
 [node name="Leak105" parent="Decals" instance=ExtResource("33_88xnm")]
 transform = Transform3D(-1, -8.74228e-08, 3.82137e-15, 0, -4.37114e-08, -1, 8.74228e-08, -1, 4.37114e-08, 2.55548, 1.18184, -1.37524)
 size = Vector3(0.450648, 0.221191, 1.63631)
 albedo_mix = 0.7
+cull_mask = 1048573
 
 [node name="Leak110" parent="Decals" instance=ExtResource("33_88xnm")]
 transform = Transform3D(0.999319, 0.0369055, -1.61319e-09, 4.23516e-22, -4.37114e-08, -1, -0.0369055, 0.999319, -4.36816e-08, 2.74178, -2.82448, -1.39435)
 size = Vector3(0.932791, 0.221191, 1.63631)
 albedo_mix = 0.7
+cull_mask = 1048573
 
 [node name="Leak111" parent="Decals" instance=ExtResource("33_88xnm")]
 transform = Transform3D(0.999319, 0.0369055, -1.61319e-09, 4.23516e-22, -4.37114e-08, -1, -0.0369055, 0.999319, -4.36816e-08, 3.34968, -2.82448, -1.4168)
 size = Vector3(0.450648, 0.221191, 1.63631)
 albedo_mix = 0.7
+cull_mask = 1048573
 
 [node name="Leak112" parent="Decals" instance=ExtResource("33_88xnm")]
 transform = Transform3D(0.999319, 0.0369055, -1.61319e-09, 4.23516e-22, -4.37114e-08, -1, -0.0369055, 0.999319, -4.36816e-08, -6.11121, -2.82448, -1.39435)
 size = Vector3(0.932791, 0.221191, 1.63631)
 albedo_mix = 0.7
+cull_mask = 1048573
 
 [node name="Leak113" parent="Decals" instance=ExtResource("33_88xnm")]
 transform = Transform3D(0.999319, 0.0369055, -1.61319e-09, 4.23516e-22, -4.37114e-08, -1, -0.0369055, 0.999319, -4.36816e-08, -5.50331, -2.82448, -1.4168)
 size = Vector3(0.450648, 0.221191, 1.63631)
 albedo_mix = 0.7
+cull_mask = 1048573
 
 [node name="Leak114" parent="Decals" instance=ExtResource("33_88xnm")]
 transform = Transform3D(-0.0452934, 0.998974, -4.36665e-08, 4.23516e-22, -4.37114e-08, -1, -0.998974, -0.0452934, 1.97984e-09, -11.8353, -2.82448, 1.03793)
 size = Vector3(0.932791, 0.221191, 1.63631)
 albedo_mix = 0.7
+cull_mask = 1048573
 
 [node name="Leak115" parent="Decals" instance=ExtResource("33_88xnm")]
 transform = Transform3D(-0.0452934, 0.998974, -4.36665e-08, 4.23516e-22, -4.37114e-08, -1, -0.998974, -0.0452934, 1.97984e-09, -11.8629, -2.82448, 0.430237)
 size = Vector3(0.450648, 0.221191, 1.63631)
 albedo_mix = 0.7
+cull_mask = 1048573
 
 [node name="Leak116" parent="Decals" instance=ExtResource("33_88xnm")]
 transform = Transform3D(-0.0452934, 0.998974, -4.36665e-08, 4.23516e-22, -4.37114e-08, -1, -0.998974, -0.0452934, 1.97984e-09, -11.8353, -2.82448, 3.93542)
 size = Vector3(0.932791, 0.221191, 1.63631)
 albedo_mix = 0.7
+cull_mask = 1048573
 
 [node name="Leak117" parent="Decals" instance=ExtResource("33_88xnm")]
 transform = Transform3D(-0.0452934, 0.998974, -4.36665e-08, 4.23516e-22, -4.37114e-08, -1, -0.998974, -0.0452934, 1.97984e-09, -11.8629, -2.82448, 3.32773)
 size = Vector3(0.450648, 0.221191, 1.63631)
 albedo_mix = 0.7
+cull_mask = 1048573
 
 [node name="Leak19" parent="Decals" instance=ExtResource("33_88xnm")]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -5.00619, 1.05224, 2.25259)
 size = Vector3(6.56576, 0.0778809, 1.63631)
+cull_mask = 1048573
 
 [node name="Leak20" parent="Decals" instance=ExtResource("33_88xnm")]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 4.63063, 1.05224, 2.25259)
 size = Vector3(5.99675, 0.0778809, 1.63631)
+cull_mask = 1048573
 
 [node name="Leak21" parent="Decals" instance=ExtResource("33_88xnm")]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 6.71175, 0.765946, -0.998594)
 size = Vector3(10.159, 0.242676, 2.2089)
 albedo_mix = 0.91
+cull_mask = 1048573
 
 [node name="Leak11" parent="Decals" instance=ExtResource("33_88xnm")]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0.0209539, -0.963526, 2.41841)
@@ -1583,6 +1808,7 @@ size = Vector3(15.6293, 0.244873, 5.79097)
 modulate = Color(0.321569, 0.294118, 0, 1)
 albedo_mix = 0.7
 normal_fade = 0.172
+cull_mask = 1048573
 
 [node name="Leak36" parent="Decals" instance=ExtResource("33_88xnm")]
 transform = Transform3D(-1, -8.74228e-08, 3.82137e-15, 0, -4.37114e-08, -1, 8.74228e-08, -1, 4.37114e-08, 9.51807, -0.872871, 8.13137)
@@ -1591,6 +1817,7 @@ modulate = Color(0.321569, 0.294118, 0, 1)
 albedo_mix = 0.72
 upper_fade = 1e-05
 lower_fade = 1e-05
+cull_mask = 1048573
 
 [node name="Leak37" parent="Decals" instance=ExtResource("33_88xnm")]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 9.51214, 2.96465, 11.1825)
@@ -1599,6 +1826,7 @@ modulate = Color(0.321569, 0.294118, 0, 1)
 albedo_mix = 0.72
 upper_fade = 1e-05
 lower_fade = 1e-05
+cull_mask = 1048573
 
 [node name="Leak44" parent="Decals" instance=ExtResource("33_88xnm")]
 transform = Transform3D(-4.37114e-08, 1, -4.37114e-08, 0, -4.37114e-08, -1, -1, -4.37114e-08, 1.91069e-15, 7.56944, 2.96465, 5.48523)
@@ -1608,6 +1836,7 @@ albedo_mix = 0.72
 normal_fade = 0.525
 upper_fade = 1e-05
 lower_fade = 1e-05
+cull_mask = 1048573
 
 [node name="Leak45" parent="Decals" instance=ExtResource("33_88xnm")]
 transform = Transform3D(-4.37114e-08, -1, 4.37114e-08, 0, -4.37114e-08, -1, 1, -4.37114e-08, 1.91069e-15, 11.4066, 2.96465, 5.06155)
@@ -1617,6 +1846,7 @@ albedo_mix = 0.72
 normal_fade = 0.525
 upper_fade = 1e-05
 lower_fade = 1e-05
+cull_mask = 1048573
 
 [node name="Leak38" parent="Decals" instance=ExtResource("33_88xnm")]
 transform = Transform3D(-4.37114e-08, -1, 4.37114e-08, 0, -4.37114e-08, -1, 1, -4.37114e-08, 1.91069e-15, 11.4905, 2.40904, 13.4042)
@@ -1626,6 +1856,7 @@ albedo_mix = 0.72
 normal_fade = 0.454
 upper_fade = 1e-05
 lower_fade = 1e-05
+cull_mask = 1048573
 
 [node name="Leak39" parent="Decals" instance=ExtResource("33_88xnm")]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 9.61523, 2.40904, 11.251)
@@ -1635,6 +1866,7 @@ albedo_mix = 0.72
 normal_fade = 0.454
 upper_fade = 1e-05
 lower_fade = 1e-05
+cull_mask = 1048573
 
 [node name="Leak40" parent="Decals" instance=ExtResource("33_88xnm")]
 transform = Transform3D(-1, -8.74228e-08, 3.82137e-15, 0, -4.37114e-08, -1, 8.74228e-08, -1, 4.37114e-08, 6.36936, 4.13031, 14.5272)
@@ -1644,6 +1876,7 @@ albedo_mix = 0.72
 normal_fade = 0.454
 upper_fade = 1e-05
 lower_fade = 1e-05
+cull_mask = 1048573
 
 [node name="Leak12" parent="Decals" instance=ExtResource("33_88xnm")]
 transform = Transform3D(-4.37114e-08, 1, -4.37114e-08, 0, -4.37114e-08, -1, -1, -4.37114e-08, 1.91069e-15, -11.4412, -0.353612, 6.62054)
@@ -1651,34 +1884,41 @@ size = Vector3(16.1672, 0.244873, 4.57115)
 modulate = Color(0.321569, 0.294118, 0, 1)
 albedo_mix = 0.66
 normal_fade = 0.172
+cull_mask = 1048573
 
 [node name="GroundTrash1" parent="Decals" instance=ExtResource("34_osdem")]
 transform = Transform3D(0.999999, 0, 0, 0, 1, 0, 0, 0, 0.999999, 0, -2.37821, 0)
 size = Vector3(2, 0.0511475, 2)
 modulate = Color(0.847059, 0.847059, 0.847059, 1)
+cull_mask = 1048573
 
 [node name="GroundTrash5" parent="Decals" instance=ExtResource("34_osdem")]
 transform = Transform3D(0.850829, 0, 0.525441, 0, 1, 0, -0.525441, 0, 0.850829, 2.60322, 2.0627, 12.8327)
 size = Vector3(2, 0.0511475, 2)
 modulate = Color(0.847059, 0.847059, 0.847059, 1)
+cull_mask = 1048573
 
 [node name="GroundTrash6" parent="Decals" instance=ExtResource("34_osdem")]
 transform = Transform3D(0.997709, 0, -0.0676322, 0, 1, 0, 0.0676322, 0, 0.997709, 5.54642, 2.04286, 7.37373)
 size = Vector3(4.25735, 0.106071, 7.10889)
 modulate = Color(0.847059, 0.847059, 0.847059, 1)
+cull_mask = 1048573
 
 [node name="GroundTrash3" parent="Decals" instance=ExtResource("34_osdem")]
 transform = Transform3D(0.999999, 0, 0, 0, 1, 0, 0, 0, 0.999999, 6.24623, -2.37821, 9.58417)
 size = Vector3(9.28284, 0.0511475, 8.36963)
 modulate = Color(0.713726, 0.619608, 0.537255, 1)
+cull_mask = 1048573
 
 [node name="GroundTrash2" parent="Decals" instance=ExtResource("35_mam3c")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.90184, -2.40688, 2.16586)
 size = Vector3(7.13586, 0.0871582, 5.99902)
+cull_mask = 1048573
 
 [node name="GroundTrash4" parent="Decals" instance=ExtResource("35_mam3c")]
 transform = Transform3D(-0.00485196, 0, -0.999988, 0, 1, 0, 0.999988, 0, -0.00485196, 2.17714, -2.38509, 3.12754)
 size = Vector3(4.72916, 0.0435791, 5.83472)
+cull_mask = 1048573
 
 [node name="GroundTrash7" parent="Decals" instance=ExtResource("35_mam3c")]
 transform = Transform3D(1, 0, 0, 0, -1, 8.74228e-08, 0, -8.74228e-08, -1, 0.533743, 1.72738, 5.0617)
@@ -1686,6 +1926,7 @@ size = Vector3(15.9309, 0.0435791, 14.6165)
 modulate = Color(0.0941176, 0.152941, 0.0235294, 1)
 albedo_mix = 0.4
 normal_fade = 0.716
+cull_mask = 1048573
 
 [node name="GroundTrash8" parent="Decals" instance=ExtResource("35_mam3c")]
 transform = Transform3D(0.937744, 3.03644e-08, 0.347328, 0, -1, 8.74228e-08, 0.347328, -8.19801e-08, -0.937744, -8.73415, 1.72738, 3.89764)
@@ -1693,6 +1934,7 @@ size = Vector3(7.63813, 0.0435791, 11.5534)
 modulate = Color(0.45098, 0.533333, 0.380392, 1)
 albedo_mix = 0.54
 normal_fade = 0.716
+cull_mask = 1048573
 
 [node name="GroundTrash9" parent="Decals" instance=ExtResource("35_mam3c")]
 transform = Transform3D(0.801849, -5.22375e-08, -0.597527, 0, -1, 8.74228e-08, -0.597527, -7.00998e-08, -0.801849, 5.54539, 1.72738, 5.68607)
@@ -1700,6 +1942,7 @@ size = Vector3(7.63813, 0.0435791, 11.5534)
 modulate = Color(0.45098, 0.533333, 0.380392, 1)
 albedo_mix = 0.46
 normal_fade = 0.716
+cull_mask = 1048573
 
 [node name="GroundTrash11" parent="Decals" instance=ExtResource("35_mam3c")]
 transform = Transform3D(0.999144, -3.61668e-09, -0.0413699, 0, -1, 8.74228e-08, -0.0413699, -8.73479e-08, -0.999144, 3.59758, 7.35276, 5.00285)
@@ -1707,6 +1950,7 @@ size = Vector3(15.9309, 0.0435791, 14.6165)
 modulate = Color(0.0941176, 0.152941, 0.0235294, 1)
 albedo_mix = 0.4
 normal_fade = 0.716
+cull_mask = 1048573
 
 [node name="GroundTrash12" parent="Decals" instance=ExtResource("35_mam3c")]
 transform = Transform3D(0.95131, 2.69469e-08, 0.308237, 0, -1, 8.74228e-08, 0.308237, -8.31661e-08, -0.95131, -5.71054, 7.35276, 4.22321)
@@ -1714,6 +1958,7 @@ size = Vector3(7.63813, 0.0435791, 11.5534)
 modulate = Color(0.45098, 0.533333, 0.380392, 1)
 albedo_mix = 0.54
 normal_fade = 0.716
+cull_mask = 1048573
 
 [node name="GroundTrash13" parent="Decals" instance=ExtResource("35_mam3c")]
 transform = Transform3D(0.776443, -5.50928e-08, -0.630188, 0, -1, 8.74228e-08, -0.630188, -6.78788e-08, -0.776443, 8.63077, 7.35276, 5.41936)
@@ -1721,6 +1966,7 @@ size = Vector3(7.63813, 0.0435791, 11.5534)
 modulate = Color(0.45098, 0.533333, 0.380392, 1)
 albedo_mix = 0.46
 normal_fade = 0.716
+cull_mask = 1048573
 
 [node name="GroundTrash10" parent="Decals" instance=ExtResource("35_mam3c")]
 transform = Transform3D(-0.983976, -1.55878e-08, -0.178304, 0, -1, 8.74228e-08, -0.178304, 8.60219e-08, 0.983976, 0.706156, 1.72738, 16.07)
@@ -1728,6 +1974,7 @@ size = Vector3(5.60373, 0.0435791, 9.46273)
 modulate = Color(0.45098, 0.533333, 0.380392, 1)
 albedo_mix = 0.46
 normal_fade = 0.716
+cull_mask = 1048573
 
 [node name="GroundTrash14" parent="Decals" instance=ExtResource("35_mam3c")]
 transform = Transform3D(-0.999144, 3.61667e-09, -0.0413699, 0, 1, 8.74228e-08, 0.0413699, 8.73479e-08, -0.999144, -0.118644, 7.69876, 5.95991)
@@ -1735,6 +1982,7 @@ size = Vector3(23.8854, 0.0435791, 18.6106)
 modulate = Color(0.0941176, 0.152941, 0.0235294, 1)
 albedo_mix = 0.4
 normal_fade = 0.716
+cull_mask = 1048573
 
 [node name="GroundTrash18" type="Decal" parent="Decals"]
 transform = Transform3D(0.84051, 0.541796, -2.36827e-08, 1.16393e-15, -4.37114e-08, -1, -0.541796, 0.84051, -3.67399e-08, 0.276681, 19.4036, 6.46561)
@@ -1742,6 +1990,7 @@ size = Vector3(11.6815, 15.6305, 9.1253)
 texture_albedo = ExtResource("36_y2shm")
 modulate = Color(0.407843, 0.407843, 0, 1)
 albedo_mix = 0.36
+cull_mask = 1048573
 
 [node name="GroundTrash19" type="Decal" parent="Decals"]
 transform = Transform3D(0.677326, 0.735683, -3.21577e-08, 1.16393e-15, -4.37114e-08, -1, -0.735683, 0.677326, -2.96068e-08, 0.276681, 15.0186, 6.46561)
@@ -1749,6 +1998,7 @@ size = Vector3(11.6815, 15.6305, 9.1253)
 texture_albedo = ExtResource("36_y2shm")
 modulate = Color(0.407843, 0.407843, 0, 1)
 albedo_mix = 0.43
+cull_mask = 1048573
 
 [node name="GroundTrash20" type="Decal" parent="Decals"]
 transform = Transform3D(0.9324, 0.361429, -1.57986e-08, 1.16393e-15, -4.37114e-08, -1, -0.361429, 0.9324, -4.07565e-08, 0.816318, 11.9182, 7.85774)
@@ -1756,6 +2006,7 @@ size = Vector3(11.6815, 12.6443, 3.86343)
 texture_albedo = ExtResource("36_y2shm")
 modulate = Color(0.407843, 0.407843, 0, 1)
 albedo_mix = 0.63
+cull_mask = 1048573
 
 [node name="GroundTrash21" type="Decal" parent="Decals"]
 transform = Transform3D(0.9324, 0.361429, -1.57986e-08, 1.16393e-15, -4.37114e-08, -1, -0.361429, 0.9324, -4.07565e-08, 0.265096, 9.5616, 6.66291)
@@ -1763,6 +2014,7 @@ size = Vector3(14.1883, 15.2709, 3.5367)
 texture_albedo = ExtResource("36_y2shm")
 modulate = Color(0.407843, 0.407843, 0, 1)
 albedo_mix = 0.64
+cull_mask = 1048573
 
 [node name="GroundTrash15" parent="Decals" instance=ExtResource("35_mam3c")]
 transform = Transform3D(-0.95131, -2.69469e-08, 0.308237, 0, 1, 8.74228e-08, -0.308237, 8.31661e-08, -0.95131, -7.35735, 7.69876, 4.22321)
@@ -1770,6 +2022,7 @@ size = Vector3(7.63813, 0.0435791, 11.5534)
 modulate = Color(0.45098, 0.533333, 0.380392, 1)
 albedo_mix = 0.54
 normal_fade = 0.716
+cull_mask = 1048573
 
 [node name="GroundTrash16" parent="Decals" instance=ExtResource("35_mam3c")]
 transform = Transform3D(-0.94177, 2.93965e-08, -0.336257, 0, 1, 8.74228e-08, 0.336257, 8.23322e-08, -0.94177, 8.16966, 7.69876, 4.00664)
@@ -1777,6 +2030,7 @@ size = Vector3(7.63813, 0.0435791, 13.3774)
 modulate = Color(0.45098, 0.533333, 0.380392, 1)
 albedo_mix = 0.46
 normal_fade = 0.716
+cull_mask = 1048573
 
 [node name="GroundTrash17" parent="Decals" instance=ExtResource("35_mam3c")]
 transform = Transform3D(0.983976, 1.55878e-08, -0.178304, 0, 1, 8.74228e-08, 0.178304, -8.60219e-08, 0.983976, 0.706156, 2.07338, 16.07)
@@ -1784,6 +2038,7 @@ size = Vector3(5.60373, 0.0435791, 9.46273)
 modulate = Color(0.45098, 0.533333, 0.380392, 1)
 albedo_mix = 0.46
 normal_fade = 0.716
+cull_mask = 1048573
 
 [node name="Basement" type="Node3D" parent="Decals"]
 
@@ -1792,6 +2047,7 @@ transform = Transform3D(0.762159, 0, -0.647388, 0, 1, 0, 0.647388, 0, 0.762159, 
 size = Vector3(4.50171, 2, 6.1665)
 albedo_mix = 0.69
 normal_fade = 0.999
+cull_mask = 1048573
 
 [node name="GroundTrash7" parent="Decals/Basement" instance=ExtResource("34_osdem")]
 transform = Transform3D(0.999999, 0, 0, 0, -4.37114e-08, -0.999999, 0, 1, -4.37113e-08, -0.0701919, -4.83647, -0.380649)
@@ -1799,6 +2055,7 @@ size = Vector3(24.0159, 2.14722, 3.02502)
 modulate = Color(1, 1, 0.254902, 1)
 albedo_mix = 0.44
 upper_fade = 1.9494
+cull_mask = 1048573
 
 [node name="GroundTrash8" parent="Decals/Basement" instance=ExtResource("34_osdem")]
 transform = Transform3D(0.999999, 0, 0, 0, 1, 0, 0, 0, 0.999999, -0.0701919, -5.48333, 3.31845)
@@ -1807,6 +2064,7 @@ modulate = Color(1, 1, 0.254902, 1)
 albedo_mix = 0.35
 upper_fade = 1.2
 lower_fade = 0.00234374
+cull_mask = 1048573
 
 [node name="GroundTrash9" parent="Decals/Basement" instance=ExtResource("34_osdem")]
 transform = Transform3D(-4.37113e-08, 0, 0.999999, 0, 1, 0, -0.999999, 0, -4.37113e-08, -5.97274, -5.48333, 6.20952)
@@ -1815,36 +2073,42 @@ modulate = Color(1, 1, 0.254902, 1)
 albedo_mix = 0.2
 upper_fade = 1.2
 lower_fade = 0.00234374
+cull_mask = 1048573
 
 [node name="GroundTrash2" parent="Decals/Basement" instance=ExtResource("34_osdem")]
 transform = Transform3D(0.228673, 0, 0.973502, 0, 1, 0, -0.973502, 0, 0.228673, -7.10706, -6.23113, 10.9586)
 size = Vector3(4.88464, 2, 6.1665)
 albedo_mix = 0.69
 normal_fade = 0.999
+cull_mask = 1048573
 
 [node name="GroundTrash3" parent="Decals/Basement" instance=ExtResource("34_osdem")]
 transform = Transform3D(0.998701, 0, -0.0509415, 0, 1, 0, 0.0509415, 0, 0.998701, 8.61433, -6.23113, 9.87841)
 size = Vector3(5.03363, 2, 8.32202)
 albedo_mix = 0.69
 normal_fade = 0.999
+cull_mask = 1048573
 
 [node name="GroundTrash4" parent="Decals/Basement" instance=ExtResource("35_mam3c")]
 transform = Transform3D(0.966609, 0, 0.256256, 0, 1, 0, -0.256256, 0, 0.966609, -0.665184, -6.26652, -2.20109)
 size = Vector3(7.44298, 2, 4.67212)
 albedo_mix = 0.65
 normal_fade = 0.999
+cull_mask = 1048573
 
 [node name="GroundTrash5" parent="Decals/Basement" instance=ExtResource("35_mam3c")]
 transform = Transform3D(-0.999998, 0, 0.00216419, 0, 1, 0, -0.00216419, 0, -0.999998, 7.48844, -6.26652, 1.64045)
 size = Vector3(10.5417, 2, 7.09631)
 albedo_mix = 0.38
 normal_fade = 0.999
+cull_mask = 1048573
 
 [node name="GroundTrash6" parent="Decals/Basement" instance=ExtResource("35_mam3c")]
 transform = Transform3D(-0.999998, 0, 0.00216419, 0, 1, 0, -0.00216419, 0, -0.999998, -1.23349, -6.26652, 9.61965)
 size = Vector3(10.5417, 2, 7.09631)
 albedo_mix = 0.38
 normal_fade = 0.999
+cull_mask = 1048573
 
 [node name="Leak1" parent="Decals/Basement" instance=ExtResource("32_y2563")]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -0.267044, -5.41825, -0.984317)
@@ -1854,6 +2118,7 @@ albedo_mix = 0.39
 normal_fade = 0.439
 upper_fade = 1e-05
 lower_fade = 1e-05
+cull_mask = 1048573
 
 [node name="Leak3" parent="Decals/Basement" instance=ExtResource("32_y2563")]
 transform = Transform3D(-1, -8.74228e-08, 3.82137e-15, 0, -4.37114e-08, -1, 8.74228e-08, -1, 4.37114e-08, -0.267044, -5.41825, 2.67117)
@@ -1861,6 +2126,7 @@ size = Vector3(23.502, 0.0765991, 5.50592)
 albedo_mix = 0.3
 upper_fade = 1e-05
 lower_fade = 1e-05
+cull_mask = 1048573
 
 [node name="Leak4" parent="Decals/Basement" instance=ExtResource("32_y2563")]
 transform = Transform3D(-1, -8.74228e-08, 3.82137e-15, 0, -4.37114e-08, -1, 8.74228e-08, -1, 4.37114e-08, -1.4709, -4.52476, 5.12993)
@@ -1868,6 +2134,7 @@ size = Vector3(12.44, 0.698456, 4.21109)
 albedo_mix = 0.3
 upper_fade = 1e-05
 lower_fade = 1e-05
+cull_mask = 1048573
 
 [node name="Leak34" parent="Decals/Basement" instance=ExtResource("32_y2563")]
 transform = Transform3D(-1, -8.74228e-08, 3.82137e-15, 0, -4.37114e-08, -1, 8.74228e-08, -1, 4.37114e-08, -0.0405817, -3.40311, 2.31644)
@@ -1875,6 +2142,7 @@ size = Vector3(15.6494, 0.698456, 1.96779)
 albedo_mix = 0.3
 upper_fade = 1e-05
 lower_fade = 1e-05
+cull_mask = 1048573
 
 [node name="Leak5" parent="Decals/Basement" instance=ExtResource("32_y2563")]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -0.267044, -4.52476, 10.8855)
@@ -1882,6 +2150,7 @@ size = Vector3(23.502, 0.0765991, 4.21109)
 albedo_mix = 0.3
 upper_fade = 1e-05
 lower_fade = 1e-05
+cull_mask = 1048573
 
 [node name="Leak6" parent="Decals/Basement" instance=ExtResource("32_y2563")]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -0.267044, -5.77661, 14.5083)
@@ -1889,6 +2158,7 @@ size = Vector3(23.502, 0.0765991, 6.7148)
 albedo_mix = 0.3
 upper_fade = 1e-05
 lower_fade = 1e-05
+cull_mask = 1048573
 
 [node name="Leak2" parent="Decals/Basement" instance=ExtResource("33_88xnm")]
 transform = Transform3D(-4.37114e-08, 1, -4.37114e-08, 0, -4.37114e-08, -1, -1, -4.37114e-08, 1.91069e-15, -1.59942, -4.98468, 6.82924)
@@ -1896,6 +2166,7 @@ size = Vector3(15.7806, 0.63031, 5.27173)
 albedo_mix = 0.44
 upper_fade = 1e-05
 lower_fade = 1e-05
+cull_mask = 1048573
 
 [node name="Leak7" parent="Decals/Basement" instance=ExtResource("33_88xnm")]
 transform = Transform3D(-4.37114e-08, 1, -4.37114e-08, 0, -4.37114e-08, -1, -1, -4.37114e-08, 1.91069e-15, 1.60494, -4.98468, 6.82924)
@@ -1903,6 +2174,7 @@ size = Vector3(15.7806, 0.63031, 5.27173)
 albedo_mix = 0.44
 upper_fade = 1e-05
 lower_fade = 1e-05
+cull_mask = 1048573
 
 [node name="Leak8" parent="Decals/Basement" instance=ExtResource("33_88xnm")]
 transform = Transform3D(-4.37114e-08, 1, -4.37114e-08, 0, -4.37114e-08, -1, -1, -4.37114e-08, 1.91069e-15, 7.54417, -4.98468, 6.82924)
@@ -1910,6 +2182,7 @@ size = Vector3(15.7806, 0.63031, 5.27173)
 albedo_mix = 0.44
 upper_fade = 1e-05
 lower_fade = 1e-05
+cull_mask = 1048573
 
 [node name="Leak11" parent="Decals/Basement" instance=ExtResource("33_88xnm")]
 transform = Transform3D(-4.37114e-08, 1, -4.37114e-08, 0, -4.37114e-08, -1, -1, -4.37114e-08, 1.91069e-15, -7.55099, -4.98468, 6.82924)
@@ -1917,6 +2190,7 @@ size = Vector3(15.7806, 0.63031, 5.27173)
 albedo_mix = 0.44
 upper_fade = 1e-05
 lower_fade = 1e-05
+cull_mask = 1048573
 
 [node name="Leak9" parent="Decals/Basement" instance=ExtResource("33_88xnm")]
 transform = Transform3D(-4.37114e-08, 1, -4.37114e-08, 0, -4.37114e-08, -1, -1, -4.37114e-08, 1.91069e-15, 4.53292, -5.10218, 9.35446)
@@ -1924,6 +2198,7 @@ size = Vector3(10.7302, 0.63031, 5.03674)
 albedo_mix = 0.44
 upper_fade = 1e-05
 lower_fade = 1e-05
+cull_mask = 1048573
 
 [node name="Leak10" parent="Decals/Basement" instance=ExtResource("33_88xnm")]
 transform = Transform3D(-4.37114e-08, 1, -4.37114e-08, 0, -4.37114e-08, -1, -1, -4.37114e-08, 1.91069e-15, -4.51065, -5.10218, 9.35446)
@@ -1931,6 +2206,7 @@ size = Vector3(10.7302, 0.63031, 5.03674)
 albedo_mix = 0.44
 upper_fade = 1e-05
 lower_fade = 1e-05
+cull_mask = 1048573
 
 [node name="Leak12" parent="Decals/Basement" instance=ExtResource("32_y2563")]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -2.96409, -5.20425, -1.30997)
@@ -1939,6 +2215,7 @@ modulate = Color(0.921569, 0.560784, 0.156863, 1)
 albedo_mix = 0.85
 upper_fade = 1e-05
 lower_fade = 1e-05
+cull_mask = 1048573
 
 [node name="Leak14" parent="Decals/Basement" instance=ExtResource("32_y2563")]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -9.61609, -5.20425, -1.30997)
@@ -1947,6 +2224,7 @@ modulate = Color(0.921569, 0.560784, 0.156863, 1)
 albedo_mix = 0.85
 upper_fade = 1e-05
 lower_fade = 1e-05
+cull_mask = 1048573
 
 [node name="Leak13" parent="Decals/Basement" instance=ExtResource("32_y2563")]
 transform = Transform3D(-1, -8.74228e-08, 3.82137e-15, 0, -4.37114e-08, -1, 8.74228e-08, -1, 4.37114e-08, -5.95362, -5.20425, -1.30997)
@@ -1955,6 +2233,7 @@ modulate = Color(0.921569, 0.560784, 0.156863, 1)
 albedo_mix = 0.85
 upper_fade = 1e-05
 lower_fade = 1e-05
+cull_mask = 1048573
 
 [node name="Leak15" parent="Decals/Basement" instance=ExtResource("32_y2563")]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 9.60724, -5.20425, -1.30997)
@@ -1963,6 +2242,7 @@ modulate = Color(0.921569, 0.560784, 0.156863, 1)
 albedo_mix = 0.85
 upper_fade = 1e-05
 lower_fade = 1e-05
+cull_mask = 1048573
 
 [node name="Leak18" parent="Decals/Basement" instance=ExtResource("32_y2563")]
 transform = Transform3D(-4.37114e-08, 1, -4.37114e-08, 0, -4.37114e-08, -1, -1, -4.37114e-08, 1.91069e-15, 11.739, -4.80603, 0.844947)
@@ -1971,6 +2251,7 @@ modulate = Color(0.921569, 0.560784, 0.156863, 1)
 albedo_mix = 0.85
 upper_fade = 1e-05
 lower_fade = 1e-05
+cull_mask = 1048573
 
 [node name="Leak19" parent="Decals/Basement" instance=ExtResource("32_y2563")]
 transform = Transform3D(-4.37114e-08, -1, 4.37114e-08, 0, -4.37114e-08, -1, 1, -4.37114e-08, 1.91069e-15, 11.739, -4.60813, 3.73877)
@@ -1979,6 +2260,7 @@ modulate = Color(0.921569, 0.560784, 0.156863, 1)
 albedo_mix = 0.85
 upper_fade = 1e-05
 lower_fade = 1e-05
+cull_mask = 1048573
 
 [node name="Leak20" parent="Decals/Basement" instance=ExtResource("32_y2563")]
 transform = Transform3D(-4.37114e-08, -1, 4.37114e-08, 0, -4.37114e-08, -1, 1, -4.37114e-08, 1.91069e-15, 11.739, -4.3982, 6.68341)
@@ -1987,6 +2269,7 @@ modulate = Color(0.921569, 0.560784, 0.156863, 1)
 albedo_mix = 0.85
 upper_fade = 1e-05
 lower_fade = 1e-05
+cull_mask = 1048573
 
 [node name="Leak21" parent="Decals/Basement" instance=ExtResource("32_y2563")]
 transform = Transform3D(-4.37114e-08, 1, -4.37114e-08, 0, -4.37114e-08, -1, -1, -4.37114e-08, 1.91069e-15, 11.739, -4.13629, 9.69871)
@@ -1995,6 +2278,7 @@ modulate = Color(0.921569, 0.560784, 0.156863, 1)
 albedo_mix = 0.85
 upper_fade = 1e-05
 lower_fade = 1e-05
+cull_mask = 1048573
 
 [node name="Leak22" parent="Decals/Basement" instance=ExtResource("32_y2563")]
 transform = Transform3D(-4.37114e-08, 1, -4.37114e-08, 0, -4.37114e-08, -1, -1, -4.37114e-08, 1.91069e-15, 11.739, -3.96152, 12.6702)
@@ -2003,6 +2287,7 @@ modulate = Color(0.921569, 0.560784, 0.156863, 1)
 albedo_mix = 0.85
 upper_fade = 1e-05
 lower_fade = 1e-05
+cull_mask = 1048573
 
 [node name="Leak23" parent="Decals/Basement" instance=ExtResource("32_y2563")]
 transform = Transform3D(-4.37114e-08, 1, -4.37114e-08, 0, -4.37114e-08, -1, -1, -4.37114e-08, 1.91069e-15, -11.7512, -4.80603, 0.844947)
@@ -2011,6 +2296,7 @@ modulate = Color(0.921569, 0.560784, 0.156863, 1)
 albedo_mix = 0.85
 upper_fade = 1e-05
 lower_fade = 1e-05
+cull_mask = 1048573
 
 [node name="Leak24" parent="Decals/Basement" instance=ExtResource("32_y2563")]
 transform = Transform3D(-4.37114e-08, -1, 4.37114e-08, 0, -4.37114e-08, -1, 1, -4.37114e-08, 1.91069e-15, -11.7512, -4.60813, 3.73877)
@@ -2019,6 +2305,7 @@ modulate = Color(0.921569, 0.560784, 0.156863, 1)
 albedo_mix = 0.85
 upper_fade = 1e-05
 lower_fade = 1e-05
+cull_mask = 1048573
 
 [node name="Leak25" parent="Decals/Basement" instance=ExtResource("32_y2563")]
 transform = Transform3D(-4.37114e-08, -1, 4.37114e-08, 0, -4.37114e-08, -1, 1, -4.37114e-08, 1.91069e-15, -11.7512, -4.3982, 6.68341)
@@ -2027,6 +2314,7 @@ modulate = Color(0.921569, 0.560784, 0.156863, 1)
 albedo_mix = 0.85
 upper_fade = 1e-05
 lower_fade = 1e-05
+cull_mask = 1048573
 
 [node name="Leak26" parent="Decals/Basement" instance=ExtResource("32_y2563")]
 transform = Transform3D(-4.37114e-08, 1, -4.37114e-08, 0, -4.37114e-08, -1, -1, -4.37114e-08, 1.91069e-15, -11.7512, -4.13629, 9.69871)
@@ -2035,6 +2323,7 @@ modulate = Color(0.921569, 0.560784, 0.156863, 1)
 albedo_mix = 0.85
 upper_fade = 1e-05
 lower_fade = 1e-05
+cull_mask = 1048573
 
 [node name="Leak27" parent="Decals/Basement" instance=ExtResource("32_y2563")]
 transform = Transform3D(-4.37114e-08, 1, -4.37114e-08, 0, -4.37114e-08, -1, -1, -4.37114e-08, 1.91069e-15, -11.7512, -3.96152, 12.6702)
@@ -2043,6 +2332,7 @@ modulate = Color(0.921569, 0.560784, 0.156863, 1)
 albedo_mix = 0.85
 upper_fade = 1e-05
 lower_fade = 1e-05
+cull_mask = 1048573
 
 [node name="Leak28" parent="Decals/Basement" instance=ExtResource("32_y2563")]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -9.60797, -4.31585, 14.8469)
@@ -2051,6 +2341,7 @@ modulate = Color(0.921569, 0.560784, 0.156863, 1)
 albedo_mix = 0.85
 upper_fade = 1e-05
 lower_fade = 1e-05
+cull_mask = 1048573
 
 [node name="Leak29" parent="Decals/Basement" instance=ExtResource("32_y2563")]
 transform = Transform3D(-1, -8.74228e-08, 3.82137e-15, 0, -4.37114e-08, -1, 8.74228e-08, -1, 4.37114e-08, -2.6804, -4.31585, 14.8469)
@@ -2059,6 +2350,7 @@ modulate = Color(0.921569, 0.560784, 0.156863, 1)
 albedo_mix = 0.85
 upper_fade = 1e-05
 lower_fade = 1e-05
+cull_mask = 1048573
 
 [node name="Leak30" parent="Decals/Basement" instance=ExtResource("32_y2563")]
 transform = Transform3D(-1, -8.74228e-08, 3.82137e-15, 0, -4.37114e-08, -1, 8.74228e-08, -1, 4.37114e-08, -0.864411, -4.41111, 14.9276)
@@ -2067,6 +2359,7 @@ modulate = Color(0.921569, 0.560784, 0.156863, 1)
 albedo_mix = 0.85
 upper_fade = 1e-05
 lower_fade = 1e-05
+cull_mask = 1048573
 
 [node name="Leak31" parent="Decals/Basement" instance=ExtResource("32_y2563")]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0.868146, -4.16331, 14.9276)
@@ -2075,6 +2368,7 @@ modulate = Color(0.921569, 0.560784, 0.156863, 1)
 albedo_mix = 0.85
 upper_fade = 1e-05
 lower_fade = 1e-05
+cull_mask = 1048573
 
 [node name="Leak32" parent="Decals/Basement" instance=ExtResource("32_y2563")]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 2.67518, -4.16331, 14.9276)
@@ -2083,6 +2377,7 @@ modulate = Color(0.921569, 0.560784, 0.156863, 1)
 albedo_mix = 0.85
 upper_fade = 1e-05
 lower_fade = 1e-05
+cull_mask = 1048573
 
 [node name="Leak33" parent="Decals/Basement" instance=ExtResource("32_y2563")]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 9.59404, -4.33613, 14.9276)
@@ -2091,6 +2386,7 @@ modulate = Color(0.921569, 0.560784, 0.156863, 1)
 albedo_mix = 0.85
 upper_fade = 1e-05
 lower_fade = 1e-05
+cull_mask = 1048573
 
 [node name="Leak16" parent="Decals/Basement" instance=ExtResource("32_y2563")]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 2.94902, -5.20425, -1.30997)
@@ -2099,6 +2395,7 @@ modulate = Color(0.921569, 0.560784, 0.156863, 1)
 albedo_mix = 0.85
 upper_fade = 1e-05
 lower_fade = 1e-05
+cull_mask = 1048573
 
 [node name="Leak17" parent="Decals/Basement" instance=ExtResource("32_y2563")]
 transform = Transform3D(-1, -8.74228e-08, 3.82137e-15, 0, -4.37114e-08, -1, 8.74228e-08, -1, 4.37114e-08, 5.96484, -5.20425, -1.30997)
@@ -2107,6 +2404,7 @@ modulate = Color(0.921569, 0.560784, 0.156863, 1)
 albedo_mix = 0.85
 upper_fade = 1e-05
 lower_fade = 1e-05
+cull_mask = 1048573
 
 [node name="Graffiti" type="Node3D" parent="."]
 
@@ -2334,6 +2632,29 @@ shape = SubResource("BoxShape3D_mw2re")
 
 [node name="AudioStreamPlayer3D" parent="Noises/Creak" index="1"]
 stream = ExtResource("59_wmiqk")
+
+[node name="Creak5" parent="Noises" instance=ExtResource("58_xqhvb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0276099, -1.96721, 1.12433)
+
+[node name="CollisionShape3D" parent="Noises/Creak5" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.69617, 0, 0.901062)
+shape = SubResource("BoxShape3D_c216n")
+
+[node name="AudioStreamPlayer3D" parent="Noises/Creak5" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.40902, -0.493254, 0)
+stream = ExtResource("59_wmiqk")
+pitch_scale = 0.3
+
+[node name="Creak6" parent="Noises" instance=ExtResource("58_xqhvb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.26574, 1.92166, 13.592)
+
+[node name="CollisionShape3D" parent="Noises/Creak6" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.691665, 0.186951, 0.256401)
+shape = SubResource("BoxShape3D_2gykc")
+
+[node name="AudioStreamPlayer3D" parent="Noises/Creak6" index="1"]
+stream = ExtResource("59_wmiqk")
+pitch_scale = 1.9
 
 [node name="Creak2" parent="Noises" instance=ExtResource("58_xqhvb")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.0004, -2.21957, 8.6002)
@@ -3055,13 +3376,127 @@ transform = Transform3D(-0.168567, 0.761698, 0.625621, 0.296517, 0.64449, -0.704
 [node name="StaticFreak8" parent="InactiveFreaks" instance=ExtResource("84_wmg7v")]
 transform = Transform3D(0.309484, -0.287101, 0.906528, -0.0450267, 0.947839, 0.315556, -0.949838, -0.138477, 0.280414, 5.22696, 2.11407, 11.1865)
 
+[node name="Rustler" type="Area3D" parent="."]
+collision_layer = 0
+collision_mask = 2147483648
+script = ExtResource("88_evwk0")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Rustler"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.24698, -1.63606, 3.75122)
+shape = SubResource("BoxShape3D_j6ql3")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="Rustler"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.6974, -1.63606, -0.61459)
+shape = SubResource("BoxShape3D_yd7er")
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="Rustler"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.11809, -1.63606, 9.72709)
+shape = SubResource("BoxShape3D_bymh3")
+
+[node name="CollisionShape3D4" type="CollisionShape3D" parent="Rustler"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.1005, -1.63606, 14.2341)
+shape = SubResource("BoxShape3D_tx3ni")
+
+[node name="CollisionShape3D5" type="CollisionShape3D" parent="Rustler"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.93857, -1.63606, 13.8378)
+shape = SubResource("BoxShape3D_ohwox")
+
+[node name="CollisionShape3D19" type="CollisionShape3D" parent="Rustler"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.90677, 2.57053, 13.8212)
+shape = SubResource("BoxShape3D_ou4ou")
+
+[node name="CollisionShape3D6" type="CollisionShape3D" parent="Rustler"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.75145, -6.11936, 13.1928)
+shape = SubResource("BoxShape3D_6qgbq")
+
+[node name="CollisionShape3D7" type="CollisionShape3D" parent="Rustler"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.50259, -6.11936, 3.60172)
+shape = SubResource("BoxShape3D_6twjq")
+
+[node name="CollisionShape3D8" type="CollisionShape3D" parent="Rustler"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.18142, -6.11936, 6.00256)
+shape = SubResource("BoxShape3D_x0snv")
+
+[node name="CollisionShape3D9" type="CollisionShape3D" parent="Rustler"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.105, -6.11936, 0.591307)
+shape = SubResource("BoxShape3D_utogq")
+
+[node name="CollisionShape3D10" type="CollisionShape3D" parent="Rustler"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.086986, -6.11936, 6.4192)
+shape = SubResource("BoxShape3D_20wt2")
+
+[node name="CollisionShape3D11" type="CollisionShape3D" parent="Rustler"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.02874, -6.11936, 0.108272)
+shape = SubResource("BoxShape3D_488k2")
+
+[node name="CollisionShape3D12" type="CollisionShape3D" parent="Rustler"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.9354, -6.11936, -0.411894)
+shape = SubResource("BoxShape3D_81iut")
+
+[node name="CollisionShape3D13" type="CollisionShape3D" parent="Rustler"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.098, -6.11936, 5.41412)
+shape = SubResource("BoxShape3D_6qcbm")
+
+[node name="CollisionShape3D14" type="CollisionShape3D" parent="Rustler"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.6932, -6.11936, 11.9716)
+shape = SubResource("BoxShape3D_66n6s")
+
+[node name="CollisionShape3D15" type="CollisionShape3D" parent="Rustler"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.19866, -6.11936, 13.2472)
+shape = SubResource("BoxShape3D_eoh3x")
+
+[node name="CollisionShape3D16" type="CollisionShape3D" parent="Rustler"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.3893, -6.11936, 6.82804)
+shape = SubResource("BoxShape3D_uol58")
+
+[node name="CollisionShape3D17" type="CollisionShape3D" parent="Rustler"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.51983, -6.11936, 10.2595)
+shape = SubResource("BoxShape3D_ufdm8")
+
+[node name="CollisionShape3D18" type="CollisionShape3D" parent="Rustler"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.59665, -6.11936, 10.2595)
+shape = SubResource("BoxShape3D_ffeds")
+
+[node name="CrawlScare" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.53884, -2.16857, 3.0801)
+collision_layer = 0
+collision_mask = 2147483648
+script = ExtResource("89_7xrjj")
+
+[node name="Freak" parent="CrawlScare" instance=ExtResource("81_q4ljd")]
+transform = Transform3D(-1, -8.74228e-08, 3.82137e-15, 0, -4.37114e-08, -1, 8.74228e-08, -1, 4.37114e-08, 0, -0.953114, 6.58893)
+enable_light = true
+static_anim = "CrawlFast"
+mode = -1
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CrawlScare"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0236816, 0, 0)
+shape = SubResource("BoxShape3D_f4gen")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CrawlScare"]
+libraries = {
+"": SubResource("AnimationLibrary_hjg1l")
+}
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="CrawlScare"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.507053, 0)
+stream = ExtResource("17_gfv15")
+volume_db = 8.0
+pitch_scale = 2.0
+bus = &"SFX"
+
 [connection signal="body_entered" from="OutdoorNoise/BirdStopper" to="OutdoorNoise/BirdStopper" method="_on_body_entered"]
 [connection signal="animation_finished" from="BirthdayStuff/present/AnimationPlayer" to="BirthdayStuff/present" method="_on_animation_player_animation_finished"]
 [connection signal="body_entered" from="BirthdayStuff/BirthdayStarter" to="BirthdayStuff/BirthdayStarter" method="_on_body_entered"]
 [connection signal="body_entered" from="Ending" to="Ending" method="_on_body_entered"]
 [connection signal="body_entered" from="Fall" to="Fall" method="_on_body_entered"]
+[connection signal="body_entered" from="Rustler" to="Rustler" method="_on_body_entered"]
+[connection signal="body_exited" from="Rustler" to="Rustler" method="_on_body_exited"]
+[connection signal="body_entered" from="CrawlScare" to="CrawlScare" method="_on_body_entered"]
 
 [editable path="Noises/Creak"]
+[editable path="Noises/Creak5"]
+[editable path="Noises/Creak6"]
 [editable path="Noises/Creak2"]
 [editable path="Noises/Creak3"]
 [editable path="Noises/Creak4"]

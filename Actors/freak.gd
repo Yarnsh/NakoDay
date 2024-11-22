@@ -12,11 +12,14 @@ var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 @onready var hit_noise = $SlapNoise
 @onready var loop_noise = $Loop
 
+@export var enable_light = false
+@export var static_anim = "Bite"
+
 var alive = true
 var attacking = false
 var hitting = false
 var attack_time = 0
-var mode = 0
+@export var mode = 0
 var prev_mode = 0
 var wake_time = 0
 var root_vel = Vector3.ZERO
@@ -28,6 +31,8 @@ const HIT_TIME = 1200
 func _ready():
 	skeleton.animate_physical_bones = true
 	anim.play("Pose")
+	if enable_light:
+		light.show()
 
 func _disable_character_collision():
 	set_collision_layer_value(4, false)
@@ -62,6 +67,15 @@ func _physics_process(delta):
 			mode = 1
 			prev_mode = 0 # dirty hack
 			return
+	elif mode == 3: # just play an animation with root motion for scares and the like
+		loop_noise.play()
+		anim_mode(delta)
+	else:
+		_disable_character_collision()
+		loop_noise.stop()
+		anim.stop()
+		decal.emission_energy = 0
+		light.light_energy = 0
 	
 	root_vel = Vector3.ZERO
 	prev_mode = mode
@@ -102,6 +116,14 @@ func chase_mode(delta):
 		anim.play("Idle")
 	
 	velocity.y -= gravity * delta
+	move_and_slide()
+
+func anim_mode(delta):
+	_disable_character_collision()
+	decal.emission_energy = 1.0
+	light.light_energy = 0.25
+	anim.play(static_anim)
+	velocity = Quaternion(global_basis) * (root_vel)
 	move_and_slide()
 
 func destroy():
