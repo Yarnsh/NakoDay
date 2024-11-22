@@ -2,4 +2,3 @@ fix freaks getting stuck in walls (probably bad map normals, man...)
 fix spots on walls that stop your movement (definitely bad normals, just put a collider over them that works better)
 
 scary red light turns on where the freaks wake up to scare you towards the proper path?
-have freaks peek in when you are half way through falling into the basement
