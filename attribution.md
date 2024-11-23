@@ -42,3 +42,8 @@
 ### Decal textures
 
 - Raw files sourced from texturelib.com, modified to have transparency
+
+### Music
+
+- Bloody Clown by Universfield -- https://freemusicarchive.org/music/universfield/horror-music/bloody-clown/ -- License: Attribution-ShareAlike 4.0 International License
+- Mushroom Rock (ID 012) by Mushroom Funghi -- https://freemusicarchive.org/music/mushroom-funghi/best-of-mushroom-rock/mushroom-rock-id-012/ -- License: Attribution-NonCommercial-ShareAlike 4.0 International License.
