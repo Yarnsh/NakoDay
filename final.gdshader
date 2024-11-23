@@ -8,7 +8,7 @@ varying float distanceToCam; // distance from cam to center
 varying vec4 world_pos;  // of current vertex
 varying float vertexToCam; // distance from current vertex to the camera
 
-uniform sampler2D base : source_color, filter_nearest;
+uniform sampler2D base : hint_screen_texture, repeat_disable, filter_nearest;
 //uniform sampler2D SCREEN_TEXTURE : hint_screen_texture, filter_linear_mipmap;
 // Precalculated kernels for various radius quadrants
 const vec2 kernel3[4] = {vec2(0,0), vec2(0,1), vec2(1,0), vec2(1,1)};

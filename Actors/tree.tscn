@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://c21rramlm0gas"]
+[gd_scene load_steps=20 format=3 uid="uid://c21rramlm0gas"]
 
 [ext_resource type="Texture2D" uid="uid://dx480dhvqme58" path="res://Models/tree_Bark.png" id="1_n4b6o"]
 [ext_resource type="Texture2D" uid="uid://c4hcmfkxfd4al" path="res://Models/tree_Bark roug.png" id="2_p15be"]
@@ -66,6 +66,7 @@ roughness_texture = ExtResource("5_4qsf2")
 roughness_texture_channel = 1
 normal_enabled = true
 normal_texture = ExtResource("6_e1y06")
+disable_receive_shadows = true
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fml1f"]
 resource_name = "Branch"
@@ -133,6 +134,12 @@ _surfaces = [{
 }]
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_25psq")
+
+[sub_resource type="SphereMesh" id="SphereMesh_nombw"]
+radius = 3.5
+height = 6.0
+radial_segments = 8
+rings = 4
 
 [sub_resource type="Animation" id="Animation_0n4lw"]
 length = 0.001
@@ -206,9 +213,15 @@ skeleton = NodePath("")
 
 [node name="Leaf_6" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.999119, 0.0419629, 0, -0.0419629, 0.999119, 0, 0, 0, 1, 0, 0, 0)
+cast_shadow = 0
 gi_mode = 2
 mesh = SubResource("ArrayMesh_up0gk")
 skeleton = NodePath("")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Leaf_6"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.19166, 4.56343, 0)
+cast_shadow = 3
+mesh = SubResource("SphereMesh_nombw")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
