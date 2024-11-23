@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dapdy2wiw3ne4"
+path="res://.godot/imported/Mushroom Funghi - Mushroom Rock (ID 012).mp3-71e389c3a5977c51b62027d9abc90968.mp3str"
+
+[deps]
+
+source_file="res://Music/Mushroom Funghi - Mushroom Rock (ID 012).mp3"
+dest_files=["res://.godot/imported/Mushroom Funghi - Mushroom Rock (ID 012).mp3-71e389c3a5977c51b62027d9abc90968.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

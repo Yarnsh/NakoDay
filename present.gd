@@ -1,7 +1,6 @@
 extends StaticBody3D
 
 @onready var anim = $AnimationPlayer
-@onready var sound = $AudioStreamPlayer3D
 @export var walls : StaticBody3D
 var char = null
 
@@ -9,8 +8,8 @@ func interact(c):
 	char = c
 	set_collision_layer_value(2, false)
 	anim.play("Open")
-	sound.play()
 	walls.set_collision_layer_value(5, false) # Disable all the invisible walls since we wont need them anymore
+	char.start_action_music()
 
 func destroy():
 	set_collision_layer_value(1, false)

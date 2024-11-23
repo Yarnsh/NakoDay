@@ -38,10 +38,11 @@ func _process(delta):
 			pop.play()
 			horn.play()
 			present.allow_pickup()
-			# TODO: sounds and stuff
 
 
 func _on_body_entered(body):
+	body.stop_scary_music()
+	Global.scare_done = true
 	set_collision_mask_value(32, false)
 	door.close()
 	prepare = true

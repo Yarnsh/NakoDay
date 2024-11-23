@@ -129,10 +129,10 @@ text = "SFX
 horizontal_alignment = 2
 vertical_alignment = 1
 
-[node name="AmbientVolume" type="Label" parent="Menus/Settings/All/Options/Labels"]
+[node name="MusicVolume" type="Label" parent="Menus/Settings/All/Options/Labels"]
 custom_minimum_size = Vector2(0, 35)
 layout_mode = 2
-text = "Ambient"
+text = "Music"
 horizontal_alignment = 2
 vertical_alignment = 1
 
@@ -212,7 +212,7 @@ value = 100.0
 tick_count = 7
 ticks_on_borders = true
 
-[node name="AmbientVolume" type="HSlider" parent="Menus/Settings/All/Options/Controls"]
+[node name="MusicVolume" type="HSlider" parent="Menus/Settings/All/Options/Controls"]
 custom_minimum_size = Vector2(0, 35)
 layout_mode = 2
 size_flags_vertical = 4
@@ -541,7 +541,7 @@ transform = Transform3D(-0.577858, 0.0711311, -0.813032, 0, 0.996195, 0.0871557,
 [connection signal="value_changed" from="Menus/Settings/All/Options/Controls/FoV" to="Menus/Settings" method="_on_change"]
 [connection signal="drag_ended" from="Menus/Settings/All/Options/Controls/MasterVolume" to="Menus/Settings" method="_on_change"]
 [connection signal="drag_ended" from="Menus/Settings/All/Options/Controls/SFXVolume" to="Menus/Settings" method="_on_change"]
-[connection signal="drag_ended" from="Menus/Settings/All/Options/Controls/AmbientVolume" to="Menus/Settings" method="_on_change"]
+[connection signal="drag_ended" from="Menus/Settings/All/Options/Controls/MusicVolume" to="Menus/Settings" method="_on_change"]
 [connection signal="toggled" from="Menus/Settings/All/Options/Controls/CameraScreenshots" to="Menus/Settings" method="_on_change"]
 [connection signal="pressed" from="Menus/Settings/All/Controls" to="Menus/Settings" method="_on_controls_pressed"]
 [connection signal="pressed" from="Menus/Settings/All/Buttons/Apply" to="Menus/Settings" method="_on_apply_pressed"]

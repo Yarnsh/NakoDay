@@ -13,6 +13,7 @@ func _process(delta):
 
 
 func _on_body_entered(body):
+	body.start_scary_music()
 	set_collision_mask_value(32, false)
 	scare_light.show()
 	for child in get_children():

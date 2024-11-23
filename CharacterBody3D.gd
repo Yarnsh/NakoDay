@@ -3,6 +3,9 @@ extends CharacterBody3D
 @onready var main_scene = $"../../.."
 @onready var game_scene = $".."
 
+@onready var scary_music = $"../ScaryMusic"
+@onready var action_music = $"../ActionMusic"
+
 @onready var cam = $RootCam
 @onready var view_pos = $RootCam/ViewPos
 @onready var foot_sfx = $Foot
@@ -40,10 +43,25 @@ const NORMAL_STATE = 0
 const CUTSCENE_STATE = 1
 @export var state = NORMAL_STATE
 
+var action_fade_out = false
+
 func _ready():
 	Global.player = self
 	fade_anim.play("FadeIn")
 	rustling_foot.set_stream_paused(true)
+
+func start_scary_music():
+	if !scary_music.playing:
+		scary_music.play()
+
+func stop_scary_music():
+	scary_music.stop()
+
+func start_action_music():
+	action_music.play()
+
+func stop_action_music():
+	action_fade_out = true
 
 func hit():
 	play_sfx(screams[randi_range(0,2)], 0.0)
@@ -68,6 +86,11 @@ func _process(delta):
 	# bit of a waste to do this every frame but honestly who cares anymore
 	interact_1.text = InputMap.action_get_events("interact")[0].as_text()
 	interact_2.text = InputMap.action_get_events("interact")[0].as_text()
+	
+	if scary_music.playing:
+		scary_music.volume_db = min(0.0, scary_music.volume_db + (delta * 40.0))
+	if action_fade_out:
+		action_music.volume_db = max(-40.0, action_music.volume_db - (delta * 20.0))
 
 func _physics_process(delta):
 	var now = Time.get_ticks_msec()

@@ -45,6 +45,8 @@ func _enable_character_collision():
 
 func _process(delta):
 	root_vel += anim.get_root_motion_position()
+	if Global.scare_done:
+		dark.omni_range = max(2.0, dark.omni_range - (delta * 2.0))
 
 func _physics_process(delta):
 	if !alive:
