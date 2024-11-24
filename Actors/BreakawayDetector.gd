@@ -4,6 +4,7 @@ extends Area3D
 @export var breakaway : StaticBody3D
 @export var delay = 0
 @export var particles : GPUParticles3D
+@export var disable_thing : StaticBody3D
 var breaking = false
 
 # Called when the node enters the scene tree for the first time.
@@ -23,3 +24,4 @@ func _process(delta):
 func _on_body_entered(body):
 	breaking = true
 	set_collision_mask_value(32, false)
+	disable_thing.set_collision_layer_value(1, false)

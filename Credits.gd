@@ -5,6 +5,7 @@ extends PanelContainer
 @onready var credits = $Node/Credits
 @onready var poloroids = $Poloroids
 @onready var sides = [$Poloroids/Side1, $Poloroids/Side2, $Poloroids/Side3, $Poloroids/Side4]
+@onready var music = $AudioStreamPlayer
 var moving = false
 var side = 0
 
@@ -59,6 +60,7 @@ func start_credits():
 		print("An error occurred when trying to access the path.")
 	
 	moving = true
+	music.play()
 
 func _on_visibility_changed():
 	credits.visible = visible

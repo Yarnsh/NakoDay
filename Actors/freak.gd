@@ -30,6 +30,7 @@ const HIT_TIME = 1200
 func _ready():
 	skeleton.animate_physical_bones = true
 	anim.play("Pose")
+	loop_noise.stop()
 
 func _disable_character_collision():
 	set_collision_layer_value(4, false)
@@ -53,6 +54,7 @@ func _physics_process(delta):
 		return
 	
 	if mode == 0: # static non-character thing
+		loop_noise.stop()
 		static_mode(delta)
 	elif mode == 1: # chasing
 		if prev_mode == 0:

@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://hghf53tjyueh"]
+[gd_scene load_steps=14 format=3 uid="uid://hghf53tjyueh"]
 
 [ext_resource type="Script" path="res://main_scene.gd" id="1_7rukl"]
 [ext_resource type="PackedScene" uid="uid://bhplchb2q2ngm" path="res://GameScene.tscn" id="2_mr8bg"]
@@ -10,6 +10,7 @@
 [ext_resource type="Script" path="res://DeathScene.gd" id="8_6hb5i"]
 [ext_resource type="Script" path="res://Credits.gd" id="9_2pnau"]
 [ext_resource type="PackedScene" uid="uid://b8f2gd7iff7qn" path="res://Actors/poloroid.tscn" id="10_baiuk"]
+[ext_resource type="AudioStream" uid="uid://cf45jt7tsp35g" path="res://Music/happy_spook_day.mp3" id="11_ac0vh"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6ev5d"]
 bg_color = Color(0, 0, 0, 1)
@@ -526,6 +527,11 @@ visible = false
 [node name="Side3" type="Node2D" parent="Menus/Credits/Poloroids"]
 
 [node name="Side4" type="Node2D" parent="Menus/Credits/Poloroids"]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Menus/Credits"]
+stream = ExtResource("11_ac0vh")
+volume_db = 5.0
+bus = &"Music"
 
 [node name="GameScene" parent="." instance=ExtResource("2_mr8bg")]
 
