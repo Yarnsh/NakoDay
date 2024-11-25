@@ -5,7 +5,8 @@ extends PanelContainer
 
 var actions_list = [
 	"interact",
-	"Use_Nail",
+	"Action",
+	"Aim",
 	"left",
 	"right",
 	"forward",
@@ -15,7 +16,8 @@ var actions_list = [
 
 var default = {
 	"interact": InputEventKey.new(),
-	"Use_Nail": InputEventMouseButton.new(),
+	"Action": InputEventMouseButton.new(),
+	"Aim": InputEventMouseButton.new(),
 	"left": InputEventKey.new(),
 	"right": InputEventKey.new(),
 	"forward": InputEventKey.new(),
@@ -25,7 +27,8 @@ var default = {
 
 func _ready():
 	default["interact"].keycode = 69
-	default["Use_Nail"].button_index = 2
+	default["Action"].button_index = 1
+	default["Aim"].button_index = 2
 	default["left"].keycode = 65
 	default["right"].keycode = 68
 	default["forward"].keycode = 87

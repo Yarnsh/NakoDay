@@ -45,7 +45,7 @@ func set_settings_from_dict(settings):
 	fov.value = settings.get("fov", 90)
 	master_volume.value = settings.get("master_volume", 100)
 	sfx_volume.value = settings.get("sfx_volume", 100)
-	music_volume.value = settings.get("music_volume", 100)
+	music_volume.value = settings.get("music_volume", 70)
 	camera_screenshots.button_pressed = settings.get("camera_screenshots", true)
 
 func apply_current_settings():

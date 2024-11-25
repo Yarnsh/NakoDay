@@ -1,7 +1,4 @@
-fix freaks getting stuck in walls (probably bad map normals, man...)
+fix freaks getting stuck in walls (no idea how it happens really, not a huge deal)
 fix spots on walls that stop your movement (definitely bad normals, just put a collider over them that works better)
 
-Put some kind of short intro
-Put a thing on screen that shows what left click and right click do
 Lower poly count on camera and gun
-fix up control remapping menu

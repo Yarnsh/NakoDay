@@ -48,7 +48,6 @@ var action_fade_out = false
 func _ready():
 	Global.player = self
 	fade_anim.play("FadeIn")
-	rustling_foot.set_stream_paused(true)
 
 func start_scary_music():
 	if !scary_music.playing:
@@ -102,6 +101,9 @@ func _physics_process(delta):
 		SPEED = 3.0
 	
 	if (state == NORMAL_STATE):
+		if !rustling_foot.playing and !rustling_foot.stream_paused:
+			rustling_foot.play()
+			rustling_foot.set_stream_paused(true)
 		if is_on_floor():
 			var col = get_last_slide_collision()
 			if col != null:

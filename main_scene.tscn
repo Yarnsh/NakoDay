@@ -51,6 +51,12 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 alignment = 1
 
+[node name="Resume" type="Button" parent="Menus/Main/VBoxContainer/VBoxContainer"]
+visible = false
+layout_mode = 2
+size_flags_vertical = 4
+text = "Resume"
+
 [node name="NewGame" type="Button" parent="Menus/Main/VBoxContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 4
@@ -288,10 +294,17 @@ text = "Interact"
 horizontal_alignment = 2
 vertical_alignment = 1
 
-[node name="UseNail" type="Label" parent="Menus/Controls/All/Options/Labels"]
+[node name="Action" type="Label" parent="Menus/Controls/All/Options/Labels"]
 custom_minimum_size = Vector2(0, 35)
 layout_mode = 2
-text = "Toggle Nail"
+text = "Use Item in Hand"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="Aim" type="Label" parent="Menus/Controls/All/Options/Labels"]
+custom_minimum_size = Vector2(0, 35)
+layout_mode = 2
+text = "Aim"
 horizontal_alignment = 2
 vertical_alignment = 1
 
@@ -345,14 +358,23 @@ clip_text = true
 script = ExtResource("5_wjbri")
 action = &"interact"
 
-[node name="UseNail" type="Button" parent="Menus/Controls/All/Options/Controls"]
+[node name="Action" type="Button" parent="Menus/Controls/All/Options/Controls"]
 custom_minimum_size = Vector2(250, 35)
 layout_mode = 2
 focus_mode = 0
 text = "E"
 clip_text = true
 script = ExtResource("5_wjbri")
-action = &"Use_Nail"
+action = &"Action"
+
+[node name="Aim" type="Button" parent="Menus/Controls/All/Options/Controls"]
+custom_minimum_size = Vector2(250, 35)
+layout_mode = 2
+focus_mode = 0
+text = "E"
+clip_text = true
+script = ExtResource("5_wjbri")
+action = &"Aim"
 
 [node name="Menu" type="Button" parent="Menus/Controls/All/Options/Controls"]
 custom_minimum_size = Vector2(250, 35)
@@ -538,6 +560,7 @@ bus = &"Music"
 [node name="MenuCam" type="Camera3D" parent="."]
 transform = Transform3D(-0.577858, 0.0711311, -0.813032, 0, 0.996195, 0.0871557, 0.816138, 0.0503636, -0.575659, -24.392, 6.13508, -28.5984)
 
+[connection signal="pressed" from="Menus/Main/VBoxContainer/VBoxContainer/Resume" to="Menus/Main" method="resume"]
 [connection signal="pressed" from="Menus/Main/VBoxContainer/VBoxContainer/NewGame" to="Menus/Main" method="new_game"]
 [connection signal="pressed" from="Menus/Main/VBoxContainer/VBoxContainer/Settings" to="Menus/Main" method="settings"]
 [connection signal="pressed" from="Menus/Main/VBoxContainer/VBoxContainer/Quit" to="Menus/Main" method="quit"]
@@ -553,7 +576,8 @@ transform = Transform3D(-0.577858, 0.0711311, -0.813032, 0, 0.996195, 0.0871557,
 [connection signal="pressed" from="Menus/Settings/All/Buttons/Apply" to="Menus/Settings" method="_on_apply_pressed"]
 [connection signal="pressed" from="Menus/Settings/All/Buttons/Back" to="Menus/Settings" method="_on_cancel_pressed"]
 [connection signal="pressed" from="Menus/Controls/All/Options/Controls/Interact" to="Menus/Controls/All/Options/Controls/Interact" method="_on_pressed"]
-[connection signal="pressed" from="Menus/Controls/All/Options/Controls/UseNail" to="Menus/Controls/All/Options/Controls/UseNail" method="_on_pressed"]
+[connection signal="pressed" from="Menus/Controls/All/Options/Controls/Action" to="Menus/Controls/All/Options/Controls/Action" method="_on_pressed"]
+[connection signal="pressed" from="Menus/Controls/All/Options/Controls/Aim" to="Menus/Controls/All/Options/Controls/Aim" method="_on_pressed"]
 [connection signal="pressed" from="Menus/Controls/All/Options/Controls/Menu" to="Menus/Controls/All/Options/Controls/Menu" method="_on_pressed"]
 [connection signal="pressed" from="Menus/Controls/All/Options/Controls/Forward" to="Menus/Controls/All/Options/Controls/Forward" method="_on_pressed"]
 [connection signal="pressed" from="Menus/Controls/All/Options/Controls/Back" to="Menus/Controls/All/Options/Controls/Back" method="_on_pressed"]

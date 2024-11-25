@@ -32,12 +32,13 @@ func flash():
 	shot_delay = 2
 
 func _input(event):
-	if cam_model.visible and event.is_action_pressed("Action"):
-		if Time.get_ticks_msec() >= next_allowed:
-			flash()
-	elif event.is_action_pressed("Aim"):
-		cam_model.set_aimed(true)
-	elif event.is_action_released("Aim"):
+	if Global.main.mode == 0:
+		if cam_model.visible and event.is_action_pressed("Action"):
+			if Time.get_ticks_msec() >= next_allowed:
+				flash()
+		elif event.is_action_pressed("Aim"):
+			cam_model.set_aimed(true)
+	if event.is_action_released("Aim"):
 		cam_model.set_aimed(false)
 
 func take_screenshot():
