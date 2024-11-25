@@ -32,7 +32,7 @@ func flash():
 	shot_delay = 2
 
 func _input(event):
-	if Global.main.mode == 0:
+	if Global.main.mode == 0 and Global.player.state == 0:
 		if cam_model.visible and event.is_action_pressed("Action"):
 			if Time.get_ticks_msec() >= next_allowed:
 				flash()

@@ -3,21 +3,20 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cytwmfbr3asf4"
-path.s3tc="res://.godot/imported/tree_Leaf ORM_6.png-4505a572ee202bf42d84650b98593075.s3tc.ctex"
+path="res://.godot/imported/tree_Leaf ORM_6.png-4505a572ee202bf42d84650b98593075.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
-"vram_texture": true
+"vram_texture": false
 }
 generator_parameters={}
 
 [deps]
 
 source_file="res://Models/tree_Leaf ORM_6.png"
-dest_files=["res://.godot/imported/tree_Leaf ORM_6.png-4505a572ee202bf42d84650b98593075.s3tc.ctex"]
+dest_files=["res://.godot/imported/tree_Leaf ORM_6.png-4505a572ee202bf42d84650b98593075.ctex"]
 
 [params]
 
-compress/mode=2
+compress/mode=1
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1

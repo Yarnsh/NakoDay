@@ -6,8 +6,3 @@
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.599674, -6.4306, 6.81445)
 
 [node name="debris1" parent="." instance=ExtResource("1_ejil6")]
-
-[node name="Debree" parent="debris1" index="0"]
-cast_shadow = 0
-
-[editable path="debris1"]

@@ -3,20 +3,19 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dj1uroh25fuol"
-path.s3tc="res://.godot/imported/heavily-rusted-metal_roughness.png-770123ed7729e8b750a7c5cdf6fb5c68.s3tc.ctex"
+path="res://.godot/imported/heavily-rusted-metal_roughness.png-770123ed7729e8b750a7c5cdf6fb5c68.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
-"vram_texture": true
+"vram_texture": false
 }
 
 [deps]
 
 source_file="res://BlendFiles/wall_mat/heavily-rusted-metal-bl/heavily-rusted-metal_roughness.png"
-dest_files=["res://.godot/imported/heavily-rusted-metal_roughness.png-770123ed7729e8b750a7c5cdf6fb5c68.s3tc.ctex"]
+dest_files=["res://.godot/imported/heavily-rusted-metal_roughness.png-770123ed7729e8b750a7c5cdf6fb5c68.ctex"]
 
 [params]
 
-compress/mode=2
+compress/mode=1
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1

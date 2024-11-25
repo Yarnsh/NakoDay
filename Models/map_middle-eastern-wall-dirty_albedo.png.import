@@ -3,21 +3,20 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://di7i0sg1ib673"
-path.s3tc="res://.godot/imported/map_middle-eastern-wall-dirty_albedo.png-36ee197d0d9ff17651d1311a857d218b.s3tc.ctex"
+path="res://.godot/imported/map_middle-eastern-wall-dirty_albedo.png-36ee197d0d9ff17651d1311a857d218b.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
-"vram_texture": true
+"vram_texture": false
 }
 generator_parameters={}
 
 [deps]
 
 source_file="res://Models/map_middle-eastern-wall-dirty_albedo.png"
-dest_files=["res://.godot/imported/map_middle-eastern-wall-dirty_albedo.png-36ee197d0d9ff17651d1311a857d218b.s3tc.ctex"]
+dest_files=["res://.godot/imported/map_middle-eastern-wall-dirty_albedo.png-36ee197d0d9ff17651d1311a857d218b.ctex"]
 
 [params]
 
-compress/mode=2
+compress/mode=1
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1

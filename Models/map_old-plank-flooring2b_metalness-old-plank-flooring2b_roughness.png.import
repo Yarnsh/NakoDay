@@ -3,21 +3,20 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bi3jikr0k08ih"
-path.s3tc="res://.godot/imported/map_old-plank-flooring2b_metalness-old-plank-flooring2b_roughness.png-d6fbe989180430bf15c661fefd6ddbfd.s3tc.ctex"
+path="res://.godot/imported/map_old-plank-flooring2b_metalness-old-plank-flooring2b_roughness.png-d6fbe989180430bf15c661fefd6ddbfd.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
-"vram_texture": true
+"vram_texture": false
 }
 generator_parameters={}
 
 [deps]
 
 source_file="res://Models/map_old-plank-flooring2b_metalness-old-plank-flooring2b_roughness.png"
-dest_files=["res://.godot/imported/map_old-plank-flooring2b_metalness-old-plank-flooring2b_roughness.png-d6fbe989180430bf15c661fefd6ddbfd.s3tc.ctex"]
+dest_files=["res://.godot/imported/map_old-plank-flooring2b_metalness-old-plank-flooring2b_roughness.png-d6fbe989180430bf15c661fefd6ddbfd.ctex"]
 
 [params]
 
-compress/mode=2
+compress/mode=1
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1

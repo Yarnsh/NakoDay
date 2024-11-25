@@ -3,21 +3,20 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://oa7lgn3n81ve"
-path.s3tc="res://.godot/imported/map_concrete3-Metallic-concrete3-Roughness.png-b53a58114b387b2780f744cc7eae8aec.s3tc.ctex"
+path="res://.godot/imported/map_concrete3-Metallic-concrete3-Roughness.png-b53a58114b387b2780f744cc7eae8aec.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
-"vram_texture": true
+"vram_texture": false
 }
 generator_parameters={}
 
 [deps]
 
 source_file="res://Models/map_concrete3-Metallic-concrete3-Roughness.png"
-dest_files=["res://.godot/imported/map_concrete3-Metallic-concrete3-Roughness.png-b53a58114b387b2780f744cc7eae8aec.s3tc.ctex"]
+dest_files=["res://.godot/imported/map_concrete3-Metallic-concrete3-Roughness.png-b53a58114b387b2780f744cc7eae8aec.ctex"]
 
 [params]
 
-compress/mode=2
+compress/mode=1
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1

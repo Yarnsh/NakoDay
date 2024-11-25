@@ -3,21 +3,20 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cku8pxvqhmlce"
-path.s3tc="res://.godot/imported/map_heavily-rusted-metal_albedo.png-b63e40593193d0faa4643d00802aab5f.s3tc.ctex"
+path="res://.godot/imported/map_heavily-rusted-metal_albedo.png-b63e40593193d0faa4643d00802aab5f.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
-"vram_texture": true
+"vram_texture": false
 }
 generator_parameters={}
 
 [deps]
 
 source_file="res://Models/map_heavily-rusted-metal_albedo.png"
-dest_files=["res://.godot/imported/map_heavily-rusted-metal_albedo.png-b63e40593193d0faa4643d00802aab5f.s3tc.ctex"]
+dest_files=["res://.godot/imported/map_heavily-rusted-metal_albedo.png-b63e40593193d0faa4643d00802aab5f.ctex"]
 
 [params]
 
-compress/mode=2
+compress/mode=1
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1

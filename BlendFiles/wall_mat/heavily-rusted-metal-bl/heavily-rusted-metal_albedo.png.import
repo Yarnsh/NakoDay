@@ -3,20 +3,19 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://c4rqs5gt6gnhe"
-path.s3tc="res://.godot/imported/heavily-rusted-metal_albedo.png-810c939ae754c76e2b37e27e478dd5ed.s3tc.ctex"
+path="res://.godot/imported/heavily-rusted-metal_albedo.png-810c939ae754c76e2b37e27e478dd5ed.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
-"vram_texture": true
+"vram_texture": false
 }
 
 [deps]
 
 source_file="res://BlendFiles/wall_mat/heavily-rusted-metal-bl/heavily-rusted-metal_albedo.png"
-dest_files=["res://.godot/imported/heavily-rusted-metal_albedo.png-810c939ae754c76e2b37e27e478dd5ed.s3tc.ctex"]
+dest_files=["res://.godot/imported/heavily-rusted-metal_albedo.png-810c939ae754c76e2b37e27e478dd5ed.ctex"]
 
 [params]
 
-compress/mode=2
+compress/mode=1
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1

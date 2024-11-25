@@ -36,7 +36,7 @@ func fire():
 	noise.play()
 
 func _input(event):
-	if Global.main.mode == 0:
+	if Global.main.mode == 0 and Global.player.state == 0:
 		if shotgun_model.visible and !shotgun_model.anim.is_playing() and event.is_action_pressed("Action"):
 			fire()
 		elif event.is_action_pressed("Aim"):

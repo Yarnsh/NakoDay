@@ -3,21 +3,20 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cvr2la28lakjo"
-path.s3tc="res://.godot/imported/tree_Branch nor.png-9439e597175f6e77af138322362e0f5f.s3tc.ctex"
+path="res://.godot/imported/tree_Branch nor.png-9439e597175f6e77af138322362e0f5f.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
-"vram_texture": true
+"vram_texture": false
 }
 generator_parameters={}
 
 [deps]
 
 source_file="res://Models/tree_Branch nor.png"
-dest_files=["res://.godot/imported/tree_Branch nor.png-9439e597175f6e77af138322362e0f5f.s3tc.ctex"]
+dest_files=["res://.godot/imported/tree_Branch nor.png-9439e597175f6e77af138322362e0f5f.ctex"]
 
 [params]
 
-compress/mode=2
+compress/mode=1
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1

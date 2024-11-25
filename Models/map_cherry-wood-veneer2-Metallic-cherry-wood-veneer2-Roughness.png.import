@@ -3,21 +3,20 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bcottg41hjr2o"
-path.s3tc="res://.godot/imported/map_cherry-wood-veneer2-Metallic-cherry-wood-veneer2-Roughness.png-81b442b839a7ce922c317de56bacb65b.s3tc.ctex"
+path="res://.godot/imported/map_cherry-wood-veneer2-Metallic-cherry-wood-veneer2-Roughness.png-81b442b839a7ce922c317de56bacb65b.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
-"vram_texture": true
+"vram_texture": false
 }
 generator_parameters={}
 
 [deps]
 
 source_file="res://Models/map_cherry-wood-veneer2-Metallic-cherry-wood-veneer2-Roughness.png"
-dest_files=["res://.godot/imported/map_cherry-wood-veneer2-Metallic-cherry-wood-veneer2-Roughness.png-81b442b839a7ce922c317de56bacb65b.s3tc.ctex"]
+dest_files=["res://.godot/imported/map_cherry-wood-veneer2-Metallic-cherry-wood-veneer2-Roughness.png-81b442b839a7ce922c317de56bacb65b.ctex"]
 
 [params]
 
-compress/mode=2
+compress/mode=1
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1

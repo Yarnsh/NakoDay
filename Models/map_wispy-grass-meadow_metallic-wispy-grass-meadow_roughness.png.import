@@ -3,21 +3,20 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://c4do1clmwukja"
-path.s3tc="res://.godot/imported/map_wispy-grass-meadow_metallic-wispy-grass-meadow_roughness.png-143525b3a8691f3668342cb052f0daa1.s3tc.ctex"
+path="res://.godot/imported/map_wispy-grass-meadow_metallic-wispy-grass-meadow_roughness.png-143525b3a8691f3668342cb052f0daa1.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
-"vram_texture": true
+"vram_texture": false
 }
 generator_parameters={}
 
 [deps]
 
 source_file="res://Models/map_wispy-grass-meadow_metallic-wispy-grass-meadow_roughness.png"
-dest_files=["res://.godot/imported/map_wispy-grass-meadow_metallic-wispy-grass-meadow_roughness.png-143525b3a8691f3668342cb052f0daa1.s3tc.ctex"]
+dest_files=["res://.godot/imported/map_wispy-grass-meadow_metallic-wispy-grass-meadow_roughness.png-143525b3a8691f3668342cb052f0daa1.ctex"]
 
 [params]
 
-compress/mode=2
+compress/mode=1
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1

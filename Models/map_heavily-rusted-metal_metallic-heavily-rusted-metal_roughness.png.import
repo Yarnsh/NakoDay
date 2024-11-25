@@ -3,21 +3,20 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://blxryp2g721cp"
-path.s3tc="res://.godot/imported/map_heavily-rusted-metal_metallic-heavily-rusted-metal_roughness.png-f63c2410526b6d8389abff0dc0701314.s3tc.ctex"
+path="res://.godot/imported/map_heavily-rusted-metal_metallic-heavily-rusted-metal_roughness.png-f63c2410526b6d8389abff0dc0701314.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
-"vram_texture": true
+"vram_texture": false
 }
 generator_parameters={}
 
 [deps]
 
 source_file="res://Models/map_heavily-rusted-metal_metallic-heavily-rusted-metal_roughness.png"
-dest_files=["res://.godot/imported/map_heavily-rusted-metal_metallic-heavily-rusted-metal_roughness.png-f63c2410526b6d8389abff0dc0701314.s3tc.ctex"]
+dest_files=["res://.godot/imported/map_heavily-rusted-metal_metallic-heavily-rusted-metal_roughness.png-f63c2410526b6d8389abff0dc0701314.ctex"]
 
 [params]
 
-compress/mode=2
+compress/mode=1
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1

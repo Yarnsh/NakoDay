@@ -3,21 +3,20 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bwc4ka6vv3nvb"
-path.s3tc="res://.godot/imported/tree_Leaf sss-Leaf.png-1636bdbc66739d9a954fddf5a525b77c.s3tc.ctex"
+path="res://.godot/imported/tree_Leaf sss-Leaf.png-1636bdbc66739d9a954fddf5a525b77c.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
-"vram_texture": true
+"vram_texture": false
 }
 generator_parameters={}
 
 [deps]
 
 source_file="res://Models/tree_Leaf sss-Leaf.png"
-dest_files=["res://.godot/imported/tree_Leaf sss-Leaf.png-1636bdbc66739d9a954fddf5a525b77c.s3tc.ctex"]
+dest_files=["res://.godot/imported/tree_Leaf sss-Leaf.png-1636bdbc66739d9a954fddf5a525b77c.ctex"]
 
 [params]
 
-compress/mode=2
+compress/mode=1
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1

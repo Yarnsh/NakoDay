@@ -3,21 +3,20 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dxuakdf33ouby"
-path.s3tc="res://.godot/imported/map_pockedconcrete1-roughness.png-3ad0570ff2063da0bfcac6e9d4a13feb.s3tc.ctex"
+path="res://.godot/imported/map_pockedconcrete1-roughness.png-3ad0570ff2063da0bfcac6e9d4a13feb.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
-"vram_texture": true
+"vram_texture": false
 }
 generator_parameters={}
 
 [deps]
 
 source_file="res://Models/map_pockedconcrete1-roughness.png"
-dest_files=["res://.godot/imported/map_pockedconcrete1-roughness.png-3ad0570ff2063da0bfcac6e9d4a13feb.s3tc.ctex"]
+dest_files=["res://.godot/imported/map_pockedconcrete1-roughness.png-3ad0570ff2063da0bfcac6e9d4a13feb.ctex"]
 
 [params]
 
-compress/mode=2
+compress/mode=1
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1

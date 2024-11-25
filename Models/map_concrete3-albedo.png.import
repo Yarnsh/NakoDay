@@ -3,21 +3,20 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://kjuqaiky4k8x"
-path.s3tc="res://.godot/imported/map_concrete3-albedo.png-e8df1c1f6ab94117aa2398f6e867b5cc.s3tc.ctex"
+path="res://.godot/imported/map_concrete3-albedo.png-e8df1c1f6ab94117aa2398f6e867b5cc.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
-"vram_texture": true
+"vram_texture": false
 }
 generator_parameters={}
 
 [deps]
 
 source_file="res://Models/map_concrete3-albedo.png"
-dest_files=["res://.godot/imported/map_concrete3-albedo.png-e8df1c1f6ab94117aa2398f6e867b5cc.s3tc.ctex"]
+dest_files=["res://.godot/imported/map_concrete3-albedo.png-e8df1c1f6ab94117aa2398f6e867b5cc.ctex"]
 
 [params]
 
-compress/mode=2
+compress/mode=1
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1

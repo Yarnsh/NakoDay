@@ -3,21 +3,20 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dbxvvibgg1vk1"
-path.s3tc="res://.godot/imported/plank_pack_Image_1.png-c5223f2a99cdb64cc287bcae7ce88d52.s3tc.ctex"
+path="res://.godot/imported/plank_pack_Image_1.png-c5223f2a99cdb64cc287bcae7ce88d52.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
-"vram_texture": true
+"vram_texture": false
 }
 generator_parameters={}
 
 [deps]
 
 source_file="res://Models/plank_pack_Image_1.png"
-dest_files=["res://.godot/imported/plank_pack_Image_1.png-c5223f2a99cdb64cc287bcae7ce88d52.s3tc.ctex"]
+dest_files=["res://.godot/imported/plank_pack_Image_1.png-c5223f2a99cdb64cc287bcae7ce88d52.ctex"]
 
 [params]
 
-compress/mode=2
+compress/mode=1
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1
