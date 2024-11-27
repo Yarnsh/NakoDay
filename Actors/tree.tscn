@@ -204,6 +204,7 @@ _data = {
 }
 
 [node name="tree" type="Node3D"]
+process_mode = 3
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 52.2913, -5.96367, -24.8915)
 
 [node name="Bark_9" type="MeshInstance3D" parent="."]

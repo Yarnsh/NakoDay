@@ -49,8 +49,10 @@ func set_mode(new_mode):
 	
 	if mode == 0:
 		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+		get_tree().paused = false
 	else:
 		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+		get_tree().paused = true
 	
 	main.hide()
 	settings.hide()
