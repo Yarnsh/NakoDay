@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://hghf53tjyueh"]
+[gd_scene load_steps=19 format=3 uid="uid://hghf53tjyueh"]
 
 [ext_resource type="Script" path="res://main_scene.gd" id="1_7rukl"]
 [ext_resource type="PackedScene" uid="uid://bhplchb2q2ngm" path="res://GameScene.tscn" id="2_mr8bg"]
@@ -11,6 +11,11 @@
 [ext_resource type="Script" path="res://Credits.gd" id="9_2pnau"]
 [ext_resource type="PackedScene" uid="uid://b8f2gd7iff7qn" path="res://Actors/poloroid.tscn" id="10_baiuk"]
 [ext_resource type="AudioStream" uid="uid://cf45jt7tsp35g" path="res://Music/happy_spook_day.mp3" id="11_ac0vh"]
+[ext_resource type="PackedScene" uid="uid://bwqp0ltjmjncm" path="res://ShaderPrecompiler4x-main/ShaderPrecompiler.tscn" id="12_lquyo"]
+[ext_resource type="PackedScene" uid="uid://cun0oi0tghf2t" path="res://Actors/shell.tscn" id="13_xoy1m"]
+[ext_resource type="PackedScene" uid="uid://goc38op4h6sp" path="res://Actors/pellet_impact.tscn" id="14_iar2f"]
+[ext_resource type="Texture2D" uid="uid://d4g7m3kicxryq" path="res://black.png" id="15_hdc0i"]
+[ext_resource type="Script" path="res://HideStuffRectangle.gd" id="16_flvxq"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6ev5d"]
 bg_color = Color(0, 0, 0, 1)
@@ -533,6 +538,7 @@ Check out the detailed attributions on the github page or in the attributions.tx
 
 [b]Playtesters[/b]
 Pirgah
+Orangecrowbarman
 
 Special thanks to Pirgah for helping with Blender stuff
 
@@ -560,6 +566,22 @@ bus = &"Music"
 
 [node name="MenuCam" type="Camera3D" parent="."]
 transform = Transform3D(-0.577858, 0.0711311, -0.813032, 0, 0.996195, 0.0871557, 0.816138, 0.0503636, -0.575659, -24.392, 6.13508, -28.5984)
+
+[node name="ShaderPrecompiler" parent="." instance=ExtResource("12_lquyo")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -21.9709, 5.88102, -27.039)
+
+[node name="Shell" parent="ShaderPrecompiler" instance=ExtResource("13_xoy1m")]
+
+[node name="PelletImpact" parent="ShaderPrecompiler" instance=ExtResource("14_iar2f")]
+
+[node name="HideStuffRectangle" type="TextureRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("15_hdc0i")
+script = ExtResource("16_flvxq")
 
 [connection signal="pressed" from="Menus/Main/VBoxContainer/VBoxContainer/Resume" to="Menus/Main" method="resume"]
 [connection signal="pressed" from="Menus/Main/VBoxContainer/VBoxContainer/NewGame" to="Menus/Main" method="new_game"]
@@ -589,3 +611,6 @@ transform = Transform3D(-0.577858, 0.0711311, -0.813032, 0, 0.996195, 0.0871557,
 [connection signal="pressed" from="Menus/DeathScene/VBoxContainer/Continue" to="Menus/DeathScene" method="_on_continue_pressed"]
 [connection signal="pressed" from="Menus/DeathScene/VBoxContainer/Menu" to="Menus/DeathScene" method="_on_menu_pressed"]
 [connection signal="visibility_changed" from="Menus/Credits" to="Menus/Credits" method="_on_visibility_changed"]
+[connection signal="allShadersCompiled" from="ShaderPrecompiler" to="HideStuffRectangle" method="_on_shader_precompiler_all_shaders_compiled"]
+
+[editable path="ShaderPrecompiler"]
