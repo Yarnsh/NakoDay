@@ -2,10 +2,10 @@
 
 [ext_resource type="Script" path="res://Actors/candle.gd" id="1_b00br"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_em3yc"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_c6nfo"]
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_bqx4o"]
-material = SubResource("StandardMaterial3D_em3yc")
+material = SubResource("StandardMaterial3D_c6nfo")
 top_radius = 0.005
 bottom_radius = 0.005
 height = 0.08

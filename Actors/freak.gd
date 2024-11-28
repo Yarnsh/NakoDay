@@ -45,6 +45,8 @@ func _enable_character_collision():
 	set_collision_mask_value(4, true)
 
 func _process(delta):
+	if !alive:
+		return
 	root_vel += anim.get_root_motion_position()
 	if Global.scare_done:
 		dark.omni_range = max(2.0, dark.omni_range - (delta * 2.0))
@@ -130,12 +132,15 @@ func anim_mode(delta):
 
 func destroy():
 	_disable_character_collision()
+	set_collision_layer_value(1, false)
 	set_collision_layer_value(4, false)
 	set_collision_mask_value(1, false)
+	set_collision_mask_value(4, false)
 	alive = false
 	armature.hide()
 	particles.emitting = true
 	loop_noise.stop()
+	$manquin.queue_free()
 
 func _on_animation_player_animation_finished(anim_name):
 	if anim_name == "Swipe" and attacking:

@@ -9,6 +9,7 @@ extends CharacterBody3D
 @onready var cam = $RootCam
 @onready var view_pos = $RootCam/ViewPos
 @onready var foot_sfx = $Foot
+@onready var freak_area = $FreakChecker
 
 @onready var sfx_player = $SFXPlayer
 
@@ -97,6 +98,8 @@ func _physics_process(delta):
 	# debug stuff
 	if Global.debug and Input.is_action_pressed("speed_up"):
 		SPEED = 22.0
+	elif freak_area.has_overlapping_bodies():
+		SPEED = 1.5
 	else:
 		SPEED = 3.0
 	
