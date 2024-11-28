@@ -2,6 +2,7 @@ extends PanelContainer
 
 @onready var main_scene = $"../.."
 @onready var resume_button = $VBoxContainer/VBoxContainer/Resume
+@onready var photos = $PhotosButtonContainer
 
 func new_game():
 	main_scene.start_game()

@@ -9,13 +9,18 @@ extends PanelContainer
 var moving = false
 var side = 0
 
+@onready var main_scene = $"../.."
+
 func _process(delta):
 	if moving:
 		credits.global_position.y -= 30.0 * delta
 		poloroids.global_position = Vector2(size.x * 0.5, credits.global_position.y)
 		
 		if credits.global_position.y + credits.size.y <= 0.0:
-			get_tree().quit()
+			moving = false
+			poloroids.hide()
+			main_scene.set_mode(1)
+			main_scene.main.photos.check_photos_available()
 		
 		poloroids.visible = visible
 

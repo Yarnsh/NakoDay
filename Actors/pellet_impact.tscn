@@ -5,9 +5,11 @@
 [ext_resource type="Material" uid="uid://dvwcyevwia5ur" path="res://Actors/pellet_impact_visual.tres" id="3_f13oo"]
 
 [sub_resource type="SphereMesh" id="SphereMesh_pyxmm"]
-lightmap_size_hint = Vector2i(17, 9)
+lightmap_size_hint = Vector2i(11, 6)
 material = ExtResource("3_f13oo")
 add_uv2 = true
+radius = 0.3
+height = 0.6
 radial_segments = 8
 rings = 4
 

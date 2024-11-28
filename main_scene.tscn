@@ -1,9 +1,11 @@
-[gd_scene load_steps=19 format=3 uid="uid://hghf53tjyueh"]
+[gd_scene load_steps=21 format=3 uid="uid://hghf53tjyueh"]
 
 [ext_resource type="Script" path="res://main_scene.gd" id="1_7rukl"]
 [ext_resource type="PackedScene" uid="uid://bhplchb2q2ngm" path="res://GameScene.tscn" id="2_mr8bg"]
 [ext_resource type="Script" path="res://Settings.gd" id="3_2kh7j"]
 [ext_resource type="Script" path="res://Main.gd" id="3_23k7n"]
+[ext_resource type="Script" path="res://Photos.gd" id="4_8fxan"]
+[ext_resource type="Script" path="res://PhotosButtonContainer.gd" id="4_qk2dd"]
 [ext_resource type="Script" path="res://ControlsMenu.gd" id="4_rl0j1"]
 [ext_resource type="Script" path="res://ControlChangeButton.gd" id="5_wjbri"]
 [ext_resource type="Script" path="res://PopupPanel.gd" id="6_xu1ap"]
@@ -38,6 +40,32 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("3_23k7n")
+
+[node name="PhotosButtonContainer" type="PanelContainer" parent="Menus/Main"]
+process_mode = 3
+visible = false
+custom_minimum_size = Vector2(200, 120)
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 8
+script = ExtResource("4_qk2dd")
+
+[node name="Photos" type="Button" parent="Menus/Main/PhotosButtonContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 8
+text = "Open Photos Folder"
+script = ExtResource("4_8fxan")
+
+[node name="Label" type="RichTextLabel" parent="Menus/Main/PhotosButtonContainer"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 2
+bbcode_enabled = true
+text = "[center]This opens a folder on your computer, be careful on stream!!!
+v
+"
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Menus/Main"]
 layout_mode = 2
@@ -603,6 +631,7 @@ grow_vertical = 2
 texture = ExtResource("15_hdc0i")
 script = ExtResource("16_flvxq")
 
+[connection signal="pressed" from="Menus/Main/PhotosButtonContainer/Photos" to="Menus/Main/PhotosButtonContainer/Photos" method="_on_pressed"]
 [connection signal="pressed" from="Menus/Main/VBoxContainer/VBoxContainer/Resume" to="Menus/Main" method="resume"]
 [connection signal="pressed" from="Menus/Main/VBoxContainer/VBoxContainer/NewGame" to="Menus/Main" method="new_game"]
 [connection signal="pressed" from="Menus/Main/VBoxContainer/VBoxContainer/Settings" to="Menus/Main" method="settings"]
