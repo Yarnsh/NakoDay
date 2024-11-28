@@ -124,6 +124,13 @@ text = "FoV"
 horizontal_alignment = 2
 vertical_alignment = 1
 
+[node name="MouseSensitivity" type="Label" parent="Menus/Settings/All/Options/Labels"]
+custom_minimum_size = Vector2(0, 35)
+layout_mode = 2
+text = "Mouse Sensitivity"
+horizontal_alignment = 2
+vertical_alignment = 1
+
 [node name="HSeparator" type="HSeparator" parent="Menus/Settings/All/Options/Labels"]
 custom_minimum_size = Vector2(0, 35)
 layout_mode = 2
@@ -204,6 +211,15 @@ size_flags_vertical = 4
 min_value = 1.0
 max_value = 179.0
 value = 90.0
+
+[node name="MouseSensitivity" type="HSlider" parent="Menus/Settings/All/Options/Controls"]
+custom_minimum_size = Vector2(0, 35)
+layout_mode = 2
+size_flags_vertical = 4
+max_value = 3.0
+step = 0.0
+value = 1.0
+ticks_on_borders = true
 
 [node name="HSeparator" type="HSeparator" parent="Menus/Settings/All/Options/Controls"]
 custom_minimum_size = Vector2(0, 35)
@@ -541,6 +557,7 @@ Check out the detailed attributions on the github page or in the attributions.tx
 [b]Playtesters[/b]
 Pirgah
 Orangecrowbarman
+Zinn
 
 Special thanks to Pirgah for helping with Blender stuff
 
@@ -594,6 +611,7 @@ script = ExtResource("16_flvxq")
 [connection signal="value_changed" from="Menus/Settings/All/Options/Controls/Resolution/X" to="Menus/Settings" method="_on_change"]
 [connection signal="value_changed" from="Menus/Settings/All/Options/Controls/Resolution/Y" to="Menus/Settings" method="_on_change"]
 [connection signal="value_changed" from="Menus/Settings/All/Options/Controls/FoV" to="Menus/Settings" method="_on_change"]
+[connection signal="drag_ended" from="Menus/Settings/All/Options/Controls/MouseSensitivity" to="Menus/Settings" method="_on_change"]
 [connection signal="drag_ended" from="Menus/Settings/All/Options/Controls/MasterVolume" to="Menus/Settings" method="_on_change"]
 [connection signal="drag_ended" from="Menus/Settings/All/Options/Controls/SFXVolume" to="Menus/Settings" method="_on_change"]
 [connection signal="drag_ended" from="Menus/Settings/All/Options/Controls/MusicVolume" to="Menus/Settings" method="_on_change"]

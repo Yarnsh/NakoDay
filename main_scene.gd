@@ -44,6 +44,9 @@ func start_game():
 func get_fov():
 	return settings.fov.value
 
+func get_mouse_sensitivity():
+	return settings.mouse_sensitivity.value
+
 func set_mode(new_mode):
 	mode = new_mode
 	

@@ -13,6 +13,7 @@ extends Node3D
 var last_interactable = null
 var pitch = 0.0
 var yaw = 0.0
+var mouse_sensitivity = 1.0
 
 var offset = Vector3.ZERO
 
@@ -22,6 +23,8 @@ func _ready():
 	yaw = global_rotation.y
 	set_fov(main_scene.get_fov())
 	main_scene.settings.connect("fov_changed", set_fov)
+	set_mouse_sensitivity(main_scene.get_mouse_sensitivity())
+	main_scene.settings.connect("mouse_sensitivity_changed", set_mouse_sensitivity)
 
 func give_offset():
 	var target_dir = Vector3.UP.rotated(Vector3.RIGHT, randf_range(0.0, 2.0*PI)).rotated(Vector3.FORWARD, randf_range(0.0, 2.0*PI))
@@ -30,6 +33,9 @@ func give_offset():
 func set_fov(fov):
 	for cam in cams:
 		cam.fov = fov
+
+func set_mouse_sensitivity(ms):
+	mouse_sensitivity = ms
 
 func set_grot(grot):
 	global_rotation = grot
@@ -74,8 +80,8 @@ func _input(event):
 	if main_scene.mode != 0:
 		return
 	if event is InputEventMouseMotion:
-		pitch -= event.relative.y * 0.01
-		yaw -= event.relative.x * 0.01
+		pitch -= event.relative.y * 0.01 * mouse_sensitivity
+		yaw -= event.relative.x * 0.01 * mouse_sensitivity
 		pitch = clampf(pitch, -PI/2.0 + 0.1, PI/2.0 - 0.1)
 
 func set_subtitles(text):

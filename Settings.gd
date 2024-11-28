@@ -1,6 +1,7 @@
 extends PanelContainer
 
 signal fov_changed(fov)
+signal mouse_sensitivity_changed(mouse_sensitivity)
 
 @onready var main_scene = $"../.."
 
@@ -8,6 +9,7 @@ signal fov_changed(fov)
 @onready var resolution_x = $All/Options/Controls/Resolution/X
 @onready var resolution_y = $All/Options/Controls/Resolution/Y
 @onready var fov = $All/Options/Controls/FoV
+@onready var mouse_sensitivity = $All/Options/Controls/MouseSensitivity
 
 @onready var master_volume = $All/Options/Controls/MasterVolume
 @onready var sfx_volume = $All/Options/Controls/SFXVolume
@@ -30,6 +32,7 @@ func get_current_settings_dict():
 		"resolution_x": resolution_x.value,
 		"resolution_y": resolution_y.value,
 		"fov": fov.value,
+		"mouse_sensitivity": mouse_sensitivity.value,
 		"master_volume": master_volume.value,
 		"sfx_volume": sfx_volume.value,
 		"music_volume": music_volume.value,
@@ -43,6 +46,7 @@ func set_settings_from_dict(settings):
 	resolution_x.value = settings.get("resolution_x", 1920)
 	resolution_y.value = settings.get("resolution_y", 1080)
 	fov.value = settings.get("fov", 90)
+	mouse_sensitivity.value = settings.get("mouse_sensitivity", 1.0)
 	master_volume.value = settings.get("master_volume", 100)
 	sfx_volume.value = settings.get("sfx_volume", 100)
 	music_volume.value = settings.get("music_volume", 70)
@@ -56,6 +60,7 @@ func apply_current_settings():
 		DisplayServer.window_set_size(Vector2i(resolution_x.value, resolution_y.value))
 	
 	fov_changed.emit(fov.value)
+	mouse_sensitivity_changed.emit(mouse_sensitivity.value)
 	
 	AudioServer.set_bus_volume_db(0, linear_to_db(float(master_volume.value)/100.0))
 	AudioServer.set_bus_volume_db(1, linear_to_db(float(sfx_volume.value)/100.0))
