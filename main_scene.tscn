@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://hghf53tjyueh"]
+[gd_scene load_steps=22 format=3 uid="uid://hghf53tjyueh"]
 
 [ext_resource type="Script" path="res://main_scene.gd" id="1_7rukl"]
 [ext_resource type="PackedScene" uid="uid://bhplchb2q2ngm" path="res://GameScene.tscn" id="2_mr8bg"]
@@ -15,6 +15,7 @@
 [ext_resource type="AudioStream" uid="uid://cf45jt7tsp35g" path="res://Music/happy_spook_day.mp3" id="11_ac0vh"]
 [ext_resource type="PackedScene" uid="uid://bwqp0ltjmjncm" path="res://ShaderPrecompiler4x-main/ShaderPrecompiler.tscn" id="12_lquyo"]
 [ext_resource type="PackedScene" uid="uid://cun0oi0tghf2t" path="res://Actors/shell.tscn" id="13_xoy1m"]
+[ext_resource type="AudioStream" uid="uid://dkq2s72x5yvph" path="res://Music/silly_spook_day.mp3" id="14_asnkb"]
 [ext_resource type="PackedScene" uid="uid://goc38op4h6sp" path="res://Actors/pellet_impact.tscn" id="14_iar2f"]
 [ext_resource type="Texture2D" uid="uid://d4g7m3kicxryq" path="res://black.png" id="15_hdc0i"]
 [ext_resource type="Script" path="res://HideStuffRectangle.gd" id="16_flvxq"]
@@ -607,6 +608,11 @@ visible = false
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Menus/Credits"]
 stream = ExtResource("11_ac0vh")
 volume_db = 5.0
+bus = &"Music"
+
+[node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="Menus/Credits"]
+stream = ExtResource("14_asnkb")
+volume_db = 4.0
 bus = &"Music"
 
 [node name="GameScene" parent="." instance=ExtResource("2_mr8bg")]

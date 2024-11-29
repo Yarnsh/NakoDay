@@ -90,7 +90,7 @@ func show_death(description, sound, db):
 	death.start_death(description, sound, db)
 	set_mode(4)
 
-func show_credits():
+func show_credits(fast = false):
 	call_deferred("stop_game")
-	credits.start_credits()
+	credits.start_credits(fast)
 	set_mode(5)

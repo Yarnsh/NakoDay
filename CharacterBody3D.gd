@@ -28,6 +28,7 @@ var rustle_movement = false
 @export var camera_obj : Node3D
 @export var shotgun_obj : Node3D
 @export var fade_anim : AnimationPlayer
+@export var start_fall_done = false
 
 var SPEED = 2.0
 
@@ -63,6 +64,9 @@ func start_action_music():
 func stop_action_music():
 	action_fade_out = true
 
+func play_start_fall():
+	fade_anim.play("StartFall")
+
 func hit():
 	play_sfx(screams[randi_range(0,2)], 0.0)
 	cam.give_offset()
@@ -93,6 +97,12 @@ func _process(delta):
 		action_music.volume_db = max(-40.0, action_music.volume_db - (delta * 20.0))
 
 func _physics_process(delta):
+	if start_fall_done:
+		state = CUTSCENE_STATE
+		main_scene.show_credits(true)
+		start_fall_done = false
+		return
+	
 	var now = Time.get_ticks_msec()
 	
 	# debug stuff

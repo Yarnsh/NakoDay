@@ -2,6 +2,9 @@ extends Area3D
 
 @onready var anim = $AnimationPlayer
 
+@export var ending : Node
+@export var starting : Node
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.
@@ -14,3 +17,5 @@ func _process(delta):
 
 func _on_body_entered(body):
 	anim.play("Scare")
+	ending.enable_ending()
+	starting.enable_ending()
